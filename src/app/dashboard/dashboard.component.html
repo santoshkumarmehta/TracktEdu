@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div>
+    <app-dashboard-header class="navhead"></app-dashboard-header>
+  </div>
+  <div class="row">
+    <div  *ngIf="this.dash.showLeftMenu"
+    [ngClass]="{'col-md-2': (this.dash.leftMenuToggler),
+                'col-md-1' : (!this.dash.leftMenuToggler)}">
+      <app-sidenav1></app-sidenav1>
+    </div>
+    
+    <div [ngClass]="{
+      'col-md-8': (this.dash.showLeftMenu && !this.dash.showRightMenu && this.dash.leftMenuToggler),
+      'col-md-10': (this.dash.showLeftMenu && this.dash.showRightMenu && this.dash.leftMenuToggler) || (!this.dash.showLeftMenu && !this.dash.showRightMenu && this.dash.leftMenuToggler),
+      'col-md-12': (!this.dash.showLeftMenu && this.dash.showRightMenu && this.dash.leftMenuToggler),
+      'col-md-9':(this.dash.showLeftMenu && !this.dash.leftMenuToggler && !this.dash.showRightMenu),
+      'col-md-11':(this.dash.showLeftMenu && !this.dash.leftMenuToggler && this.dash.showRightMenu)      
+      
+    }">
+      <div class="container-fluid routerOutlet1">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div> -->
+    <div class="col-md-2" *ngIf="!this.dash.showRightMenu">
+       <app-rightsidenav></app-rightsidenav>
+    </div>
+  </div>
+</div>

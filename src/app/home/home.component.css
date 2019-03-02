@@ -1,0 +1,53 @@
+
+li a{
+    text-transform: uppercase;
+    color: #000;
+    display: block;
+    position: relative;
+   }
+
+
+.navbar{
+    padding-top: 30px;
+    margin-bottom: 0px;
+}
+a:hover{
+    border: 1px solid #816263;
+    overflow: hidden;
+    text-decoration: none;
+    
+}
+.container{
+    padding-bottom: 10px;
+}
+
+ul{
+    float: right;
+}
+#logo{
+    float: left;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 5px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid #816263;
+    border-radius: 50%;
+    color: #816263;
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-right: 3px;
+    font-family: 'PlayfairDisplay-Regular';
+}
+#cname{
+    
+    float: left;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    color: #000;
+    display: block;
+    padding-left: 100px;
+    font-family: 'PlayfairDisplay-Regular';
+}

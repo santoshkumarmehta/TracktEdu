@@ -1,0 +1,27 @@
+div{
+    padding: 0px;
+}
+.collapse:hover{
+    display: inline;
+}
+/* .row{padding: 30px;} */
+.menu{
+    cursor: pointer;
+}
+.navhead{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+}
+.routerOutlet1{
+    position: absolute;
+    top: 5em;                        
+    left: 0px;
+    width: 100%;
+    overflow: auto;
+}
+/* .routerOutlet{
+   
+} */

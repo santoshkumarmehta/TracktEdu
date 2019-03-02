@@ -1,0 +1,19 @@
+
+img{
+    height: 350px;
+    width: 100%;
+    padding-left: -10px;
+}
+.carosuellogin{
+    padding-top: 100px;
+    margin: 0px;
+}
+@media screen and (max-width:350px){
+    img{
+        height: 180px;
+    }
+    .well{
+        min-width: 50px;
+        max-width: 350px;
+    }
+    }

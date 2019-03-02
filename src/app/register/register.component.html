@@ -1,0 +1,64 @@
+<div class="container-fluid main">
+  <div class="row">
+    <div class="col-md-6">
+      <app-carousel1></app-carousel1>
+    </div>
+    <div class="col-md-6">
+        <div id="register_form">
+            <div class="school_name">TracktEdu</div>
+            <div class="register_box">
+             <div id="register_field">
+                <form class="register_textbox">
+                  <mat-form-field class="textbox">
+                    <input matInput placeholder="School Name" [formControl]="schoolname" required>
+                    <mat-error *ngIf='schoolname.invalid'></mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="textbox">
+                      <input matInput placeholder="Contact Number" [formControl]="phoneno" minlength="10" maxlength="10" required>
+                  </mat-form-field>
+             
+                  <mat-form-field class="textbox">
+                    <input matInput placeholder="Email" [formControl]="email" required>
+                  </mat-form-field>
+        
+                  <mat-form-field class="textbox">
+                      <input matInput placeholder="First Name" [formControl]="firstname"  required>
+                  </mat-form-field>
+                  <mat-form-field class="textbox">
+                    <input matInput placeholder="Middle Name">
+                    
+                  </mat-form-field>
+                  <mat-form-field class="textbox">
+                    <input matInput placeholder="Last Name" [formControl]="lastname"  required>
+                  </mat-form-field>
+                  <mat-form-field class="textbox">
+                    <input matInput placeholder="Pin Code" minlength="6" maxlength="6" [formControl]="pincode"  required>
+                  </mat-form-field>
+                  <mat-form-field class="textbox">
+                      <textarea matInput placeholder="Address" [formControl]="address" ngModel  required></textarea>
+                  </mat-form-field>
+        
+                  <mat-form-field class="textbox">
+                      <input matInput placeholder="Principal Name"  pattern="[a-zA-Z]*">
+                  </mat-form-field>
+                  <mat-form-field class="textbox">
+                      <input matInput placeholder="Trust Name" >
+                 </mat-form-field>
+                
+                <div id="registerbuttons">
+                  <!-- <button mat-raised-button color="warn" id="regbutton" class="registerbutton">Cancel</button> -->
+                  <button mat-raised-button color="primary" class="registerbutton">Submit</button>
+                </div>
+              </form>
+                <div id="register_forgot">
+                    <button id="lgbtn"  class="otherbuttons " mat-button routerLink="/login">Login</button>
+                    <button  class="otherbuttons " mat-button routerLink="/forgotpassword">Forgot password ?</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+
+  

@@ -1,0 +1,81 @@
+.main{
+  background-color: #d3d6d8;
+}
+.col-md-6{
+  margin-top: 80px;
+  padding: 4px;
+}
+
+/* form */
+#register_form{
+    min-height: 100%;
+    position: relative;
+    height: auto !important;
+    width: 100%;
+    background-color: white;
+    border: 1px solid white;
+}
+.school_name{
+  background-color: rgb(15, 6, 146);
+  color: rgb(24, 22, 22);
+  text-align: center;
+ 
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 20px;
+  color: white;
+}
+.register_box{
+margin: 0px auto;
+border-radius: 5px;
+width: 100%;
+}
+
+
+#register_field{
+  text-align: center;
+    height: 850px;
+   
+    display: flex;
+    flex-direction: column;
+}
+
+  
+  .textbox {
+    min-width: 0px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .registerbutton{
+      border: 1px solid rgb(0, 3, 5);
+      
+    }
+  .lgbtn{
+    margin-left: 10px; 
+  }
+
+  #registerbuttons{
+      text-align: center;
+  }
+
+  #regbutton{
+      margin-right: 15px;
+  }
+
+  .otherbuttons{
+    float: right !important;
+   
+    color: rgb(68, 67, 66);
+}
+#lgbtn{
+  margin-right: 20px;
+}
+.otherbuttons:hover{
+  background-color: rgb(19, 19, 26);
+  color: white;
+}
+
+#register_forgot{
+    padding-top: 20px;
+}

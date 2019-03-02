@@ -1,0 +1,85 @@
+<div class="container pt-5">
+<div class="mat-elevation-z8" >
+  
+  <div class="heading">Results</div>
+  <table mat-table [dataSource]="pagedItems">
+
+    
+    <ng-container matColumnDef="sn">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.sn}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="marks">
+      <th mat-header-cell *matHeaderCellDef> Marks </th>
+      <td mat-cell *matCellDef="let element"> {{element.marks}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Results </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="(element.marks>=50)?'btn-success':'btn-danger'"> {{element.status}} </td>
+    </ng-container>
+    <ng-container matColumnDef="result">
+        <th mat-header-cell *matHeaderCellDef> Ex </th>
+        <td mat-cell *matCellDef="let element">
+          <span [ngClass]="(element.marks>=50)?'btn-success':'btn-danger'" id="grade1">
+          <span *ngIf="element.marks>=50">PASS </span>
+          <span *ngIf="element.marks<50">FAIL </span>
+          </span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="grade">
+      <th mat-header-cell *matHeaderCellDef>Grade </th>
+      <td mat-cell *matCellDef="let element">
+        <span [ngClass]="{'btn-success': (element.marks>=70),
+          'btn-primary':(element.marks<70 && element.marks>=50),
+          'btn-info':(element.marks<50 && element.marks>=40),
+          'btn-danger':(element.marks<40)}" id="grade1">
+          <span *ngIf="(element.marks>=70)">A </span>
+          <span *ngIf="(element.marks<70 && element.marks>=50)">B </span>
+          <span *ngIf="(element.marks<50 && element.marks>=40)">C </span>
+          <span *ngIf="(element.marks<40)">D </span>
+          
+        </span> 
+      </td>
+  </ng-container>
+  
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <nav class="pt-2 pl-2 navp">
+    <!-- pagination -->
+    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}" class="btn-info" (click)="setPage(1)">
+          <a>First</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}" class="btn-info"
+      (click)="setPage(pager.currentPage - 1)" >
+          <a>Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+      (click)="setPage(page)">
+          <a >{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn-info"
+      (click)="setPage(pager.currentPage + 1)">
+          <a >Next</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn-info" 
+      (click)="setPage(pager.totalPages)">
+          <a>Last</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+</div>
+</div>

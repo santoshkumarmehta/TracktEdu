@@ -1,0 +1,66 @@
+<mat-toolbar>
+      <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+      
+  My App
+
+</mat-toolbar>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer [ngClass]="{'side-menu':showFiller,'side-min-menu':!showFiller}"  mode="side">
+  <ul>
+    <li class="menu1">
+      <span class="menu1head"><mat-icon>menu</mat-icon><span [ngClass]="{'showTitle1':showFiller,'hideTitle1':!showFiller}"> MainMenu1 </span></span>
+    </li>
+    <li class="sub1">
+      <div>
+        <li>sub11</li>
+        <li>sub12</li>
+        <li>sub13</li>
+      </div>
+      
+    </li>
+    <li class="menu2">
+        <span class="menu1head"><mat-icon>menu</mat-icon><span [ngClass]="{'showTitle':showFiller,'hideTitle':!showFiller}"> MainMenu2 </span></span>
+
+    </li>
+    <li class="sub2">
+      <div>
+        <li>sub21</li>
+        <li>sub22</li>
+        <li>sub23</li>
+      </div>
+    </li>
+    <li class="menu3">
+        <span class="menu1head"><mat-icon>menu</mat-icon><span [ngClass]="{'showTitle':showFiller,'hideTitle':!showFiller}"> MainMenu3 </span></span>
+
+    </li>
+    <li class="sub3">
+      <div>
+        <li>sub31</li>
+        <li>sub32</li>
+        <li>sub33</li>
+      </div>
+    </li>
+    <li class="menu4">
+        <span class="menu1head"><mat-icon>menu</mat-icon><span [ngClass]="{'showTitle':showFiller,'hideTitle':!showFiller}"> MainMenu4 </span></span>
+
+    </li>
+    <li class="sub4">
+      <div>
+        <li>sub41</li>
+        <li>sub42</li>
+        <li>sub43</li>
+      </div>   
+    </li>
+  </ul>    
+
+    
+    <button (click)="showFiller = !showFiller" mat-raised-button class="toggler">
+        <div *ngIf="showFiller; else toggle_part">
+            <i class="arrow left io"></i>
+        </div>
+        <ng-template #toggle_part>
+            <i class="arrow right io"></i>
+        </ng-template>
+    </button>
+  </mat-drawer>
+</mat-drawer-container>

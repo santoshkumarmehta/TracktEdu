@@ -1,0 +1,37 @@
+<div class="container-fluid main" >
+  <div class="row" >
+    <div class="col-md-6">  
+      <app-carousel1></app-carousel1>
+    </div>
+      <div class="col-md-6">
+            <div class="well">  
+              <div class="loginheader"> Please Login Here</div>
+
+                <form action="" method="POST" class="loginform" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+                    <mat-form-field class="mat_input firstInput" hintLabel="contain @">
+                        <input  matInput placeholder="UserName/Email"  formControlName="email" required>
+                        
+                    </mat-form-field>
+                    <mat-form-field class="mat_input" hintLabel="6 to 12 character">
+                       <input  matInput placeholder="Password" formControlName="password"  required>
+                    </mat-form-field>
+                    <div  class="buttons">
+                      
+                        <section class="login">
+                        <button type="submit" mat-button color="primary" class="loginbutton">Login</button><br> 
+                        </section>
+                    </div>
+                    <!-- <label (click)="open(fgtModel)" >{{fgtText}}</label> -->
+                                   
+                </form>
+                  
+                <div class="otherbuttons"> 
+                    <p class="forgotpassword">
+                    <button class="btns"  mat-button routerLink="/forgotpassword">Forgot Password ?</button>
+                    <button class="btns" mat-button routerLink="/register">Register</button>
+                  </p>  
+                </div>
+            </div>
+      </div>
+  </div>
+</div>

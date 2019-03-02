@@ -1,0 +1,9 @@
+<nav class="navbar navbar-default"  *ngIf="_topMenuService.nav1">
+    <div class="container-fluid">
+      <div class="menuLeft">
+        <div id={{tempMenuId[i]}}><li><a [routerLink]="['/login']" (click)="traceNav(i)"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<strong>{{menu | uppercase}}</strong></a></li></div>
+        </div>
+    </div>
+</nav>
+
+

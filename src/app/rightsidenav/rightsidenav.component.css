@@ -1,0 +1,127 @@
+.container-fluid{
+    top: 3.4em;
+    right: 0;
+    height: calc(100vh - 55px);
+    width: 200px;
+    padding: 0px;
+    position: fixed;
+    color: black;
+    border-left: 1px solid #c8ced3;
+    transition: margin-left .25s,margin-right .25s,width .25s,flex .25s,-ms-flex .25s;
+    transition-property: margin-left, margin-right, width, flex, -ms-flex;
+    transition-duration: 0.25s, 0.25s, 0.25s, 0.25s, 0.25s;
+    transition-timing-function: ease, ease, ease, ease, ease;
+    transition-delay: 0s, 0s, 0s, 0s, 0s;
+}
+.container-fluid ul li{
+    padding: 0px;
+}
+
+i{
+    color: #000;
+}
+.msgImage{
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+.msgHeadingTime{
+    width:5em;
+    display: flex;
+    
+    
+}
+.time{
+    font-size: 12px;
+    margin-left: 3em;
+
+}
+.name{
+    font-size: 12px;
+    
+}
+.msgHeading{
+    display: block;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1px;
+
+}
+.msgText{
+    text-align: justify;
+    padding: 10px;
+    height: 100px;
+    width:100%;
+    overflow: auto;
+}
+.listImageContainer{
+    width:30%;
+    float: right;
+}
+.listImage{
+    width:50px;
+    height: 50px;
+}
+.listDetailContainer{
+    width: 70%;
+    padding: 10px;
+}
+.listDay{
+    display: block;
+    margin: 0;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 900;
+    background-color: lightgray;
+    border-left: 5px solid gray;
+}
+.listContainer{
+    width: 100%;
+    height: 4em;
+    display: block;
+    margin: 0;
+    padding: 0.5em;
+    background-color: #fff;
+    border-left: 5px solid greenyellow;
+    border-bottom: 1px solid #c8ced3;
+}
+
+.timeStatus{
+    display: block;
+    font-size: 12px;
+}
+.status{
+    float: right;
+}
+
+ul{
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+.msgList{
+    margin-top: 30px;
+}
+.settingList{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+@media only screen and (max-width: 600px) {
+    .container-fluid{
+        top: 7em;
+        right: 0;
+        height: calc(100vh - 7em);
+        width: 11em;
+        padding: 0px;
+        position: fixed;
+        color: black;
+        border-left: 1px solid #c8ced3;
+        transition: margin-left .25s,margin-right .25s,width .25s,flex .25s,-ms-flex .25s;
+        transition-property: margin-left, margin-right, width, flex, -ms-flex;
+        transition-duration: 0.25s, 0.25s, 0.25s, 0.25s, 0.25s;
+        transition-timing-function: ease, ease, ease, ease, ease;
+        transition-delay: 0s, 0s, 0s, 0s, 0s;
+    }   
+}

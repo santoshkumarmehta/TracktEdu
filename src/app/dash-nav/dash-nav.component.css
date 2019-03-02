@@ -1,0 +1,141 @@
+
+
+
+.side-menu {
+  padding: 0px;
+  width: 200px;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: calc(100vh - 60px);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.side-min-menu {
+  padding: 0px;
+  width: 50px;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: calc(100vh - 60px);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.toggler{
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: inherit;
+  padding-right: 15px;
+  text-align: right;
+  font-size: 30px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,.3);
+ }
+  
+ .io{
+  border: solid white;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 10px;
+  margin-top:10px;
+  margin-bottom: 5px;
+ }
+ .right{
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+ }
+ .left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.menu1head{
+  display: flex;
+}
+.menuTitle{
+display: inline;
+}
+.menu1,.menu2,.menu3,.menu4,.sub1,.sub2,.sub3,.sub4{
+  list-style: none;
+  padding:none;
+}
+.sub1,.sub2,.sub3,.sub4{
+  display: none;
+
+}
+.side-min-menu ul>.menu1:hover ~.sub1
+ {
+  display:block;
+  left: 50px;
+  position: fixed;
+  overflow: hidden;
+  overflow: auto;
+}
+.menu1{
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.menu2{
+  position: absolute;
+  left: 0;
+  top:30;
+}
+.menu3{
+  position: absolute;
+  left: 0;
+  top:60;
+}
+.menu4{
+  position: absolute;
+  left: 0;
+  top:90;
+}
+.side-min-menu ul>.menu1:hover
+ {
+  display:block;
+  
+  position: fixed;
+  overflow: auto;
+}
+.menu2:hover ~ .sub2{
+  display:block;
+}
+.menu3:hover~.sub3{
+  display:block;
+}
+.menu4:hover~.sub4{
+  display:block;
+}
+.sub1:hover{
+  display: block;
+}
+.sub2:hover{
+  display: block;
+}
+.sub3:hover{
+  display: block;
+}
+.sub4:hover{
+  display: block;
+}
+
+.showTitle{
+  display: inline;
+}
+.hideTitle{
+  display: none;
+}
+ul{
+  padding:10px;
+
+}
+.side-min-menu ul>.menu1:hover~ .showTitle1{
+  display:block;
+  left: 50px;
+  width:200px;
+  position: fixed;
+  overflow: hidden;
+  overflow: auto;
+}
+.hideTitle1{
+  display: none;
+}
