@@ -13,11 +13,12 @@ ul{
 }
 li {
     float: left;
-    padding: 5px;
+
 }
 
 .navbar{
        padding: 0px;
+       background-color:tomato;
 }
 .navbar>.container-fluid >.menuLeft{
     display: flex;

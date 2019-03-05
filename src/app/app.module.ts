@@ -25,7 +25,7 @@ import { TestComponent } from './test/test.component';
 import { Test1serviceService } from './test/test1service.service';
 import { AddnewComponent } from './dashboard/dashchild/addnew/addnew.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatButtonModule,MatInputModule,MatFormFieldModule} from '@angular/material';
+import {MatButtonModule,MatInputModule,MatFormFieldModule,MatTabsModule} from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
@@ -54,7 +54,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
   imports: [
     BrowserModule,
     NgbModule,ReactiveFormsModule,
-    AppRoutingModule,MatInputModule,
+    AppRoutingModule,MatInputModule,MatTabsModule,
     FormsModule,MatButtonModule,
     BrowserAnimationsModule,
     MaterialModule,

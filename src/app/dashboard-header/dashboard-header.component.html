@@ -3,33 +3,30 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="menuLeft">
-        <ul>
-            <li (click)="showHide()"><i class="fa fa-bars"></i></li>
-
-            <li>TracktEdu</li>
-            
-        </ul>
+        <button mat-button  (click)="showHide()"><h3><i class="fa fa-bars"></i></h3></button>
+        <button mat-button routerLink="/dashboard"><h3>TracktEdu</h3></button>
       </div>
       <div class="menuRight">
-        <ul>
-            <li [ngbPopover]="popContent1" [popoverTitle]="popTitle1" placement="bottom"><i class="fa fa-bell"></i></li>
-            <li [ngbPopover]="popContent2" [popoverTitle]="popTitle2" placement="bottom"><i class="fa fa-list-ul"></i></li>
-            <li [ngbPopover]="popContent3" [popoverTitle]="popTitle3" placement="bottom"><i class="fa fa-envelope"></i></li>
-            <li [ngbPopover]="popContent4" [popoverTitle]="popTitle4" placement="bottom"><i class="fa fa-map-marker"></i></li>
-            <li [ngbPopover]="popContent5" [popoverTitle]="popTitle5" placement="bottom"><i class="fa fa-user-circle"></i></li>
-            <li (click)="showRightMenu1()"><i class="fa fa-bars"></i></li>
-        </ul>
+        
+            <button mat-button [ngbPopover]="popContent1" placement="bottom"><i class="fa fa-bell"></i></button>
+            <button mat-button [ngbPopover]="popContent2" [popoverTitle]="popTitle2" placement="bottom"><mat-icon>menu</mat-icon></button>
+            <button mat-button [ngbPopover]="popContent3" [popoverTitle]="popTitle3" placement="bottom"><i class="fa fa-envelope"></i></button>
+            <button mat-button [ngbPopover]="popContent4" [popoverTitle]="popTitle4" placement="bottom"><i class="fa fa-map-marker"></i></button>
+            <button mat-button [ngbPopover]="popContent5" [popoverTitle]="popTitle5" placement="bottom"><i class="fa fa-user-circle"></i></button>
+            <button mat-button (click)="showRightMenu1()"><i class="fa fa-bars"></i></button>
+      
       </div>
       
     </div>
 </nav>
 <ng-template #popContent1>Hello,</ng-template>
-<ng-template #popTitle1>box <b>Header!!</b></ng-template>
+<ng-template #popTitle1>
+    
+</ng-template>
 <ng-template #popContent2>Hello,</ng-template>
 <ng-template #popTitle2>Box <b>Header!!</b></ng-template>
 <ng-template #popContent3>Hello,</ng-template>
 <ng-template #popTitle3>Box <b>Header!!</b></ng-template>
-<ng-template #popContent4>Hello,</ng-template>
 <ng-template #popTitle4>Box <b>Header!!</b></ng-template>
 <ng-template #popContent5>Hello,</ng-template>
 <ng-template #popTitle5>Box <b>Header!!</b></ng-template>

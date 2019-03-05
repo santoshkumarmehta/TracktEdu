@@ -1,7 +1,6 @@
 <div class="container-fluid">
-  <div>
     <app-dashboard-header class="navhead"></app-dashboard-header>
-  </div>
+ 
   <div class="row">
     <div  *ngIf="this.dash.showLeftMenu"
     [ngClass]="{'col-md-2': (this.dash.leftMenuToggler),
@@ -21,10 +20,6 @@
         <router-outlet></router-outlet>
       </div>
     </div>
-
-    <!-- <div class="col-md-8">
-        <router-outlet></router-outlet>
-    </div> -->
     <div class="col-md-2" *ngIf="!this.dash.showRightMenu">
        <app-rightsidenav></app-rightsidenav>
     </div>
