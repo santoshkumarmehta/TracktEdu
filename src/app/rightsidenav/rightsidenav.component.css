@@ -2,11 +2,12 @@
     top: 3.4em;
     right: 0;
     height: calc(100vh - 55px);
-    width: 200px;
+    width: 84%;
     padding: 0px;
+    padding-right: 50px;
     position: fixed;
     color: black;
-    border-left: 1px solid #c8ced3;
+    height: 200px;
     transition: margin-left .25s,margin-right .25s,width .25s,flex .25s,-ms-flex .25s;
     transition-property: margin-left, margin-right, width, flex, -ms-flex;
     transition-duration: 0.25s, 0.25s, 0.25s, 0.25s, 0.25s;
@@ -124,4 +125,12 @@ ul li{
         transition-timing-function: ease, ease, ease, ease, ease;
         transition-delay: 0s, 0s, 0s, 0s, 0s;
     }   
+}
+
+ng-template{
+    background-color: gray;
+}
+
+ngb-tab{
+    background-color: red;
 }
