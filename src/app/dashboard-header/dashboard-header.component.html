@@ -7,8 +7,9 @@
         <button mat-button routerLink="/dashboard"><h3>TracktEdu</h3></button>
       </div>
       <div class="menuRight">
-            <button mat-button (click)="showRightMenu1()"><i class="material-icons">
-              reorder
+        
+          <button mat-button (click)="open()"><i class="material-icons">
+              toc
               </i></button>
             <button mat-button [ngbPopover]="popContent1" placement="bottom"><i class="material-icons">
                 contact_mail
@@ -20,6 +21,10 @@
             <button mat-button [ngbPopover]="popContent5" [popoverTitle]="popTitle5" placement="bottom"><i class="material-icons">
                 account_circle
                 </i></button>
+            <button mat-button (click)="showRightMenu1()"><i class="material-icons">
+                reorder
+                </i></button>
+      
       </div>
       
     </div>

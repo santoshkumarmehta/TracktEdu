@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashService } from '../dash.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -7,8 +8,8 @@ import { DashService } from '../dash.service';
   styleUrls: ['./dashboard-header.component.css']
 })
 export class DashboardHeaderComponent implements OnInit {
-
-  constructor(private dash:DashService) { }
+ 
+  constructor(private dash:DashService, private modalService: NgbModal) { }
   
   ngOnInit() {
     this.dash.leftMenuToggler=true;
