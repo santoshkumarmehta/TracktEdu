@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DashService } from '../dash.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { MenusComponent } from '../menus/menus.component';
+import { MatDialog } from '@angular/material';
+
 
 @Component({
   selector: 'app-dashboard-header',
@@ -9,8 +12,18 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class DashboardHeaderComponent implements OnInit {
  
-  constructor(private dash:DashService, private modalService: NgbModal) { }
+  constructor(private dash:DashService, private modalService: MatDialog) { }
   
+  openDialog(){
+   const dialogRef=this.modalService.open(MenusComponent,{
+    width:'70%',
+    height:'520px',
+    maxHeight:'700px',
+    maxWidth:'100%'
+   })
+
+  }
+
   ngOnInit() {
     this.dash.leftMenuToggler=true;
   }

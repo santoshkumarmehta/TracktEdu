@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule,MatInputModule,MatFormFieldModule,MatTabsModule} from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { MenusComponent } from './menus/menus.component'
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     AddnewComponent,
     RegisterComponent,
     ForgotpasswordComponent,
-    
+    MenusComponent
    
   ],
   imports: [
@@ -62,6 +63,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     HttpClientModule,MatFormFieldModule
 
   ],
+  entryComponents:[MenusComponent],
   providers: [TopMenuService, DashService,TabledataService,Test1serviceService],
   bootstrap: [AppComponent]
 })
