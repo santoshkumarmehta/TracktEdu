@@ -16,7 +16,7 @@ export class DashboardHeaderComponent implements OnInit {
   
   openDialog(){
    const dialogRef=this.modalService.open(MenusComponent,{
-    width:'70%',
+    width:'68%',
     height:'520px',
     maxHeight:'700px',
     maxWidth:'100%'
