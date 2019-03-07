@@ -29,7 +29,7 @@ export class DashboardHeaderComponent implements OnInit {
   }
   showHide(){
           this.dash.showLeftMenu=!this.dash.showLeftMenu;
-          this.dash.leftMenuToggler=true;
+        this.dash.leftMenuToggler=true;
   }
   showRightMenu1(){
     this.dash.showRightMenu=!this.dash.showRightMenu;

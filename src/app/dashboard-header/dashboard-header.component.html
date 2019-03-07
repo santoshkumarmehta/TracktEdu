@@ -1,38 +1,26 @@
 
 <!-- <div (click)="showHide()"><i class="fa fa-bars"></i></div> -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="menuLeft">
-        <button mat-button  (click)="showHide()"><h3><i class="fa fa-bars"></i></h3></button>
-        <button mat-button routerLink="/dashboard"><h3>TracktEdu</h3></button>
-      </div>
-      <div class="form-group" id="searchgroup">
-          <input type="text" id="searchbtn " class="form-control" id="usr">
-         
-      </div> 
-      <div class="menuRight">
-        
-          <button mat-button (click)="openDialog()"><i class="material-icons">
-              toc
-              </i></button>
-            <button mat-button [ngbPopover]="popContent1" placement="bottom"><i class="material-icons">
-                contact_mail
-                </i></button>
-            <button mat-button [ngbPopover]="popContent3"  placement="bottom"><i class="material-icons">
-                notification_important
-                </i></button>
-            <!-- <button mat-button [ngbPopover]="popContent4" [popoverTitle]="popTitle4" placement="bottom"><i class="fa fa-map-marker"></i></button> -->
-            <button mat-button [ngbPopover]="popContent5"  placement="bottom"><i class="material-icons">
-                account_circle
-                </i></button>
-            <button mat-button (click)="showRightMenu1()"><i class="material-icons">
-                reorder
-                </i></button>
-      
-      </div>
-      
-    </div>
-</nav>
+
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
+      <div class="container-fluid">
+              <button mat-button class="home"  (click)="showHide()"><mat-icon>menu</mat-icon></button>
+              <button mat-button routerLink="/dashboard"><h3>TracktEdu</h3></button>
+              <input class="search" matInput placeholder="search..">
+              <button class="fa fa-search" id="btn"></button>
+              <button mat-button class="right_buttons" (click)="showRightMenu1()"><i class="material-icons">reorder</i></button>       
+              <button mat-button class="right_buttons" [ngbPopover]="popContent5"  placement="bottom"><i class="material-icons">account_circle</i></button>
+              <button mat-button class="right_buttons" [ngbPopover]="popContent3"  placement="bottom"><i class="material-icons">notification_important</i></button>
+              <!-- <button mat-button [ngbPopover]="popContent4" [popoverTitle]="popTitle4" placement="bottom"><i class="fa fa-map-marker"></i></button> -->
+              <button mat-button class="right_buttons" [ngbPopover]="popContent1" placement="bottom"><i class="material-icons">contact_mail</i></button>
+              <button mat-button class="right_buttons" (click)="openDialog()"><i class="material-icons">toc</i></button>
+            
+        </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
 <ng-template #popContent1>Hello,
   <a href="/">Hwello</a>
 </ng-template>
