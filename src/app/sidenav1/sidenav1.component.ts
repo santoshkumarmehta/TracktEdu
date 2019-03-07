@@ -18,10 +18,11 @@ export class Sidenav1Component implements OnInit {
   temp=[];
   t:boolean[]=[];
 
-  MainMenus =['MainMenu1','MainMenu2','MainMenu3'];
+  MainMenus =['Home','About','Contact','Product'];
   subMenus1 =['Table','Form','Form2','Add New'];
   subMenus2 = ['Bmenu1','Bmenu2','Bmenu3'];
   subMenus3 = ['Cmenu1','Cmenu2','Cmenu3'];
+  submenu =['Product1','Product2','Product3'];
   mainMenu1Route=['dashboard/table1','dashboard/form1','dashboard/form2','dashboard/addnew'];
   
   ngOnInit() {

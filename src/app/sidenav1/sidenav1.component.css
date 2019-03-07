@@ -1,5 +1,7 @@
 
-   
+   .menuH{
+     float: left;
+   }
    .nav-side-menu{
     
     font-family: verdana;
@@ -7,10 +9,10 @@
     background: #2e353d;
     margin-top: 5px;                
     position: fixed;
-    top: 50px;
+    top: 70px;
     left: 0px;
     width: 200px;
-    height: calc(100vh - 55px);
+    height: calc(100vh - 75px);
     text-align: center;
     color: #fff;
    }
@@ -21,11 +23,11 @@
     font-size: 22px;
     background-color: #2e353d;
     position: fixed;
-    top: 50px;                        
+    top: 70px;                        
     left: 0px;
     width: 50px;
     padding: inherit;
-    height: calc(100vh - 55px);
+    height: calc(100vh - 75px);
     margin-top: 5px;
     color: #fff;
     

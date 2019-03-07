@@ -30,6 +30,11 @@
                              <li (click)="showChild(i, k)">{{subMenu}}</li>
                          </ul>
                      </div>
+                     <div class="submenu" *ngIf="i==3">        
+                            <ul *ngFor="let subMenu of submenu; let k = index">
+                                <li (click)="showChild(i, k)">{{subMenu}}</li>
+                            </ul>
+                        </div>
                  </li>
              </ul>
          <!-- Toggle Button of SideMenu -->
