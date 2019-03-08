@@ -3,28 +3,28 @@ mat-toolbar-row{
     min-width: 300px;
 }
  button:hover{
-background-color: rgb(4, 4, 10);
+background-color: rgb(55, 55, 56);
   }
   .right_buttons{
       float: right !important;
   }
-.search{
+.form-group{
     background-color: white;
-    width:350px;
-    margin-left: 300px;
+    margin-top: 8px;
 }
 
-#btn{
-    margin-left: -35px;
-    background-color: white;
-    border: white;
-    cursor: pointer;
-    height: 35px;
-    
+.rightbtns{
+margin-top: 10px;
 }
 
 .menulist:hover{
     background-color: blue;
     color: white;
     font-size: 15px;
+}
+
+@media screen and (max-width:600px){
+	.home{
+	display:none;
+	}
 }

@@ -28,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule,MatInputModule,MatFormFieldModule,MatTabsModule} from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { MenusComponent } from './menus/menus.component'
+import { MenusComponent } from './menus/menus.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { MenusComponent } from './menus/menus.component'
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule,MatFormFieldModule
+    HttpClientModule,MatFormFieldModule,
+    FlexLayoutModule
 
   ],
   entryComponents:[MenusComponent],
