@@ -1,9 +1,14 @@
+
+
 <nav class="navbar navbar-default"  *ngIf="_topMenuService.nav1">
     <div class="container-fluid">
       <div class="menuLeft">
-        <div id={{tempMenuId[i]}}><li><a [routerLink]="['/login']" (click)="traceNav(i)"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<strong>{{menu | uppercase}}</strong></a></li></div>
-        </div>
+        <ul class="nav navbar-nav" *ngFor="let menu of Menus; let i=index">
+          <div id={{tempMenuId[i]}}><li><a [routerLink]="['/login']" (click)="traceNav(i)"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<strong>{{menu | uppercase}}</strong></a></li></div>
+        </ul>
+      </div>
+      <ul>
+          <li class="cartItem"><a href="#"><strong>${{totalAmount}}.00&nbsp;({{numberOfProduct}})</strong>&nbsp;<img src="assets\icon\bag.png" alt=""></a></li>
+      </ul>
     </div>
 </nav>
-
-

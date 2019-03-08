@@ -22,3 +22,9 @@ background-color: rgb(4, 4, 10);
     height: 35px;
     
 }
+
+.menulist:hover{
+    background-color: blue;
+    color: white;
+    font-size: 15px;
+}
