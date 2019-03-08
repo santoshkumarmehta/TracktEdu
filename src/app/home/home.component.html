@@ -1,24 +1,41 @@
-<!-- 
-<nav class="navbar navbar-default sNav">
-        <div class="container-fluid">
-          <div class="menuRight">
-                  <ul class="nav navbar-nav">
-                    <li><a [routerLink]="['/login']">home</a></li>
-                    <li><a [routerLink]="['/login']">about us</a></li>
-                    <li><a [routerLink]="['/login']">products</a></li>
-                    <li><a [routerLink]="['/login']">contact</a></li>
-                  </ul>
-          </div>
-        </div>
-        <div class="container">
-            <div class="container" id="logo">
-              R
-            </div>
-            <div class="container" id="cname">
-              RUBUHA
-      
-            </div>
-        </div>
-</nav>
+<button mat-button class="button" data-toggle="collapse" data-target="#colapse"
+ aria-expanded="false" aria-controls="collapseExample">Manage Dashlets</button>
 
-<app-carousel1></app-carousel1> -->
+ <div class="collapse" id="colapse">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 " >
+        <div class="chkbox">
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input">
+          <label class="form-check-label">Absent Student</label>
+        </div>
+      </div>
+      </div>
+      <div class="col-sm-3 ">
+          <div class="chkbox">
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input">
+                <label class="form-check-label">Admitted Employees</label>
+              </div>
+            </div>
+      </div>
+      <div class="col-sm-3 ">
+          <div class="chkbox">
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input">
+                <label class="form-check-label">Admitted Students</label>
+              </div>
+            </div>
+      </div>
+      <div class="col-sm-3 ">
+          <div class="chkbox">
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" >
+                <label class="form-check-label" >Birthdays</label>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+ </div>

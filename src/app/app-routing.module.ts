@@ -18,35 +18,15 @@ const routes: Routes = [
   
 ];
 const childroutes: Routes = [
-  {path:"", redirectTo:'/app', pathMatch:'full'},
-  {path:'app', component:AppComponent},
-  {path: 'dashboard',component: DashboardComponent, children: [                         
-      {
-          path:'table1',
-          component: Table1Component
-      },
-      {
-        path:'form1',
-        component: Form1Component
-      },
-      {
-        path:'form2',
-        component: Form2Component
-      },
-      { 
-        path: 'test', 
-       component:TestComponent
-      },
-      {
-        path: 'addnew',
-        component: AddnewComponent
-      }
+      {path: 'dashboard',component: DashboardComponent, children: [                         
+      { path:'table1',component: Table1Component },
+      {path:'form1', component: Form1Component },
+      {path:'form2', component: Form2Component},
+      { path: 'test', component:TestComponent },
+      { path: 'addnew', component: AddnewComponent}
     ]
   },
-  { path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
-  {path:'forgotpassword', component:ForgotpasswordComponent}
-];
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),

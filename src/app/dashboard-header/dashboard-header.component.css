@@ -1,9 +1,17 @@
+at-toolbar{
+    background-color: rgb(20, 19, 19);
+}
 mat-toolbar-row{
     margin-top: 8px;
     min-width: 300px;
+
 }
  button:hover{
 background-color: rgb(55, 55, 56);
+color: white; 
+  }
+  mat-toolbar button:focus{
+      background-color: blue;
   }
   .right_buttons{
       float: right !important;
@@ -22,9 +30,6 @@ margin-top: 10px;
     color: white;
     font-size: 15px;
 }
-
-@media screen and (max-width:600px){
-	.home{
-	display:none;
-	}
+.toggle_button{
+    float: right;
 }
