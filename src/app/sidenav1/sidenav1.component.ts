@@ -10,6 +10,8 @@ declare var $:any;
 })
 export class Sidenav1Component implements OnInit {
   
+
+// menus:string="http://localhost:3000/menu";
   constructor(private dash:DashService, private childrouter:Router,
      private renderer: Renderer2, private el: ElementRef) { 
     

@@ -1,8 +1,12 @@
 .button{
-    margin-right: 50px;
+    margin-right: 0px;
     float: right !important;
     background-color: rgb(97, 96, 94);
     color: white;
+}
+
+.group{
+    background-color: rgb(97, 96, 94);
 }
 .button:hover{
     background-color: rgb(49, 48, 47);
@@ -11,7 +15,6 @@
 .button:focus{
     background-color: blue;
 }
-
 .chkbox{
     background-color: rgb(224, 220, 220);
     height: 30px;

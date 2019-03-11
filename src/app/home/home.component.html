@@ -1,41 +1,28 @@
 <button mat-button class="button" data-toggle="collapse" data-target="#colapse"
- aria-expanded="false" aria-controls="collapseExample">Manage Dashlets</button>
-
+>Manage Dashlets</button>
  <div class="collapse" id="colapse">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-3 " >
-        <div class="chkbox">
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input">
-          <label class="form-check-label">Absent Student</label>
-        </div>
-      </div>
-      </div>
-      <div class="col-sm-3 ">
-          <div class="chkbox">
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input">
-                <label class="form-check-label">Admitted Employees</label>
-              </div>
-            </div>
-      </div>
-      <div class="col-sm-3 ">
-          <div class="chkbox">
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input">
-                <label class="form-check-label">Admitted Students</label>
-              </div>
-            </div>
-      </div>
-      <div class="col-sm-3 ">
-          <div class="chkbox">
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" >
-                <label class="form-check-label" >Birthdays</label>
-              </div>
-            </div>
+      <div class="form-group form-check">
+      <div *ngFor="let manageDashelts1 of ManageDashlets1">
+        <input type="checkbox">
+        <label class="form-check-label" for="exampleCheck1">{{manageDashelts1}}</label>
       </div>
     </div>
-  </div>
+      <div class="form-group form-check">
+        <div *ngFor="let manageDashelts2 of ManageDashlets2">
+          <input type="checkbox">
+          <label class="form-check-label" for="exampleCheck1">{{manageDashelts2}}</label>
+        </div>
+      </div>
+      <div class="form-group form-check">
+          <div *ngFor="let manageDashelts2 of ManageDashlets2">
+            <input type="checkbox">
+            <label class="form-check-label" for="exampleCheck1">{{manageDashelts2}}</label>
+          </div>
+       </div>
  </div>
+   
+</div>
+ </div>
+ 

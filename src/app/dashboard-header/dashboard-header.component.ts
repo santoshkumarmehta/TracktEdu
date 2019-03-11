@@ -13,6 +13,8 @@ import { MatDialog } from '@angular/material';
 export class DashboardHeaderComponent implements OnInit {
  
   constructor(private dash:DashService, private modalService: MatDialog) { }
+
+  // menus:string="http://localhost:3000/menu";
   
   openDialog(){
    const dialogRef=this.modalService.open(MenusComponent,{
@@ -31,8 +33,8 @@ export class DashboardHeaderComponent implements OnInit {
           this.dash.showLeftMenu=!this.dash.showLeftMenu;
         this.dash.leftMenuToggler=true;
   }
-  showRightMenu1(){
-    this.dash.showRightMenu=!this.dash.showRightMenu;
-  }
+  // showRightMenu1(){ 
+  //   this.dash.showRightMenu=!this.dash.showRightMenu;
+  // }
 
 }
