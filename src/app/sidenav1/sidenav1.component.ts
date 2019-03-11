@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Directive} from '@angular/core';
+import { Component, OnInit, ElementRef,Output, EventEmitter, ViewChild, Directive} from '@angular/core';
 import { DashService } from '../dash.service';
 import { Router } from '@angular/router';
 import { Renderer2 } from '@angular/core';
@@ -10,6 +10,11 @@ declare var $:any;
 })
 export class Sidenav1Component implements OnInit {
   
+  @Output() sidenavClose= new EventEmitter();
+  public onsidenavClose=()=>{
+    this.sidenavClose.emit();
+  }
+
 
 // menus:string="http://localhost:3000/menu";
   constructor(private dash:DashService, private childrouter:Router,

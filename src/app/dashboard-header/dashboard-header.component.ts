@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { DashService } from '../dash.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { MenusComponent } from '../menus/menus.component';
 import { MatDialog } from '@angular/material';
+
+
 
 
 @Component({
@@ -10,9 +12,15 @@ import { MatDialog } from '@angular/material';
   templateUrl: './dashboard-header.component.html',
   styleUrls: ['./dashboard-header.component.css']
 })
-export class DashboardHeaderComponent implements OnInit {
- 
-  constructor(private dash:DashService, private modalService: MatDialog) { }
+export class DashboardHeaderComponent {
+
+  @Output() public sidenavToggle= new EventEmitter();
+
+  public onToggleSidenav=()=>{
+       this.sidenavToggle.emit();
+  }
+  showFiller = false;
+  constructor( private modalService: MatDialog) { }
 
   // menus:string="http://localhost:3000/menu";
   
@@ -26,13 +34,13 @@ export class DashboardHeaderComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    this.dash.leftMenuToggler=true;
-  }
-  showHide(){
-          this.dash.showLeftMenu=!this.dash.showLeftMenu;
-        this.dash.leftMenuToggler=true;
-  }
+  // ngOnInit() {
+  //   // this.dash.leftMenuToggler=true;
+  // }
+  // showHide(){
+  //         this.dash.showLeftMenu=!this.dash.showLeftMenu;
+  //       this.dash.leftMenuToggler=true;
+  // }
   // showRightMenu1(){ 
   //   this.dash.showRightMenu=!this.dash.showRightMenu;
   // }

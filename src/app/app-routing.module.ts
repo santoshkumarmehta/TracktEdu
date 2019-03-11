@@ -11,13 +11,14 @@ import { AddnewComponent } from './dashboard/dashchild/addnew/addnew.component';
 import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch:'full'},
   { path: 'login', component:LoginComponent},
   { path: 'dashboard', component:DashboardComponent},
   { path:'register', component:RegisterComponent},
-  {path:'forgotpassword', component:ForgotpasswordComponent}
-  
+  {path:'forgotpassword', component:ForgotpasswordComponent},
+  { path:"dashbordhreader", component:DashboardHeaderComponent}
 ];
 const childroutes: Routes = [
       {path: 'dashboard',component: DashboardComponent, children: [                         

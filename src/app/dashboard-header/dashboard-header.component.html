@@ -1,11 +1,15 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-
-  <div fxLayoutGap="10px">
-    <button mat-icon-button class="home" (click)="showHide()">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-button routerLink="/dashboard"><h3>TracktEdu</h3></button>
+  </div>
+  <div fxLayoutGap="15px">
+    <button mat-icon-button class="home" (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-button routerLink="/dashbordhreader"><h3>TracktEdu</h3></button>
     </div>
   <div class="rightbtns" fxFlex fxLayouit fxLayoutAlign="end" fxHide.xs>
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">
