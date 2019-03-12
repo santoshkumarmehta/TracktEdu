@@ -1,10 +1,14 @@
-at-toolbar{
+mat-toolbar{
     background-color: rgb(20, 19, 19);
 }
 mat-toolbar-row{
     margin-top: 8px;
     min-width: 300px;
+}
 
+.btn{
+    color: white;
+    font-size: 25px;
 }
  button:hover{
 background-color: rgb(55, 55, 56);
@@ -32,4 +36,22 @@ margin-top: 10px;
 }
 .toggle_button{
     float: right;
+}
+.searchbtn{
+    width: 300px;
+}
+.searchbtn:focus{
+    width: 400px;
+}
+span{
+    margin-top: 8px;
+    color: black;
+    cursor: pointer;
+    margin-left: -40px;
+    z-index: 1;
+}
+@media screen and (max-width:600px){
+	.home{
+	display:none;
+	}
 }

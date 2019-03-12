@@ -30,6 +30,11 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { MenusComponent } from './menus/menus.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { CourseComponent } from './course/course.component';
+import { SubjectComponent } from './subject/subject.component';
+import { BatchComponent } from './batch/batch.component';
+import { StudentComponent } from './student/student.component';
+import { ChapterComponent } from './chapter/chapter.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,12 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     AddnewComponent,
     RegisterComponent,
     ForgotpasswordComponent,
-    MenusComponent
+    MenusComponent,
+    CourseComponent,
+    SubjectComponent,
+    BatchComponent,
+    StudentComponent,
+    ChapterComponent
    
   ],
   imports: [

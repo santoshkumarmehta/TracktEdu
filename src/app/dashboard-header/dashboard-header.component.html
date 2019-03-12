@@ -1,39 +1,31 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-  <div fxHide.gt-xs>
-    <button mat-icon-button (click)="onToggleSidenav()">
-      <mat-icon>menu</mat-icon>
-    </button>
+<mat-toolbar-row>
+  <div>
+    <button class="btn" mat-icon-button (click)="showHide()">
+      <mat-icon>menu</mat-icon>   </button>
+      <button mat-button class="btn"> TracktEdu</button>
+ 
   </div>
-  <div fxLayoutGap="15px">
-    <button mat-icon-button class="home" (click)="onToggleSidenav()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <button mat-button routerLink="/dashbordhreader"><h3>TracktEdu</h3></button>
-    </div>
-  <div class="rightbtns" fxFlex fxLayouit fxLayoutAlign="end" fxHide.xs>
+   <div fxFlex fxLayouit fxLayoutAlign="end" fxHide.xs>
+     
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-        <input type="text" class="form-control" placeholder="search..">
-        <button mat-icon-button class="right_buttons" (click)="openDialog()"><i class="material-icons">toc</i></button>
-        <button mat-icon-button class="right_buttons" [ngbPopover]="popContent3"  placement="bottom"><i class="material-icons">notification_important</i></button>
-        <button mat-icon-button class="right_buttons"  [matMenuTriggerFor]="account"><i class="material-icons">account_circle</i></button>
+        <input type="text" class="form-control searchbtn" placeholder="search.."><span class="fa fa-search"></span>
+        <button mat-icon-button (click)="openDialog()"><i class="material-icons">toc</i></button>
+        <button mat-icon-button [ngbPopover]="popContent3"  placement="bottom"><i class="material-icons">notification_important</i></button>
+        <button mat-icon-button  [matMenuTriggerFor]="account"><i class="material-icons">account_circle</i></button>
         <!-- <button mat-icon-button class="right_buttons" (click)="showRightMenu1()"><i class="material-icons">reorder</i></button> -->
     </ul>
    </div>
-   </mat-toolbar-row>
+  </mat-toolbar-row>
 </mat-toolbar>
-<ng-template #popContent1>Hello,
+<router-outlet></router-outlet>
+ <ng-template #popContent3>Hello,
   <a href="/">Hwello</a>
-</ng-template>
+</ng-template> 
 
-<ng-template #popTitle2>Box <b>Header!!</b></ng-template>
-<ng-template #popContent3>Hello,</ng-template>
-<ng-template #popTitle3>Box <b>Header!!</b></ng-template>
-<ng-template #popTitle4>Box <b>Header!!</b></ng-template>
-<ng-template #popTitle5>Box <b>Header!!</b></ng-template>
 <!-- For Account -->
 
-<mat-menu #account>
+ <mat-menu #account>
   <button class="menulist" mat-menu-item [matMenuTriggerFor]="accountsetting">Account Setting</button>
   <button class="menulist" mat-menu-item routerLink="/login">Logout</button>
   </mat-menu>

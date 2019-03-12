@@ -1,4 +1,4 @@
-/* 
+ 
    .menuH{
      float: left;
    }
@@ -119,7 +119,6 @@ cursor: pointer;
 }
 
 
-12-01-19 
 .nav-side-min-menu>ul {
   margin: 0;
   padding: 0px;
@@ -320,7 +319,7 @@ background: #20a8dd;
     }
      
   
-} */
+}
 
 a {
   text-decoration: none;
@@ -334,4 +333,4 @@ a:hover, a:active{
 .nav-caption{
   display: inline-block;
   padding-left: 6px;
-}
+} 

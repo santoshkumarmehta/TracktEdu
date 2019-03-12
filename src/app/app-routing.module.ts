@@ -12,28 +12,44 @@ import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
+import { Sidenav1Component } from './sidenav1/sidenav1.component';
+import { CourseComponent } from './course/course.component';
+import { BatchComponent } from './batch/batch.component';
+import { StudentComponent } from './student/student.component';
+import { SubjectComponent } from './subject/subject.component';
+import { ChapterComponent } from './chapter/chapter.component';
+
+
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch:'full'},
   { path: 'login', component:LoginComponent},
+  {path:'appcomponent', component:AppComponent},
   { path: 'dashboard', component:DashboardComponent},
   { path:'register', component:RegisterComponent},
   {path:'forgotpassword', component:ForgotpasswordComponent},
-  { path:"dashbordhreader", component:DashboardHeaderComponent}
+  { path:"dashbordhreader", component:DashboardHeaderComponent},
+  {path:'sidenav', component:Sidenav1Component},
+  {path:'course', component:CourseComponent},
+  { path:'batch', component:BatchComponent},
+  { path:'student', component:StudentComponent },
+  { path:'subject', component:SubjectComponent},
+  { path:'chapter', component:ChapterComponent}
+
 ];
-const childroutes: Routes = [
-      {path: 'dashboard',component: DashboardComponent, children: [                         
-      { path:'table1',component: Table1Component },
-      {path:'form1', component: Form1Component },
-      {path:'form2', component: Form2Component},
-      { path: 'test', component:TestComponent },
-      { path: 'addnew', component: AddnewComponent}
-    ]
-  },
- ];
+// const childroutes : Routes = [
+//       {path: 'dashboard',component: DashboardComponent, children: [                         
+//       { path:'table1',component: Table1Component },
+//       {path:'form1', component: Form1Component },
+//       {path:'form2', component: Form2Component},
+//       { path: 'test', component:TestComponent },
+//       { path: 'addnew', component: AddnewComponent}
+//     ]
+//   },
+//  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),
-    RouterModule.forChild(childroutes)
+    // RouterModule.forChild(childroutes)
   ],
   exports: [RouterModule]
 })

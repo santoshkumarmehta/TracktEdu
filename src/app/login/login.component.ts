@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return false;
     }
-      this.router.navigate(['/dashbordhreader']);
+      this.router.navigate(['/dashboard']);
   }
   ngOnInit() {
     this.loginForm=this.formBuilder.group({
