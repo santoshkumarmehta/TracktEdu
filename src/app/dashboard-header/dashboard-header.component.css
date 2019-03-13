@@ -1,4 +1,4 @@
-mat-toolbar{
+/* mat-toolbar{
     background-color: rgb(20, 19, 19);
 }
 mat-toolbar-row{
@@ -54,4 +54,52 @@ span{
 	.home{
 	display:none;
 	}
+} */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+ a:hover, a:active{
+    color: lightgray;
+}
+
+.navigationitems{
+    
+    padding: 0;
+    margin: 0;
+}
+mat-toolbar{
+    border-radius: 3px;
+}
+@media(max-width: 959px){
+     mat-toolbar{
+    border-radius: 0px;
+}
+}
+
+@media screen and (max-width:600px){
+	.home{
+	display:none;
+	}
+}
+
+.reg{
+	float:right;
+}
+
+.searchbtn{
+    width: 300px;
+    margin-top: 8px;
+   }
+.searchbtn:focus{
+    width: 400px;
+}
+span{
+    margin-top: 8px;
+    color: black;
+    cursor: pointer;
+    margin-left: -40px;
+    z-index: 1;
+    margin-top: 15px;
 }

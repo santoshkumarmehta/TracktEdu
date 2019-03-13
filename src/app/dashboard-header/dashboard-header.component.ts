@@ -12,6 +12,13 @@ import { MatDialog } from '@angular/material';
 })
 export class DashboardHeaderComponent implements OnInit {
 
+
+  @Output() public sidenavToggle= new EventEmitter();
+  
+  public onToggleSidenav=()=>{
+    this.sidenavToggle.emit();
+  }
+
   constructor( private modalService: MatDialog, private dash:DashService) { }
 
   // menus:string="http://localhost:3000/menu";

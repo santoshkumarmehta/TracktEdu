@@ -1,10 +1,10 @@
-div{
+/* div{
     padding: 0px;
 }
 .collapse:hover{
     display: inline;
 }
-/* .row{padding: 30px;} */
+
 .menu{
     cursor: pointer;
 }
@@ -21,4 +21,16 @@ div{
     left: 0px;
     width: 100%;
     overflow: auto;
+} */
+
+
+mat-sidenav-container, mat-sidenav-content, mat-side-nav{
+    height: 100%;
+}
+
+mat-sidenav{
+    width: 250px;
+}
+main{
+    padding: 10px;
 }

@@ -1,10 +1,10 @@
-<div [ngClass]="status ? 'nav-side-menu' : 'nav-side-min-menu'">
+<!-- <div [ngClass]="status ? 'nav-side-menu' : 'nav-side-min-menu'">
         <ul>
             <li>
                 <div class="menuH">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                    <span [ngClass]="{'menuName':!this.leftMenuToggler}" (click)="showHide1()">Course Management </span>
-                <!-- carrat start -->
+                carrat start
                 <span [ngClass]="{'carrat1':!this.dash.leftMenuToggler}">
                     <div *ngIf="t[i]; else another1"  id="another1">
                         <i class="arrow bottom mio"></i>
@@ -13,13 +13,13 @@
                         <i class="arrow left1 mio"></i>
                     </ng-template>
                 </span>    
-                <!--carrat end   -->                    
+                carrat end                      
                 </div>
                 
                 <div class="menuH">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
                        <span [ngClass]="{'menuName':!this.leftMenuToggler}" (click)="showHide2()">Subject Management </span>
-                    <!-- carrat start -->
+                    carrat start
                     <span [ngClass]="{'carrat1':!this.dash.leftMenuToggler}">
                         <div *ngIf="t[i]; else another1"  id="another1">
                             <i class="arrow bottom mio"></i>
@@ -28,12 +28,12 @@
                             <i class="arrow left1 mio"></i>
                         </ng-template>
                     </span>    
-                    <!--carrat end   -->                    
+                    carrat end                      
                     </div>
                     <div class="menuH">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
                        <span [ngClass]="{'menuName':!this.leftMenuToggler}" (click)="showHide3()">Batch  Management </span>
-                    <!-- carrat start -->
+                    carrat start
                     <span [ngClass]="{'carrat1':!this.dash.leftMenuToggler}">
                         <div *ngIf="t[i]; else another1"  id="another1">
                             <i class="arrow bottom mio"></i>
@@ -42,12 +42,12 @@
                             <i class="arrow left1 mio"></i>
                         </ng-template>
                     </span>    
-                    <!--carrat end   -->                    
+                    carrat end                      
                     </div>
                     <div class="menuH">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
                        <span [ngClass]="{'menuName':!this.leftMenuToggler}" (click)="showHide4()">Student Management </span>
-                    <!-- carrat start -->
+                    carrat start
                     <span [ngClass]="{'carrat1':!this.dash.leftMenuToggler}">
                         <div *ngIf="t[i]; else another1"  id="another1">
                             <i class="arrow bottom mio"></i>
@@ -56,12 +56,12 @@
                             <i class="arrow left1 mio"></i>
                         </ng-template>
                     </span>    
-                    <!--carrat end   -->                    
+                    carrat end                      
                     </div>
                     <div class="menuH">
                             <i class="fa fa-tachometer" aria-hidden="true"></i>
                            <span [ngClass]="{'menuName':!this.leftMenuToggler}" (click)="showHide5()">Chapter Management </span>
-                        <!-- carrat start -->
+                        carrat start
                         <span [ngClass]="{'carrat1':!this.dash.leftMenuToggler}">
                             <div *ngIf="t[i]; else another1"  id="another1">
                                 <i class="arrow bottom mio"></i>
@@ -70,7 +70,7 @@
                                 <i class="arrow left1 mio"></i>
                             </ng-template>
                         </span>    
-                        <!--carrat end   -->                    
+                        carrat end                      
                         </div>
                 
                 <div class="submenu" *ngIf="i==2">        
@@ -80,7 +80,7 @@
                 </div>
             </li>
         </ul>
-    <!-- Toggle Button of SideMenu -->
+    Toggle Button of SideMenu
         <div id="toggler1" (click)="showHide()"> 
             <div *ngIf="this.status; else toggle_part">
                 <i class="fa fa-angle-left"></i>
@@ -93,4 +93,26 @@
     
       
     
-  
+   -->
+<div class="sidenav">
+     
+   <mat-nav-list>
+        <a mat-list-item routerLink="/form" routerLinkActive="active" class="btns" (click)="onSidenavClose()">
+        <span class="nav-caption">Course Management </span>
+       </a> 
+       <a mat-list-item routerLink="/subject" class="btns" (click)="onSidenavClose()">
+        <span class="nav-caption">Subject Management</span>
+       </a>
+       <a mat-list-item routerLink="/batch" class="btns" (click)="onSidenavClose()">
+            <span class="nav-caption">Batch  Management</span>
+       </a>
+       <a mat-list-item routerLink="/student" class="btns" (click)="onSidenavClose()" >
+           <span class="nav-caption">Student Management</span>
+      </a>
+      <a mat-list-item routerLink="/chapter" class="btns"  (click)="onSidenavClose()">
+        <span class="nav-caption">Chapter Management </span>
+      </a> 
+    
+    
+    </mat-nav-list>
+</div>

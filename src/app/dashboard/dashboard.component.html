@@ -1,4 +1,4 @@
- <div class="container-fluid">
+ <!-- <div class="container-fluid">
     <app-dashboard-header class="navhead"></app-dashboard-header>
  
   <div class="row">
@@ -7,8 +7,28 @@
                 'col-md-1' : (!this.dash.leftMenuToggler)}">
     <app-sidenav1></app-sidenav1> 
     </div>
+ 
+      <div class="container-fluid routerOutlet1">
+        <router-outlet>
+        
+         </router-outlet>
+      </div>
     
-    <div [ngClass]="{
+    <div class="col-md-2" *ngIf="!this.dash.showRightMenu">
+       <app-rightsidenav></app-rightsidenav> 
+    </div>
+</div>  -->
+
+<mat-sidenav-container >
+  <mat-sidenav #sidenav role="navigation">
+    <app-sidenav1 (sidenavClose)="sidenav.close()"></app-sidenav1>
+  </mat-sidenav>
+  <mat-sidenav-content>
+   <app-dashboard-header (sidenavToggle)="sidenav.toggle()"></app-dashboard-header>
+    <main>
+       <router-outlet></router-outlet>
+    </main>
+    <!-- <div [ngClass]="{
       'col-md-8': (this.dash.showLeftMenu && !this.dash.showRightMenu && this.dash.leftMenuToggler),
       'col-md-10': (this.dash.showLeftMenu && this.dash.showRightMenu && this.dash.leftMenuToggler) || (!this.dash.showLeftMenu && !this.dash.showRightMenu && this.dash.leftMenuToggler),
       'col-md-12': (!this.dash.showLeftMenu && this.dash.showRightMenu && this.dash.leftMenuToggler),
@@ -17,12 +37,12 @@
       
     }">
       <div class="container-fluid routerOutlet1">
-        <router-outlet>
-         </router-outlet>
+        <router-outlet></router-outlet>
       </div>
-    </div>
-    <div class="col-md-2" *ngIf="!this.dash.showRightMenu">
-       <app-rightsidenav></app-rightsidenav> 
-    </div>
-  </div>
-</div> 
+    </div> -->
+  </mat-sidenav-content>
+  <mat-sidenav-content>
+ 
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

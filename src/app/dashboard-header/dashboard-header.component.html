@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
 <mat-toolbar-row>
   <div>
     <button class="btn" mat-icon-button (click)="showHide()">
@@ -13,11 +13,37 @@
         <button mat-icon-button (click)="openDialog()"><i class="material-icons">toc</i></button>
         <button mat-icon-button [ngbPopover]="popContent3"  placement="bottom"><i class="material-icons">notification_important</i></button>
         <button mat-icon-button  [matMenuTriggerFor]="account"><i class="material-icons">account_circle</i></button>
-        <!-- <button mat-icon-button class="right_buttons" (click)="showRightMenu1()"><i class="material-icons">reorder</i></button> -->
+        <button mat-icon-button class="right_buttons" (click)="showRightMenu1()"><i class="material-icons">reorder</i></button> 
     </ul>
    </div>
   </mat-toolbar-row>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div fxLayoutGap="15px">
+     <button mat-icon-button class="home" (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button> 
+    <a routerLink="/dashboard">TracktEdu</a>
+    </div>
+  <div fxFlex fxLayouit fxLayoutAlign="end" fxHide.xs>
+  <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <input type="text" class="form-control searchbtn" placeholder="search.."><span class="fa fa-search"></span>
+      <button mat-icon-button (click)="openDialog()"><i class="material-icons">toc</i></button>
+      <button mat-icon-button [ngbPopover]="popContent3"  placement="bottom"><i class="material-icons">notification_important</i></button>
+      <button mat-icon-button  [matMenuTriggerFor]="account"><i class="material-icons">account_circle</i></button>
+      <!-- <button mat-icon-button class="right_buttons" (click)="showRightMenu1()"><i class="material-icons">reorder</i></button>  -->
+  </ul>
+   </div>
+ 
 </mat-toolbar>
+
+
 <router-outlet></router-outlet>
  <ng-template #popContent3>Hello,
   <a href="/">Hwello</a>

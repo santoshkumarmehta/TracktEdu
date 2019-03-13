@@ -18,13 +18,19 @@ import { BatchComponent } from './batch/batch.component';
 import { StudentComponent } from './student/student.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ChapterComponent } from './chapter/chapter.component';
+import { FormComponent } from './dashboard/form/form.component';
+
 
 
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch:'full'},
   { path: 'login', component:LoginComponent},
   {path:'appcomponent', component:AppComponent},
-  { path: 'dashboard', component:DashboardComponent},
+  { path: 'dashboard', component:DashboardComponent,
+  children:[
+    { path:'form', component:FormComponent}
+  ]
+},
   { path:'register', component:RegisterComponent},
   {path:'forgotpassword', component:ForgotpasswordComponent},
   { path:"dashbordhreader", component:DashboardHeaderComponent},
@@ -32,20 +38,11 @@ const routes: Routes = [
   {path:'course', component:CourseComponent},
   { path:'batch', component:BatchComponent},
   { path:'student', component:StudentComponent },
-  { path:'subject', component:SubjectComponent},
-  { path:'chapter', component:ChapterComponent}
+  { path:'subject', component:SubjectComponent}
+
 
 ];
-// const childroutes : Routes = [
-//       {path: 'dashboard',component: DashboardComponent, children: [                         
-//       { path:'table1',component: Table1Component },
-//       {path:'form1', component: Form1Component },
-//       {path:'form2', component: Form2Component},
-//       { path: 'test', component:TestComponent },
-//       { path: 'addnew', component: AddnewComponent}
-//     ]
-//   },
-//  ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),
