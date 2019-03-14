@@ -1,12 +1,14 @@
 .container {
     padding: 60px;
-    display: flex;
-    flex-direction: column;
-    max-width: 70%;
-    min-width: 40%;
-    width: 70%;
+    width: 80%;
   }
   
+  mat-form-field>input{
+      width: 100%;
+  }
   .btn-danger{
       margin-left: 15px;
+  }
+  mat-card-title{
+      text-align: center;
   }

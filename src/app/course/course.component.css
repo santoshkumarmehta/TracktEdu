@@ -1,12 +1,15 @@
 .container {
     padding: 60px;
-    width: 100%;
+    width: 80%;
   }
   
-  mat-form-field{
+  mat-form-field>input{
       width: 100%;
   }
   .btn-danger{
       margin-left: 15px;
   }
 
+  mat-card-title{
+      text-align: center;
+  }

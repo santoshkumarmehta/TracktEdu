@@ -1,24 +1,49 @@
 <div class="container">
-    <mat-form-field>
-      <input matInput placeholder="subject id">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="school id">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="subject name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="subject code">
-    </mat-form-field>
-     <mat-form-field>
-      <input matInput placeholder="subject description">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="is active">
-    </mat-form-field>
-  <div>
-      <button class="btn btn-primary">Submit</button>
-      <button class="btn btn-danger">Reset</button>
-  </div>
-  </div>
+    <mat-card>
+      <mat-card-title>Subject Management</mat-card-title>
+      
+      <mat-card-content>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Subject Id</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">School Id</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Subject Name</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Subject Code</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Subject Description</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Is Active</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+    <div>
+        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-danger">Reset</button>
+    </div>
+
+</mat-card-content>
+</mat-card>
+</div>

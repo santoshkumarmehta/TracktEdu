@@ -1,21 +1,45 @@
+
+
 <div class="container">
-    <mat-form-field>
-      <input matInput placeholder="batch_id">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="course_id">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="batch_name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="batch_code">
-    </mat-form-field>
-     <mat-form-field>
-      <input matInput placeholder="isActive">
-    </mat-form-field>
-  <div>
-      <button class="btn btn-primary">Submit</button>
-      <button class="btn btn-danger">Reset</button>
-  </div>
-  </div>
+    <mat-card>
+      <mat-card-title>Batch Management</mat-card-title>
+      
+      <mat-card-content>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Batch Id</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Course Id</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Batch Name</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Batch Code</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" id="inputGroup-sizing-default">Is Active</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+<div>
+    <button class="btn btn-primary">Submit</button>
+    <button class="btn btn-danger">Reset</button>
+</div>
+
+</mat-card-content>
+</mat-card>
+</div>
