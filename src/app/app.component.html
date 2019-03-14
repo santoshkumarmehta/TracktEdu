@@ -1,5 +1,27 @@
-
-
-    
-<router-outlet>
-</router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <app-sidenav1 (sidenavClose)="sidenav.close()"></app-sidenav1>
+    </mat-sidenav>
+    <mat-sidenav-content>
+     <app-dashboard-header *ngIf="showHead" (sidenavToggle)="sidenav.toggle()"></app-dashboard-header>
+      <main>
+         <router-outlet></router-outlet>
+      </main>
+      <!-- <div [ngClass]="{
+        'col-md-8': (this.dash.showLeftMenu && !this.dash.showRightMenu && this.dash.leftMenuToggler),
+        'col-md-10': (this.dash.showLeftMenu && this.dash.showRightMenu && this.dash.leftMenuToggler) || (!this.dash.showLeftMenu && !this.dash.showRightMenu && this.dash.leftMenuToggler),
+        'col-md-12': (!this.dash.showLeftMenu && this.dash.showRightMenu && this.dash.leftMenuToggler),
+        'col-md-9':(this.dash.showLeftMenu && !this.dash.leftMenuToggler && !this.dash.showRightMenu),
+        'col-md-11':(this.dash.showLeftMenu && !this.dash.leftMenuToggler && this.dash.showRightMenu)      
+        
+      }">
+        <div class="container-fluid routerOutlet1">
+          <router-outlet></router-outlet>
+        </div>
+      </div> -->
+    </mat-sidenav-content>
+    <mat-sidenav-content>
+   
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

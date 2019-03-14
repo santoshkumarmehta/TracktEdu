@@ -11,7 +11,7 @@ import { MatSidenavModule,
   MatMenuModule,
   MatAutocompleteModule,
   
-  
+  MatCardModule,
   MatPaginatorModule,
   MatTableModule,
   MatGridListModule,
@@ -41,7 +41,8 @@ import { MatSidenavModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
     
   ],
   exports: [
@@ -62,7 +63,8 @@ import { MatSidenavModule,
     MatDatepickerModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ]
 })
 export class MaterialModule { }

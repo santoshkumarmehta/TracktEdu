@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { TopMenuService } from './top-menu.service';
+import { Router, NavigationStart } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -8,12 +10,22 @@ import { TopMenuService } from './top-menu.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'rubuha';
-  selectedId:number;
-  constructor(private _topMenuService:TopMenuService ){}
-  ngOnInit() {
-    this.selectedId = this._topMenuService.selectedMenuId;
+
+  showHead:boolean=false;
+
+  constructor(private router:Router){
+    router.events.forEach((event)=>{
+      if(event instanceof NavigationStart){
+        if((event['url']=='/login') || (event['url']=="/register") || (event['url']=="/forgotpassword")){
+          this.showHead=false;
+        }
+        else {
+          this.showHead=true;
+        }
+      }
+    })
   }
+  
   
   
 }
