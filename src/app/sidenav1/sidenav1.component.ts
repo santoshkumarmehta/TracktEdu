@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef,Output, EventEmitter} from '@angular/core';
-import { DashService } from '../dash.service';
+
 import { Router } from '@angular/router';
 import { Renderer2 } from '@angular/core';
 
@@ -13,16 +13,13 @@ declare var $:any;
 export class Sidenav1Component implements OnInit {
   
 // menus:string="http://localhost:3000/menu";
-  constructor(private dash:DashService, private router:Router,
+  constructor( private router:Router,
     private renderer: Renderer2, private el: ElementRef) { 
     
   }
    selectedIndex:number=undefined;
    temp=[];
    t:boolean[]=[];
-
-   MainMenus =['Course Management','Subject Management','Batch Management','Student management'];
- mainMenu1Route=['dashboard/course','dashboard/batch','dashboard/form2','dashboard/addnew'];
   
  showHide1(){
    this.router.navigate(['/course']);
@@ -43,8 +40,5 @@ showHide5(){
     }
 
    status: boolean = true;
-   showHide(){
-     this.status = !this.status;  
-     this.dash.leftMenuToggler = !this.dash.leftMenuToggler;     
-   }
+   
  }

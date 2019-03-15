@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TopMenuService } from '../top-menu.service';
 import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register',

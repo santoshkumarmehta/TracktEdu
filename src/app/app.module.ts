@@ -6,17 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
-import { TopMenuService } from './top-menu.service';
 import { Carousel1Component } from './carousel1/carousel1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Sidenav1Component } from './sidenav1/sidenav1.component';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
-import { DashService } from './dash.service';
 import { RightsidenavComponent } from './rightsidenav/rightsidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-
-
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule,MatInputModule,MatFormFieldModule,MatTabsModule} from '@angular/material';
 import { RegisterComponent } from './register/register.component';
@@ -61,7 +57,7 @@ import { ChapterComponent } from './chapter/chapter.component';
 
   ],
   entryComponents:[MenusComponent],
-  providers: [TopMenuService, DashService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

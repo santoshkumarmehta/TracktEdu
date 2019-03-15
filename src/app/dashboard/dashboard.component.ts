@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TopMenuService } from '../top-menu.service';
-import { DashService } from '../dash.service';
-
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,12 +8,10 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private _topMenuService:TopMenuService,private dash:DashService,private childrouter:Router ) { }
+  constructor(private childrouter:Router ) { }
   
   ngOnInit() {
-    this._topMenuService.nav1 = false;
-    this.dash.showLeftMenu=true;
-    this.dash.showRightMenu=true;
+    
   }
 
   

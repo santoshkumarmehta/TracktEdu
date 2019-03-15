@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DashService } from './dash.service';
+import { BatchService } from './batch.service';
 
-describe('DashService', () => {
+describe('BatchService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DashService = TestBed.get(DashService);
+    const service: BatchService = TestBed.get(BatchService);
     expect(service).toBeTruthy();
   });
 });

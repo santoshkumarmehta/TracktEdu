@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-
-import { TopMenuService } from './top-menu.service';
 import { Router, NavigationStart } from '@angular/router';
 
 
