@@ -7,7 +7,7 @@
         <form [formGroup]="courseForm">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Course Id</span>
+           <span class="input-group-text"id="inputGroup-sizing-default">Course Id</span>
           </div>
           <input type="text" class="form-control" formControlName="courseid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
@@ -35,10 +35,15 @@
           </div>
           <input type="text" class="form-control" formControlName="isactive" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control search" placeholder="search here for deleteing and update..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <button class="btn btnsearch" (click)="retriveCourse()">search</button>
+        </div>
+
         <div>
             <button class="btn btn-primary" (click)="addCourse()">Add</button>
-            <button class="btn btn-primary btns">Update</button>
-            <button class="btn btn-danger btns">Delete</button>
+            <button class="btn btn-primary btns" (click)="updateCourse()">Update</button>
+            <button class="btn btn-danger btns" (click)="deleteCourse()">Delete</button>
         </div>
 </form>
 </mat-card-content>

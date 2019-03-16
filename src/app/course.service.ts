@@ -16,7 +16,17 @@ export class CourseService {
       return this.http.post(this.courseurl,course);
     }
 
-    // retrive(){
-    //   return this.http.post(this.url,course);
-    // }
+
+    retriveCOurse(search){
+      return this.http.get(this.courseurl+`?courseid=${search}`);
+      
+    }
+    deleteCourse(id){
+      console.log(id)
+       return this.http.delete(this.courseurl+`/${id}`);
+    }
+
+    updateCourse(search){
+  
+    }
 }

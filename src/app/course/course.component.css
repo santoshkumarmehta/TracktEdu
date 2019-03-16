@@ -13,3 +13,13 @@
   mat-card-title{
       text-align: center;
   }
+
+  .search{
+width: 50%;
+
+  }
+
+  .btnsearch{
+      width: 250px;
+      border:1px solid black;
+  }
