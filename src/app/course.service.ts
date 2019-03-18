@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class CourseService {
 
   courseurl:string;
+
  constructor( private appservice:AppService, private http:HttpClient) { 
    this.courseurl=this.appservice.baseurl+'/course';
     }
@@ -26,7 +27,7 @@ export class CourseService {
        return this.http.delete(this.courseurl+`/${id}`);
     }
 
-    updateCourse(search){
-  
+    tabledatacolumn(search){
+      return this.http.get(this.courseurl+`?courseid=${search}`);
     }
 }

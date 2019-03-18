@@ -18,8 +18,17 @@
 width: 50%;
 
   }
-
   .btnsearch{
       width: 250px;
       border:1px solid black;
+  }
+
+  .chkbox{
+      background-color: rgb(155, 18, 18);
+      height: 38px;
+      width: 38px;
+  }
+
+  input{
+      margin-left: 5px;
   }

@@ -1,0 +1,107 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": [
+    {
+      "name": "typicode"
+    }
+  ],
+  "course": [
+    {
+      "courseid": "asa",
+      "schoolid": "aa",
+      "coursename": "ad",
+      "coursecode": "dsa",
+      "isactive": "yes",
+      "id": 136
+    },
+    {
+      "courseid": "vcbnv",
+      "schoolid": "nbvn",
+      "coursename": "vbnbvn",
+      "coursecode": "vbmvbm",
+      "isactive": "vbmvbm",
+      "id": 140
+    },
+    {
+      "courseid": "121",
+      "schoolid": "321",
+      "coursename": "Btd",
+      "coursecode": "455",
+      "isactive": "dsf",
+      "id": 145
+    },
+    {
+      "courseid": "aaa",
+      "schoolid": "dddd",
+      "coursename": "fffff",
+      "coursecode": "ggggg",
+      "isactive": "ggggg",
+      "id": 147
+    },
+    {
+      "courseid": "aaa",
+      "schoolid": "bbb",
+      "coursename": "ccc",
+      "coursecode": "ddd",
+      "isactive": "ee",
+      "search": "",
+      "id": 148
+    },
+    {
+      "courseid": "aaa",
+      "schoolid": "dddd",
+      "coursename": "fffff",
+      "coursecode": "ggggg",
+      "isactive": false,
+      "search": "aaa",
+      "id": 149
+    },
+    {
+      "courseid": "aaa",
+      "schoolid": "dddd",
+      "coursename": "fffff",
+      "coursecode": "ggggg",
+      "isactive": true,
+      "search": "aaa",
+      "id": 150
+    },
+    {
+      "courseid": "aaa",
+      "schoolid": "dddd",
+      "coursename": "dfsgdg",
+      "coursecode": "sdfgsdg",
+      "isactive": "ggggg",
+      "search": "aaa",
+      "id": 151
+    },
+    {
+      "courseid": "aaa",
+      "schoolid": "dddd",
+      "coursename": "hhh",
+      "coursecode": "ggggg",
+      "isactive": "ggggg",
+      "id": 152
+    },
+    {
+      "courseid": "123",
+      "schoolid": "456",
+      "coursename": "Bcom",
+      "coursecode": "askll",
+      "isactive": true,
+      "id": 154
+    }
+  ]
+}

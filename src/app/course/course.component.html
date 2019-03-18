@@ -1,45 +1,43 @@
 
 <div class="container">
-    <mat-card>
+       <mat-card>
       <mat-card-title>Course Management</mat-card-title>
-      
-      <mat-card-content>
+       <mat-card-content>
         <form [formGroup]="courseForm">
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
-           <span class="input-group-text"id="inputGroup-sizing-default">Course Id</span>
+          <div >
+           <span class="input-group-text">Course Id</span>
           </div>
-          <input type="text" class="form-control" formControlName="courseid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="courseid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">School Id</span>
+          <div>
+           <span class="input-group-text">School Id</span>
           </div>
-          <input type="text" class="form-control" formControlName="schoolid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="schoolid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
+          <div>
            <span class="input-group-text" id="inputGroup-sizing-default">Course Name</span>
           </div>
           <input type="text" class="form-control" formControlName="coursename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
+          <div>
            <span class="input-group-text" id="inputGroup-sizing-default">Course Code</span>
           </div>
           <input type="text" class="form-control" formControlName="coursecode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
+          <div>
            <span class="input-group-text" id="inputGroup-sizing-default">Is Active</span>
           </div>
-          <input type="text" class="form-control" formControlName="isactive" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="checkbox"  class="chkbox" formControlName="isactive">
         </div>
-        <div class="input-group mb-3">
+        <!-- <div class="input-group mb-3">
             <input type="text" class="form-control search" placeholder="search here for deleteing and update..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             <button class="btn btnsearch" (click)="retriveCourse()">search</button>
-        </div>
-
+        </div> -->
         <div>
             <button class="btn btn-primary" (click)="addCourse()">Add</button>
             <button class="btn btn-primary btns" (click)="updateCourse()">Update</button>
@@ -47,5 +45,43 @@
         </div>
 </form>
 </mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+  <mat-card-content>
+  <form [formGroup]="searchData">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control search" placeholder="search here for deleteing and update..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <button class="btn btnsearch" (click)="retriveCourse()">search</button>
+    </div>
+  </form>
+</mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+  <table class="table table-striped" *ngIf="tableData">
+    <thead>
+      <tr>
+          <th>Id</th>
+        <th>Course Id</th>
+        <th>School Id</th>
+        <th>Course Name</th>
+        <th>Course Code</th>
+        <th>Is Active</th>
+      </tr>
+  </thead>
+  <tbody (click)="retriveCourse()">
+  <tr *ngFor="let table of tableData">
+       
+       <td>{{table.id}}</td>
+        <td>{{table.courseid}}</td>
+        <td>{{table.schoolid}}</td>
+        <td>{{table.coursename}}</td>
+        <td>{{table.coursecode}}</td>
+        <td>{{table.isactive}}</td>
+        <button mat-button class="btn btn-primary " >Edit</button>
+      </tr>
+  </tbody>
+  </table>
 </mat-card>
 </div>
