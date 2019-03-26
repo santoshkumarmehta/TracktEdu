@@ -24,6 +24,7 @@ import { SubjectComponent } from './subject/subject.component';
 import { BatchComponent } from './batch/batch.component';
 import { StudentComponent } from './student/student.component';
 import { ChapterComponent } from './chapter/chapter.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,10 @@ import { ChapterComponent } from './chapter/chapter.component';
     BatchComponent,
     StudentComponent,
     ChapterComponent,
+    AddcourseComponent,
     ],
   imports: [
+    FormsModule,
     BrowserModule,
     NgbModule,ReactiveFormsModule,
     AppRoutingModule,MatInputModule,MatTabsModule,
