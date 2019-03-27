@@ -1,0 +1,70 @@
+<div class="container">
+    <mat-card>
+      <mat-card-title>Student Management</mat-card-title>
+      <form [formGroup]="studentForm">
+        <mat-card-content>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" >Student Id</span>
+          </div>
+          <input type="text" class="form-control"  formControlName="studentid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" >School Id</span>
+          </div>
+          <input type="text" class="form-control" formControlName="schoolid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text">Course Id</span>
+          </div>
+          <input type="text" class="form-control" formControlName="courseid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" >Batch Id</span>
+          </div>
+          <input type="text" class="form-control" formControlNam="batchid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text">First Name</span>
+            </div>
+            <input type="text" class="form-control" formControlName="firstname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+               <span class="input-group-text" >Middle Name</span>
+              </div>
+              <input type="text" class="form-control"  formControlName="middlename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text" >Last Name</span>
+          </div>
+          <input type="text" class="form-control" formControlName="lastname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text">Registration Code</span>
+          </div>
+          <input type="text" class="form-control" formControlName="registrationcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <!-- Dob -->
+        <div class='input-group mb-3 date' id='datetimepicker1'>
+          <div class="input-group-prepend">
+          <span class="input-group-text"> D.O.B</span>
+          </div>
+           <input type='text' class="form-control dob" formControlName="dob" matInput [matDatepicker]="picker" placeholder="mm/dd/yy">
+           <mat-datepicker-toggle class="btn" matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker #picker></mat-datepicker>
+        </div>
+      <div>
+          <button mat-button class="btn btn-primary" (click)="addData()">Add</button>
+      </div>
+
+</mat-card-content>
+</form>
+</mat-card>
+</div>

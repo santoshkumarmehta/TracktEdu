@@ -12,3 +12,18 @@
   mat-card-title{
       text-align: center;
   }
+
+  .addbatch{
+      float: right !important;
+       }
+.chkbox{
+  height: 38px;
+  width: 38px;
+  margin-left: 10px;
+}
+.editbtns{
+    margin-top: 5px;
+    width: 80px;
+    height: 40px;
+    margin-left: 10px;
+  }

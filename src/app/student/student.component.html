@@ -1,59 +1,61 @@
 <div class="container">
+    <button mat-button class="btn btn-primary addbatch" routerLink="/addstudent"> Add Student</button>
+    <br><br>
     <mat-card>
       <mat-card-title>Student Management</mat-card-title>
-      
+      <form [formGroup]="studentForm">
       <mat-card-content>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Student Id</span>
+           <span class="input-group-text">Student Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="studentid" [attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">School Id</span>
+           <span class="input-group-text">School Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="schoolid" [attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Course Id</span>
+           <span class="input-group-text">Course Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="courseid"[attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Batch Id</span>
+           <span class="input-group-text">Batch Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="batchid" [attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-             <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+             <span class="input-group-text">First Name</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" formControlName="firstname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
           </div>
           <div class="input-group mb-3">
               <div class="input-group-prepend">
-               <span class="input-group-text" id="inputGroup-sizing-default">Middle Name</span>
+               <span class="input-group-text" >Middle Name</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" formControlName="middlename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+           <span class="input-group-text">Last Name</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="lastname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Registration Code</span>
+           <span class="input-group-text">Registration Code</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="registrationcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <!-- Dob -->
         <div class='input-group mb-3 date' id='datetimepicker1'>
-           <input type='text' class="form-control" matInput [matDatepicker]="picker" placeholder="mm/dd/yy">
+           <input type='text' class="form-control" formControlName="dob" matInput [matDatepicker]="picker" placeholder="mm/dd/yy">
            <mat-datepicker-toggle class="btn" matSuffix [for]="picker"></mat-datepicker-toggle>
            <mat-datepicker #picker></mat-datepicker>
         </div>
@@ -63,5 +65,39 @@
       </div>
 
 </mat-card-content>
+</form>
+</mat-card>
+
+
+<br>
+<mat-card>
+    <mat-card-title>Subject Table</mat-card-title>
+  <table class="table table-striped" *ngIf="tableData">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Subject Id</th>
+        <th>School Id</th>
+        <th>Subject Name</th>
+        <th>Subject Code</th>
+        <th>Subject Description</th>
+        <th>Is Active</th>
+      </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let table of tableData">
+       
+       <td>{{table.id}}</td>
+        <td>{{table.subjectid}}</td>
+        <td>{{table.schoolid}}</td>
+        <td>{{table.subjectname}}</td>
+        <td>{{table.subjectcode}}</td>
+        <td>{{table.subjectdescription}}</td>
+        <td>{{table.isactive}}</td>
+        
+        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
+      </tr>
+  </tbody>
+  </table>
 </mat-card>
 </div>

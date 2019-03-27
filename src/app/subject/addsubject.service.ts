@@ -9,9 +9,10 @@ export class AddsubjectService {
 
 subjecturl;
 
-  constructor(private appService:AppService, private http:HttpClient) {
+constructor(private appService:AppService, private http:HttpClient) {
     this.subjecturl=this.appService.baseurl + '/subject';
    }
+
  addSubject(subject){
    return this.http.post(this.subjecturl,subject);
  }

@@ -11,10 +11,8 @@ import { FormControl } from "@angular/forms";
 export class AddsubjectComponent implements OnInit {
 
   subjectForm:FormGroup;
-  tableurl;
-  
 
-  ngOnInit() {
+    ngOnInit() {
     this.subjectForm=this.formBuilder.group({
       id:[''],
       subjectid:[''],
@@ -28,13 +26,13 @@ export class AddsubjectComponent implements OnInit {
     
     }
 
-  constructor( private http:HttpClient, private formBuilder:FormBuilder, private addsubject:AddsubjectService) { 
-    this.tableurl=this.addsubject.subjecturl;
+  constructor( private http:HttpClient, private formBuilder:FormBuilder, private addsubjectservice:AddsubjectService) { 
+ 
 
   }
 
   addSubject(){
-    this.addsubject.addSubject(this.subjectForm.value).subscribe((res)=>{
+    this.addsubjectservice.addSubject(this.subjectForm.value).subscribe((res)=>{
     });
   }
 
