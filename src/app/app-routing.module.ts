@@ -13,6 +13,7 @@ import { StudentComponent } from './student/student.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
+import { AddsubjectComponent } from './subject/addsubject/addsubject.component';
 
 
 
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path:'subject', component:SubjectComponent},
   {path:'chapter', component:ChapterComponent},
   {path:'addcourse', component:AddcourseComponent},
-
+  {path:'addsubject', component:AddsubjectComponent},
 
 ];
 

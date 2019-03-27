@@ -25,6 +25,8 @@ import { BatchComponent } from './batch/batch.component';
 import { StudentComponent } from './student/student.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
+import { AddsubjectComponent } from './subject/addsubject/addsubject.component';
+import { AddbatchComponent } from './batch/addbatch/addbatch.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     StudentComponent,
     ChapterComponent,
     AddcourseComponent,
+    AddsubjectComponent,
+    AddbatchComponent,
     ],
   imports: [
     FormsModule,

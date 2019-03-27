@@ -1,49 +1,104 @@
 <div class="container">
+  <button mat-button class="btn btn-primary addsubject" routerLink="/addsubject"> Add Subject</button>
+<br><br>
+<div>
     <mat-card>
       <mat-card-title>Subject Management</mat-card-title>
-      
       <mat-card-content>
+        <form [formGroup]="subjectForm">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">Id</span>
+                </div>
+                <input type="text" class="form-control" formControlName="id" [attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Subject Id</span>
+           <span class="input-group-text">Subject Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="subjectid" [attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">School Id</span>
+           <span class="input-group-text" >School Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="schoolid" [attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Subject Name</span>
+           <span class="input-group-text" >Subject Name</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="subjectname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Subject Code</span>
+           <span class="input-group-text" >Subject Code</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control"  formControlName="subjectcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Subject Description</span>
+           <span class="input-group-text" >Subject Description</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="subjectdescription" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Is Active</span>
-          </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <div>
+          <span class="input-group-text" >Is Active</span>
+        </div>
+           <input type="checkbox"  class="chkbox" formControlName="isactive">
         </div>
     <div>
-        <button class="btn btn-primary">Submit</button>
-        <button class="btn btn-danger">Reset</button>
+        <button mat-button class="btn btn-primary" (click)="updateSubject()">Update</button>
+        <button mat-button class="btn btn-danger" (click)="deleteSubject()">Delete</button>
     </div>
-
+  </form>
 </mat-card-content>
+</mat-card>
+</div>
+<br>
+<mat-card>
+  <mat-card-title>Search</mat-card-title>
+  <mat-card-content>
+  <form [formGroup]="searchSubject">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control search" placeholder="search here throgh Id..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <button class="btn btnsearch" (click)="retriveSubject()">search</button>
+    </div>
+  </form>
+</mat-card-content>
+</mat-card>
+<br>
+
+<br>
+<mat-card>
+    <mat-card-title>Subject Table</mat-card-title>
+  <table class="table table-striped" *ngIf="tableData">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Subject Id</th>
+        <th>School Id</th>
+        <th>Subject Name</th>
+        <th>Subject Code</th>
+        <th>Subject Description</th>
+        <th>Is Active</th>
+      </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let table of tableData">
+       
+       <td>{{table.id}}</td>
+        <td>{{table.subjectid}}</td>
+        <td>{{table.schoolid}}</td>
+        <td>{{table.subjectname}}</td>
+        <td>{{table.subjectcode}}</td>
+        <td>{{table.subjectdescription}}</td>
+        <td>{{table.isactive}}</td>
+        
+        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
+      </tr>
+  </tbody>
+  </table>
 </mat-card>
 </div>

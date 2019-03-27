@@ -12,22 +12,9 @@
   mat-card-title{
       text-align: center;
   }
-
-  .addsubject{
-      float: right !important;
-  }
-
   .chkbox{
     background-color: rgb(155, 18, 18);
     height: 38px;
     width: 38px;
     margin-left: 10px;
-  }
- .search{
-    width: 50%;
-  }
-
-.btnsearch{
-  width: 250px;
-  border:1px solid black;
- }
+}

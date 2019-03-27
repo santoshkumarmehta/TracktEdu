@@ -16,4 +16,7 @@ export class AddcourseService{
   addCourse(course){
     return this.http.post(this.courseurl,course);
   }
+
+  
+
 }

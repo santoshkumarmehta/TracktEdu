@@ -38,7 +38,6 @@ export class CourseComponent implements OnInit {
       search:['']
     })
 }
-
   courseForm:FormGroup;
   searchData:FormGroup;
   
@@ -86,8 +85,6 @@ get edit(){
     })
   }
 
-  coursename;
-  coursecode;
   // for update
 
   updateCourse(){
@@ -116,7 +113,6 @@ get updateId(){
   return this.courseForm.get('id').value;
 }
 
-  
 // table column
 tabledatacolumn(){
  this.courseService.tabledatacolumn(this.tableurl).subscribe((res)=>{
@@ -125,7 +121,6 @@ tabledatacolumn(){
   (<FormControl>this.courseForm.controls['coursename']).setValue(res[0].coursename);
   (<FormControl>this.courseForm.controls['coursecode']).setValue(res[0].coursecode);
   (<FormControl>this.courseForm.controls['isactive']).setValue(res[0].isactive);
-
  })
  } 
 
