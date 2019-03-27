@@ -17,4 +17,16 @@ export class StudentService {
   studenttable(search){
     return this.http.get(this.studenturl+`?studentid=${search}`)
   }
+
+  editData(search){
+    return this.http.get(this.studenturl+`?id=${search}`)
+  }
+
+update(id, studentForm){
+  return this.http.patch(this.studenturl+`/${id}`,studentForm);
+}
+
+  delete(id){
+    return this.http.delete(this.studenturl+`/${id}`);
+  }
 }

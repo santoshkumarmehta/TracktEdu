@@ -5,6 +5,12 @@
       <mat-card-title>Student Management</mat-card-title>
       <form [formGroup]="studentForm">
       <mat-card-content>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+               <span class="input-group-text">Id</span>
+              </div>
+              <input type="text" class="form-control" formControlName="id" [attr.readonly]= "isReadOnly" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
            <span class="input-group-text">Student Id</span>
@@ -55,49 +61,58 @@
         </div>
         <!-- Dob -->
         <div class='input-group mb-3 date' id='datetimepicker1'>
+            <div class="input-group-prepend">
+            <span class="input-group-text">D.O.B</span>
+           </div>
            <input type='text' class="form-control" formControlName="dob" matInput [matDatepicker]="picker" placeholder="mm/dd/yy">
            <mat-datepicker-toggle class="btn" matSuffix [for]="picker"></mat-datepicker-toggle>
            <mat-datepicker #picker></mat-datepicker>
         </div>
       <div>
-          <button class="btn btn-primary">Submit</button>
-          <button class="btn btn-danger">Reset</button>
+          <button mat-button class="btn btn-primary" (click)="updtaeData()">Update</button>
+          <button mat-button class="btn btn-danger"  (click)="deleteData()">Delete</button>
       </div>
 
 </mat-card-content>
 </form>
 </mat-card>
 
-
-<br>
+</div>
+<div class="container-fluid"></div>
 <mat-card>
     <mat-card-title>Subject Table</mat-card-title>
-  <table class="table table-striped" *ngIf="tableData">
+  <table class="table table-trimd" *ngIf="tableData">
     <thead>
       <tr>
         <th>Id</th>
-        <th>Subject Id</th>
+        <th>Student Id</th>
         <th>School Id</th>
-        <th>Subject Name</th>
-        <th>Subject Code</th>
-        <th>Subject Description</th>
-        <th>Is Active</th>
+        <th>Course Id</th>
+        <th>Batch Id</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Registration Code</th>
+        <th>D.O.B</th>
       </tr>
   </thead>
   <tbody>
   <tr *ngFor="let table of tableData">
        
        <td>{{table.id}}</td>
-        <td>{{table.subjectid}}</td>
+        <td>{{table.studentid}}</td>
         <td>{{table.schoolid}}</td>
-        <td>{{table.subjectname}}</td>
-        <td>{{table.subjectcode}}</td>
-        <td>{{table.subjectdescription}}</td>
-        <td>{{table.isactive}}</td>
+        <td>{{table.courseid}}</td>
+        <td>{{table.batchid}}</td>
+        <td>{{table.firstname}}</td>
+        <td>{{table.middlename}}</td>
+        <td>{{table.lastname}}</td>
+        <td>{{table.registrationcode}}</td>
+        <td>{{table.dob|date:'dd/MM/yy'}}</td>
         
         <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
       </tr>
   </tbody>
   </table>
 </mat-card>
-</div>
+
