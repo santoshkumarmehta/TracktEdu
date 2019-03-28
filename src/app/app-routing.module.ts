@@ -16,7 +16,7 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
 import { AddsubjectComponent } from './subject/addsubject/addsubject.component';
 import { AddbatchComponent } from './batch/addbatch/addbatch.component';
 import { AddstudentComponent } from './student/addstudent/addstudent.component';
-
+import { AddchapterComponent } from './chapter/addchapter/addchapter.component';
 
 
 const routes: Routes = [
@@ -37,6 +37,7 @@ const routes: Routes = [
   {path:'addsubject', component:AddsubjectComponent},
   { path:'addbatch', component:AddbatchComponent},
   {path:'addstudent', component:AddstudentComponent},
+  { path:'addchapter', component:AddchapterComponent}
 ];
 
 

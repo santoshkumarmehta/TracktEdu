@@ -1,44 +1,85 @@
 <div class="container">
+    <button mat-button class="btn btn-primary addchapter" routerLink="/addchapter"> Add Chapter</button>
+    <br><br>
     <mat-card>
       <mat-card-title>Chapter Management</mat-card-title>
-      
+      <form [formGroup]="chapterForm">
       <mat-card-content>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Chapter Id</span>
+            <span class="input-group-text">Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Subject Id</span>
+           <span class="input-group-text">Chapter Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="chapterid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Chapter Name</span>
+           <span class="input-group-text" >Subject Id</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="subjectid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Chapter Desciption</span>
+           <span class="input-group-text" >Chapter Name</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="chaptername" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text" id="inputGroup-sizing-default">Is Active</span>
+           <span class="input-group-text">Chapter Desciption</span>
           </div>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <input type="text" class="form-control" formControlName="chspterdscription" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div>
+           <span class="input-group-text">Is Active</span>
+          </div>
+          <input type="checkbox" formControlName="isactive" class="chkbox">
         </div>
 <div>
-    <button class="btn btn-primary">Submit</button>
-    <button class="btn btn-danger">Reset</button>
+    <button mat-button class="btn btn-primary" (click)="upadtaeData()" >Update</button>
+    <button mat-button class="btn btn-danger" (click)="deleteData()">Delete</button>
 </div>
 
 </mat-card-content>
+</form>
 </mat-card>
+
+
+<br>
+<mat-card>
+    <mat-card-title>Chapter Table</mat-card-title>
+  <table class="table table-striped" *ngIf="chaptertable">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Chapter Id</th>
+        <th>Subject Id</th>
+        <th>Chapter Name</th>
+        <th>Chapter Desciption</th>
+        <th>Is Active</th>
+      </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let table of chaptertable">
+       
+       <td>{{table.id}}</td>
+        <td>{{table.chapterid}}</td>
+        <td>{{table.subjectid}}</td>
+        <td>{{table.chaptername}}</td>
+        <td>{{table.chspterdscription}}</td>
+        <td>{{table.isactive}}</td>
+        
+        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
+      </tr>
+  </tbody>
+  </table>
+</mat-card>
+
 </div>
 

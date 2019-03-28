@@ -81,7 +81,6 @@ export class StudentComponent implements OnInit {
 
   deleteData(){
     this.studentservice.delete(this.id).subscribe(res=>{
-      
-    })
+      })
   }
 }

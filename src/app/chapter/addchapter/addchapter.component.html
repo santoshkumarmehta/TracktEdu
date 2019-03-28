@@ -1,0 +1,46 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Chapter Management</mat-card-title>
+    <form [formGroup]="chapterForm">
+    <mat-card-content>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+         <span class="input-group-text">Chapter Id</span>
+        </div>
+        <input type="text" class="form-control" formControlName="chapterid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+         <span class="input-group-text">Subject Id</span>
+        </div>
+        <input type="text" class="form-control" formControlName="subjectid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+         <span class="input-group-text">Chapter Name</span>
+        </div>
+        <input type="text" class="form-control" formControlName="chaptername" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+         <span class="input-group-text">Chapter Desciption</span>
+        </div>
+        <input type="text" class="form-control" formControlName="chspterdscription" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div>
+         <span class="input-group-text">Is Active</span>
+        </div>
+        <input type="checkbox" class="chkbox" formControlName="isactive" >
+      </div>
+<div>
+  <button mat-button class="btn btn-primary" (click)="addChapter()"> Add</button>
+  
+</div>
+
+</mat-card-content>
+</form>
+</mat-card>
+</div>
+
+
