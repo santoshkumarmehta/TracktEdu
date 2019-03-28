@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CourseService } from '../course.service';
+import { CourseService } from './course.service';
 import { FormControl } from "@angular/forms";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {AppService} from '../app.service';

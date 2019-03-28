@@ -34,3 +34,7 @@
     height: 40px;
     margin-left: 10px;
   }
+
+  .addbtn{
+      float: right !important;
+  }

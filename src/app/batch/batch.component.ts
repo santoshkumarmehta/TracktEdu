@@ -13,6 +13,7 @@ import { FormControl } from "@angular/forms";
 export class BatchComponent implements OnInit {
   isReadOnly=true;
   batchForm:FormGroup;
+  searchData:FormGroup;
   public id;
   tableBatch:string [];
   batchUrl;
@@ -33,6 +34,9 @@ this.batchForm= this.formBuilder.group({
     batchcode:[''],
     isactive:['']
    })
+this.searchData=this.formBuilder.group({
+  search:['']
+})
   }
 
 batchColumnData(){
@@ -55,6 +59,23 @@ editData(id){
     (<FormControl>this.batchForm.controls['batchcode']).setValue(res[0].batchcode);
     (<FormControl>this.batchForm.controls['isactive']).setValue(res[0].isactive);
   })
+}
+
+get search(){
+  // console.log(this.courseForm.get('search'))
+  return this.searchData.get('search');
+}
+retriveCourse(){
+this.batchService.retriveCOurse(this.search.value).subscribe((res)=>{
+console.log(res[0]);
+this.id=res[0].id;
+(<FormControl>this.batchForm.controls['id']).setValue(res[0].id);
+  (<FormControl>this.batchForm.controls['batchid']).setValue(res[0].batchid);
+  (<FormControl>this.batchForm.controls['courseid']).setValue(res[0].courseid);
+    (<FormControl>this.batchForm.controls['batchname']).setValue(res[0].batchname);
+    (<FormControl>this.batchForm.controls['batchcode']).setValue(res[0].batchcode);
+    (<FormControl>this.batchForm.controls['isactive']).setValue(res[0].isactive);
+ })
 }
 
 get update(){

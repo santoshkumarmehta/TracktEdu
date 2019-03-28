@@ -11,6 +11,7 @@ import { FormControl } from "@angular/forms";
 export class StudentComponent implements OnInit {
   isReadOnly=true;
   studentForm:FormGroup;
+  searchData:FormGroup;
   tableUrl;
   tableData:string [];
   public id;
@@ -35,6 +36,10 @@ export class StudentComponent implements OnInit {
       lastname:[''],
       registrationcode:[''],
       dob:['']
+    })
+
+    this.searchData=this.formBuilder.group({
+      search:['']
     })
   }
 
@@ -83,4 +88,27 @@ export class StudentComponent implements OnInit {
     this.studentservice.delete(this.id).subscribe(res=>{
       })
   }
+
+
+get search(){
+  // console.log(this.courseForm.get('search'))
+  return this.searchData.get('search');
+}
+retriveCourse(){
+this.studentservice.retriveCOurse(this.search.value).subscribe((res)=>{
+console.log(res[0]);
+this.id=res[0].id;
+(<FormControl>this.studentForm.controls['id']).setValue(res[0].id);
+(<FormControl>this.studentForm.controls['studentid']).setValue(res[0].studentid);
+(<FormControl>this.studentForm.controls['schoolid']).setValue(res[0].schoolid);
+(<FormControl>this.studentForm.controls['courseid']).setValue(res[0].courseid);
+(<FormControl>this.studentForm.controls['batchid']).setValue(res[0].batchid);
+(<FormControl>this.studentForm.controls['firstname']).setValue(res[0].firstname);
+(<FormControl>this.studentForm.controls['middlename']).setValue(res[0].middlename);
+(<FormControl>this.studentForm.controls['lastname']).setValue(res[0].lastname);
+(<FormControl>this.studentForm.controls['registrationcode']).setValue(res[0].registrationcode);
+(<FormControl>this.studentForm.controls['dob']).setValue(res[0].dob);
+ })
+}
+
 }

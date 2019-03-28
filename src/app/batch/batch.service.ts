@@ -32,4 +32,9 @@ return this.http.patch(this.batchUrl+`/${id}`, form);
   deleteData(id){
     return this.http.delete(this.batchUrl+`/${id}`);
   }
+
+  retriveCOurse(search){
+    return this.http.get(this.batchUrl+`?id=${search}`);
+  }
+
 }

@@ -29,4 +29,9 @@ chapterUrl;
   deletedata(id){
    return this.http.delete(this.chapterUrl+`/${id}`);
   }
+
+  retriveCOurse(search){
+    return this.http.get(this.chapterUrl+`?id=${search}`);
+  }
+
 }

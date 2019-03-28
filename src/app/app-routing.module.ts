@@ -12,12 +12,11 @@ import { BatchComponent } from './batch/batch.component';
 import { StudentComponent } from './student/student.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ChapterComponent } from './chapter/chapter.component';
-import { AddcourseComponent } from './addcourse/addcourse.component';
 import { AddsubjectComponent } from './subject/addsubject/addsubject.component';
 import { AddbatchComponent } from './batch/addbatch/addbatch.component';
 import { AddstudentComponent } from './student/addstudent/addstudent.component';
 import { AddchapterComponent } from './chapter/addchapter/addchapter.component';
-
+import { AddcourseComponent } from './course/addcourse/addcourse.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch:'full'},
@@ -33,11 +32,10 @@ const routes: Routes = [
   { path:'student', component:StudentComponent },
   { path:'subject', component:SubjectComponent},
   {path:'chapter', component:ChapterComponent},
-  {path:'addcourse', component:AddcourseComponent},
-  {path:'addsubject', component:AddsubjectComponent},
   { path:'addbatch', component:AddbatchComponent},
   {path:'addstudent', component:AddstudentComponent},
-  { path:'addchapter', component:AddchapterComponent}
+  { path:'addchapter', component:AddchapterComponent},
+  {path:'addcourse', component:AddcourseComponent}
 ];
 
 

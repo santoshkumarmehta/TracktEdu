@@ -11,6 +11,7 @@ import { FormControl } from "@angular/forms";
 export class ChapterComponent implements OnInit {
 
   chapterForm: FormGroup;
+  searchData:FormGroup;
   tableurl;
   chaptertable: string[];
   public id;
@@ -34,6 +35,27 @@ export class ChapterComponent implements OnInit {
       chspterdscription: [''],
       isactive: ['']
     })
+
+    this.searchData= this.formBuilder.group({
+      search:['']
+    })
+  }
+
+  get search(){
+    // console.log(this.courseForm.get('search'))
+    return this.searchData.get('search');
+  }
+  retriveCourse(){
+  this.chapterService.retriveCOurse(this.search.value).subscribe((res)=>{
+  console.log(res[0]);
+  this.id=res[0].id;
+  (<FormControl>this.chapterForm.controls['id']).setValue(res[0].id);
+  (<FormControl>this.chapterForm.controls['chapterid']).setValue(res[0].chapterid);
+  (<FormControl>this.chapterForm.controls['subjectid']).setValue(res[0].subjectid);
+  (<FormControl>this.chapterForm.controls['chaptername']).setValue(res[0].chaptername);
+  (<FormControl>this.chapterForm.controls['chspterdscription']).setValue(res[0].chspterdscription);
+  (<FormControl>this.chapterForm.controls['isactive']).setValue(res[0].isactive);
+   })
   }
 
 

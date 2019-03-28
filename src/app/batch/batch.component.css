@@ -27,3 +27,11 @@
     height: 40px;
     margin-left: 10px;
   }
+
+  .search{
+    width: 50%;
+  }
+  .btnsearch{
+      width: 250px;
+      border:1px solid black;
+  }

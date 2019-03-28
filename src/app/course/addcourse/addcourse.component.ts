@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { AddcourseService } from '../addcourse.service';
+import {CourseService} from '../course.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddcourseComponent implements OnInit {
 
-  constructor(private formBuilder:FormBuilder,private addcourse:AddcourseService,  private http:HttpClient) { }
+  constructor(private formBuilder:FormBuilder,private addcourse:CourseService,  private http:HttpClient) { }
 
   courseForm:FormGroup;
 
