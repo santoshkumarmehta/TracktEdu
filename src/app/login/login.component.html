@@ -8,9 +8,9 @@
               <div class="loginheader"> Please Login Here</div>
 
                 <form action="" method="POST" class="loginform" [formGroup]="loginForm" >
-                    <mat-form-field class="mat_input firstInput" hintLabel="contain @">
+                    <mat-form-field class="mat_input firstInput">
                         <input  matInput placeholder="UserName/Email"  formControlName="email" required>
-                        
+                      
                     </mat-form-field>
                     <mat-form-field class="mat_input" hintLabel="6 to 12 character">
                        <input  matInput placeholder="Password" formControlName="password"  required>
@@ -21,11 +21,9 @@
                         <button type="submit" mat-button color="primary"(click)= "onSubmit()" class="loginbutton">Login</button><br> 
                         </section>
                     </div>
-                    <!-- <label (click)="open(fgtModel)" >{{fgtText}}</label> -->
-                                   
+                    <!-- <label (click)="open(fgtModel)" >{{fgtText}}</label> -->                   
                 </form>
-                  
-                <div class="otherbuttons"> 
+                  <div class="otherbuttons"> 
                     <p class="forgotpassword">
                     <button class="btns"  mat-button routerLink="/forgotpassword">Forgot Password ?</button>
                     <button class="btns" mat-button routerLink="/register">Register</button>

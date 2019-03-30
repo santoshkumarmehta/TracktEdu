@@ -12,6 +12,14 @@ import {AppService} from '../app.service';
 })
 export class CourseComponent implements OnInit {
 
+
+  constructor( private courseService:CourseService, private formBuilder:FormBuilder, private http:HttpClient, private appservice:AppService) {
+
+    this.tableurl=this.courseService.courseurl;
+  
+    }
+
+
   ngOnInit() {
     // for Table
       this.http.get(this.tableurl).subscribe( data=>{
@@ -24,8 +32,8 @@ export class CourseComponent implements OnInit {
       )
 
     this.courseForm=this.formBuilder.group({
-      id:[''],
-      courseid:[''],
+       id:[''],
+      // courseid:[''],
       schoolid:[''],
       coursename:[''],
       coursecode:[''],
@@ -33,6 +41,7 @@ export class CourseComponent implements OnInit {
     //  search:['',]
     })
 
+    
 //for search
     this.searchData= this.formBuilder.group({
       search:['']
@@ -46,38 +55,35 @@ export class CourseComponent implements OnInit {
   tableData:string [];
   public id;
 
- constructor( private courseService:CourseService, private formBuilder:FormBuilder, private http:HttpClient, private appservice:AppService) {
-
-  this.tableurl=this.courseService.courseurl;
-
-  }
+  searchdata:string[];
+  addCourse(){
+    this.courseService.addCourse(this.courseForm.value).subscribe((res)=>{
+  },
+   error=>{  }
+   );
+ }
 
   get search(){
     // console.log(this.courseForm.get('search'))
     return this.searchData.get('search');
   }
+
   retriveCourse(){
- this.courseService.retriveCOurse(this.search.value).subscribe((res)=>{
-  console.log(res[0]);
-  this.id=res[0].id;
-  (<FormControl>this.courseForm.controls['id']).setValue(res[0].id);
-    (<FormControl>this.courseForm.controls['courseid']).setValue(res[0].courseid);
-    (<FormControl>this.courseForm.controls['schoolid']).setValue(res[0].schoolid);
-    (<FormControl>this.courseForm.controls['coursename']).setValue(res[0].coursename);
-    (<FormControl>this.courseForm.controls['coursecode']).setValue(res[0].coursecode);
-    (<FormControl>this.courseForm.controls['isactive']).setValue(res[0].isactive);
+    this.courseService.retriveCOurse(this.search.value).subscribe((res)=>{
+    this.searchdata=res[0];
    })
   }
+
 // for Edit
 get edit(){
-  return this.courseForm.get('id');
+  return this.courseForm.get('coursename');
   }
   
   editData(id){
         this.courseService.editData(id).subscribe( data=>{
         this.id=data[0].id;
+        // (<FormControl>this.courseForm.controls['id']).setValue(data[0].id);
         (<FormControl>this.courseForm.controls['id']).setValue(data[0].id);
-        (<FormControl>this.courseForm.controls['courseid']).setValue(data[0].courseid);
         (<FormControl>this.courseForm.controls['schoolid']).setValue(data[0].schoolid);
         (<FormControl>this.courseForm.controls['coursename']).setValue(data[0].coursename);
         (<FormControl>this.courseForm.controls['coursecode']).setValue(data[0].coursecode);

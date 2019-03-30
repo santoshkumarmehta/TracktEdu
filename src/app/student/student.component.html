@@ -1,6 +1,6 @@
 <div class="container">
-    <button mat-button class="btn btn-primary addbatch" routerLink="/addstudent"> Add Student</button>
-    <br><br>
+    <!-- <button mat-button class="btn btn-primary addbatch" routerLink="/addstudent"> Add Student</button>
+    <br><br> -->
     <mat-card>
       <mat-card-title>Student Management</mat-card-title>
       <form [formGroup]="studentForm">
@@ -60,13 +60,13 @@
           <input type="text" class="form-control" formControlName="registrationcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <!-- Dob -->
-        <div class='input-group mb-3 date' id='datetimepicker1'>
+        <div class='input-group mb-3 date' >
             <div class="input-group-prepend">
             <span class="input-group-text">D.O.B</span>
            </div>
-           <input type='text' class="form-control" formControlName="dob" matInput [matDatepicker]="picker" placeholder="mm/dd/yy">
-           <mat-datepicker-toggle class="btn" matSuffix [for]="picker"></mat-datepicker-toggle>
-           <mat-datepicker #picker></mat-datepicker>
+           <input id="datepicker" class="form-control" formControlName="dob"  placeholder="mm/dd/yy">
+           <!-- <mat-datepicker-toggle class="btn" matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker #picker></mat-datepicker> -->
         </div>
       <div>
           <button mat-button class="btn btn-primary" (click)="updtaeData()">Update</button>

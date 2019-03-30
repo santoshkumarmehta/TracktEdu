@@ -18,3 +18,10 @@
       margin-top: -10px;
       height: 10px;
     }
+.btns{
+    margin-left: 10px;
+}
+#btns{
+    background-color: rgb(241, 105, 105);
+    color: white;
+}

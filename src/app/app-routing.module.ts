@@ -30,6 +30,7 @@ const routes: Routes = [
   {path:'course', component:CourseComponent},
   { path:'batch', component:BatchComponent},
   { path:'student', component:StudentComponent },
+  { path:'addsubject', component:AddsubjectComponent},
   { path:'subject', component:SubjectComponent},
   {path:'chapter', component:ChapterComponent},
   { path:'addbatch', component:AddbatchComponent},

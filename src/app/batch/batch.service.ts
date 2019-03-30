@@ -22,7 +22,7 @@ export class BatchService {
   }
 
   editData(search){
-    return this.http.get(this.batchUrl+`?id=${search}`);
+    return this.http.get(this.batchUrl+`?batchname=${search}`);
   }
 
   updateData(id, form){
@@ -34,7 +34,7 @@ return this.http.patch(this.batchUrl+`/${id}`, form);
   }
 
   retriveCOurse(search){
-    return this.http.get(this.batchUrl+`?id=${search}`);
+    return this.http.get(this.batchUrl+`?batchname=${search}`);
   }
 
 }

@@ -34,3 +34,11 @@
     height: 40px;
     margin-left: 10px;
   }
+
+  .btns{
+    margin-left: 10px; 
+  }
+  .coursebtn{
+        background-color: rgb(245, 97, 97);
+      color: white;
+  }

@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
       password:['', [Validators.required,Validators.minLength(6),Validators.maxLength(12)]]
     })
   }
-
+  // getMessage(){
+  //   return this.email.hasError('requird')?'You Must Enter a value':this.email.hasError('email')?'not a valid email id':'';
+  // }
 
   validatePassword(password:AbstractControl):({[key:string]:boolean}|null){
     if(password.value!==undefined )

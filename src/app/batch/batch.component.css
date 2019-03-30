@@ -6,8 +6,8 @@
   mat-form-field>input{
       width: 100%;
   }
-  .btn-danger{
-      margin-left: 15px;
+  .btns{
+      margin-left: 10px;
   }
   mat-card-title{
       text-align: center;

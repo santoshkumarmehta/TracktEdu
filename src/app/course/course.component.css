@@ -2,7 +2,6 @@
     padding: 60px;
     width: 80%;
   }
-  
   mat-form-field>input{
       width: 100%;
   }
@@ -24,17 +23,15 @@
       background-color: rgb(155, 18, 18);
       height: 38px;
       width: 38px;
+      margin-left: 10px;
   }
-  input{
-      margin-left: 5px;
-  }
+
   .editbtns{
     margin-top: 5px;
     width: 80px;
     height: 40px;
     margin-left: 10px;
   }
-
-  .addbtn{
-      float: right !important;
-  }
+ #addbtn{
+     float: right !important;
+ }

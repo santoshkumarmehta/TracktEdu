@@ -18,3 +18,11 @@
     width: 38px;
     margin-left: 10px;
 }
+.btns{
+    margin-left: 10px;
+}
+
+#btns{
+    background-color: rgb(248, 85, 85);
+    color: white;
+}

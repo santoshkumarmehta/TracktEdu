@@ -13,11 +13,11 @@ export class CourseService {
 
 
   addCourse(course){
-    return this.http.post(this.courseurl,course);
-  }
+     return this.http.post(this.courseurl,course);
+   }
 
   retriveCOurse(search){
-    return this.http.get(this.courseurl+`?id=${search}`);
+    return this.http.get(this.courseurl+`?coursename=${search}`);
   }
 
   deleteCourse(id){
@@ -26,12 +26,13 @@ export class CourseService {
   }
 
   editData(search){
-    return this.http.get(this.courseurl+`?id=${search}`);
+    return this.http.get(this.courseurl+`?coursename=${search}`);
   }
 
   tabledatacolumn(search){
     return this.http.get(this.courseurl+`?courseid=${search}`);
   }
+  
   update(id,courseForm){
    return this.http.patch(this.courseurl+`/${id}`,courseForm );
   }

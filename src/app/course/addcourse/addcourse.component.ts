@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {CourseService} from '../course.service';
 import { HttpClient } from '@angular/common/http';
-
+import { FormControl } from "@angular/forms";
 @Component({
   selector: 'app-addcourse',
   templateUrl: './addcourse.component.html',
@@ -24,12 +24,16 @@ export class AddcourseComponent implements OnInit {
     })
   }
 
-  addCourse(){
-    this.addcourse.addCourse(this.courseForm.value).subscribe((res)=>{
+  // addCourse(){
+  //   this.addcourse.addCourse(this.courseForm.value).subscribe((res)=>{
 
-   },
-    error=>{  }
-    );
+  //  },
+  //   error=>{  }
+  //   );
+  // }
+
+  resetCourse(){
+    (<FormControl>this.courseForm.controls['courseid']).setValue;
   }
 
 }

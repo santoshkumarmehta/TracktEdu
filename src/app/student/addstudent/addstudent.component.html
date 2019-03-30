@@ -61,7 +61,9 @@
            <mat-datepicker #picker></mat-datepicker>
         </div>
       <div>
-          <button mat-button class="btn btn-primary" (click)="addData()">Add</button>
+          <button mat-button class="btn btn-primary" routerLink="/student">Back</button>
+          <button mat-button class="btn btn-primary btns" (click)="addData()">Add</button>
+          <button mat-button class="btn btns" id="btns" type="reset">Reset</button>
       </div>
 
 </mat-card-content>

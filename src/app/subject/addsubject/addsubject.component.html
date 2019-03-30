@@ -40,7 +40,9 @@
             <input type="checkbox"  class="chkbox" formControlName="isactive">
           </div>
         <div>
-        <button mat-button class="btn btn-primary" (click)="addSubject()" >Add </button>
+        <button mat-button class="btn btn-primary" routerLink="/subject" >Back </button>
+        <button mat-button class="btn btn-primary btns" (click)="addSubject()" >Add </button>
+        <button mat-button class="btn btns" id="btns" type="reset" >Reset </button>
        
     </div>
   </form>
