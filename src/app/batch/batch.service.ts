@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { AppService } from '../app.service';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class BatchService {
 
   batchUrl:string;
+  courseurl:string;
 
   constructor(private appService:AppService, private http:HttpClient) { 
     this.batchUrl=this.appService.baseurl+'/batch';
+    this.courseurl= this.appService.baseurl+'/course';
   }
 
   addBatch(batch){
@@ -19,6 +22,10 @@ export class BatchService {
 
   batchTable(search){
     return this.http.get(this.batchUrl+`?batchid=${search}`);
+  }
+
+  dropdown(serach){
+    return this.http.get(this.courseurl+`?coursename=${serach}`);
   }
 
   editData(search){

@@ -23,8 +23,8 @@
         <div class="input-group-prepend">
          <span class="input-group-text" >Course Name</span>
         </div>
-        <select class="form-control" formControlName="coursename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            <option >Batch 1</option>
+        <select class="form-control" formControlName="coursename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" (click)="dropdown()">
+            <option  *ngFor="let dropdown of dropDownData;">{{dropdown.coursename}}</option>
         </select>
        
       </div>
@@ -66,13 +66,13 @@
   <mat-card-content>
   <form [formGroup]="searchData">
     <div class="input-group mb-3">
-      <input type="text" class="form-control search" placeholder="search here throgh Course Id..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <input type="text" class="form-control search" placeholder="search here throgh Batch Name..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       <button class="btn btnsearch" (click)="retriveCourse()">search</button>
     </div>
   </form>
 </mat-card-content>
 </mat-card>
-
+<!-- 
 <br>
 <br>
 <mat-card>
@@ -89,27 +89,26 @@
   </thead>
   <tbody>
   <tr >
-      
-        <td>{{searchdata.id}}</td>
+          <td>{{searchdata.id}}</td>
         <td>{{searchdata.courseid}}</td>
         <td>{{searchdata.batchname}}</td>
         <td>{{searchdata.batchcode}}</td>
         <td>{{searchdata.isactive}}</td>
-        
+        <td>{{searchdata.coursename}}</td>
+        <td>{{searchdata.batchdescription}}</td>
         <button mat-button class="btn btn-primary editbtns"  (click)="editData(searchdata.batchname)">Edit</button>
       </tr>
   </tbody>
   </table>
-</mat-card>
+</mat-card> -->
 
 <br>
 <br>
 <mat-card>
-    <mat-card-title>Subject Table</mat-card-title>
-  <table class="table table-striped" *ngIf="tableBatch">
+    <mat-card-title>Batch Table</mat-card-title>
+  <table class="table table-striped" *ngIf="searchdata" >
     <thead>
       <tr>
-       
         <th>Batch Id</th>
         <th>Course Id</th>
         <th>Course Name</th>
@@ -120,9 +119,18 @@
       </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let table of tableBatch">
-       
-      
+  <!-- <tr>
+    <td>{{searchdata.id}}</td>
+    <td>{{searchdata.courseid}}</td>
+    <td>{{searchdata.batchname}}</td>
+    <td>{{searchdata.batchcode}}</td>
+    <td>{{searchdata.isactive}}</td>
+    <td>{{searchdata.coursename}}</td>
+    <td>{{searchdata.batchdescription}}</td>
+    <button mat-button class="btn btn-primary editbtns"  (click)="editData(searchdata.batchname)">Edit</button>
+      </tr>
+     -->
+  <tr *ngFor="let table of searchdata"> 
         <td>{{table.id}}</td>
         <td>{{table.courseid}}</td>
         <td>{{table.coursename}}</td>
@@ -133,6 +141,7 @@
         
         <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.batchname)">Edit</button>
       </tr>
+
   </tbody>
   </table>
 </mat-card>

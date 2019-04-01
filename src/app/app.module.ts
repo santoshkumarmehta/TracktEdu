@@ -25,10 +25,9 @@ import { BatchComponent } from './batch/batch.component';
 import { StudentComponent } from './student/student.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { AddsubjectComponent } from './subject/addsubject/addsubject.component';
-import { AddbatchComponent } from './batch/addbatch/addbatch.component';
 import { AddstudentComponent } from './student/addstudent/addstudent.component';
 import { AddchapterComponent } from './chapter/addchapter/addchapter.component';
-import {AddcourseComponent } from './course/addcourse/addcourse.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,10 +47,9 @@ import {AddcourseComponent } from './course/addcourse/addcourse.component';
     StudentComponent,
     ChapterComponent,
     AddsubjectComponent,
-    AddbatchComponent,
     AddstudentComponent,
     AddchapterComponent,
-    AddcourseComponent
+ 
     ],
   imports: [
     FormsModule,

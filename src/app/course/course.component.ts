@@ -54,17 +54,16 @@ export class CourseComponent implements OnInit {
   isReadOnly=true;
   tableData:string [];
   public id;
-
   searchdata:string[];
+
+
   addCourse(){
     this.courseService.addCourse(this.courseForm.value).subscribe((res)=>{
-  },
-   error=>{  }
-   );
+  });
+  window.location.reload();
  }
 
   get search(){
-    // console.log(this.courseForm.get('search'))
     return this.searchData.get('search');
   }
 
@@ -95,25 +94,15 @@ get edit(){
 
   updateCourse(){
       this.courseService.update(this.updateId, this.courseForm.value).subscribe((data)=>{
-      // this.id=data[0].id;
-      // (<FormControl>this.courseForm.controls['courseid']).setValue(data[0].courseid);
-      // (<FormControl>this.courseForm.controls['schoolid']).setValue(data[0].schoolid);
-      // (<FormControl>this.courseForm.controls['coursename']).setValue(data[0].coursename);
-      // (<FormControl>this.courseForm.controls['coursecode']).setValue(data[0].coursecode);
-      // (<FormControl>this.courseForm.controls['isactive']).setValue(data[0].isactive);
-    })
-
+      })
+      window.location.reload();
   }
  //Delete 
  deleteCourse(){
   this.courseService.deleteCourse(this.id).subscribe(
     res => {
-      console.log("deleted")
-    },
-    error=>{
-      console.log(error);
-    }
-  );
+     });
+     window.location.reload();
 }
 get updateId(){
   return this.courseForm.get('id').value;

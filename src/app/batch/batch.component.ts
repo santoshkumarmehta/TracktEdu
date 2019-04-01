@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { BatchService } from './batch.service';
 import { FormControl } from "@angular/forms";
-
+import {CourseService } from '../course/course.service';
 
 @Component({
   selector: 'app-batch', 
@@ -15,17 +15,24 @@ export class BatchComponent implements OnInit {
   batchForm:FormGroup;
   searchData:FormGroup;
   public id;
-  tableBatch:string [];
+  // tableBatch:string [];
   batchUrl;
-  searchdata:string[];
+  searchdata:any[];
+  dropDownData:any[];
+  courseUrl;
 
-  constructor( private formBuilder:FormBuilder, private http:HttpClient, private batchService:BatchService) {
-this.batchUrl=this.batchService.batchUrl;
+  constructor( private formBuilder:FormBuilder, private http:HttpClient, private batchService:BatchService, private courseurl:CourseService) {
+  this.batchUrl=this.batchService.batchUrl;
+  this.courseUrl=this.courseurl.courseurl;
    }
-
+   
   ngOnInit() {
 this.http.get(this.batchUrl).subscribe(data=>{
-  this.tableBatch=data as string[];
+  this.searchdata=data as any[];
+})
+
+this.http.get(this.courseUrl).subscribe(data=>{
+  this.dropDownData= data as any[];
 })
 
 this.batchForm= this.formBuilder.group({
@@ -45,10 +52,16 @@ this.searchData=this.formBuilder.group({
 
   addBatch(){
     this.batchService.addBatch(this.batchForm.value).subscribe(res=>{
-
+      window.location.reload();
     })
   }
 
+  dropdownData(){
+    this.batchService.dropdown(this.courseUrl).subscribe(data=>{
+        this.dropDownData=data as any[];
+        (<FormControl>this.batchForm.controls['coursename']).setValue(data[0].coursename);
+     })
+  }
 
 batchColumnData(){
   this.batchService.batchTable(this.batchUrl).subscribe(res=>{
@@ -64,7 +77,6 @@ batchColumnData(){
 editData(id){
   this.batchService.editData(id).subscribe(res=>{
     this.id=res[0].id;
-    // (<FormControl>this.batchForm.controls['id']).setValue(res[0].id);
     (<FormControl>this.batchForm.controls['id']).setValue(res[0].id);
     (<FormControl>this.batchForm.controls['coursename']).setValue(res[0].coursename);
     (<FormControl>this.batchForm.controls['courseid']).setValue(res[0].courseid);
@@ -76,29 +88,30 @@ editData(id){
 }
 
 get search(){
-  // console.log(this.courseForm.get('search'))
-  return this.searchData.get('search');
+ return this.searchData.get('search');
 }
 retriveCourse(){
 this.batchService.retriveCOurse(this.search.value).subscribe((res)=>{
+
 this.searchdata= res[0];
 
  })
-}
-
+} 
 get update(){
   return this.batchForm.get('id').value;
+  
 }
 
 updaeData(){
   this.batchService.updateData(this.update, this.batchForm.value).subscribe(res=>{
 
   })
+  window.location.reload();
 }
 
 deleteData(){
   this.batchService.deleteData(this.id).subscribe(res=>{
-    
-  })
+   })
+  window.location.reload();
 }
 }

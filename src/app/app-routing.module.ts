@@ -13,10 +13,8 @@ import { StudentComponent } from './student/student.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { AddsubjectComponent } from './subject/addsubject/addsubject.component';
-import { AddbatchComponent } from './batch/addbatch/addbatch.component';
 import { AddstudentComponent } from './student/addstudent/addstudent.component';
 import { AddchapterComponent } from './chapter/addchapter/addchapter.component';
-import { AddcourseComponent } from './course/addcourse/addcourse.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch:'full'},
@@ -33,10 +31,9 @@ const routes: Routes = [
   { path:'addsubject', component:AddsubjectComponent},
   { path:'subject', component:SubjectComponent},
   {path:'chapter', component:ChapterComponent},
-  { path:'addbatch', component:AddbatchComponent},
   {path:'addstudent', component:AddstudentComponent},
   { path:'addchapter', component:AddchapterComponent},
-  {path:'addcourse', component:AddcourseComponent}
+  
 ];
 
 
