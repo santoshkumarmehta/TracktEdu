@@ -13,7 +13,7 @@ export class ChapterComponent implements OnInit {
   chapterForm: FormGroup;
   searchData:FormGroup;
   tableurl;
-  chaptertable: string[];
+  chaptertable: any[];
   public id;
   isReadOnly = true;
 
@@ -41,20 +41,19 @@ export class ChapterComponent implements OnInit {
     })
   }
 
+  addChapter(){
+    this.chapterService.addChapter(this.chapterForm.value).subscribe(res=>{
+      });
+      window.location.reload();
+  }
+
   get search(){
     // console.log(this.courseForm.get('search'))
     return this.searchData.get('search');
   }
   retriveCourse(){
-  this.chapterService.retriveCOurse(this.search.value).subscribe((res)=>{
-  console.log(res[0]);
-  this.id=res[0].id;
-  (<FormControl>this.chapterForm.controls['id']).setValue(res[0].id);
-  (<FormControl>this.chapterForm.controls['chapterid']).setValue(res[0].chapterid);
-  (<FormControl>this.chapterForm.controls['subjectid']).setValue(res[0].subjectid);
-  (<FormControl>this.chapterForm.controls['chaptername']).setValue(res[0].chaptername);
-  (<FormControl>this.chapterForm.controls['chspterdscription']).setValue(res[0].chspterdscription);
-  (<FormControl>this.chapterForm.controls['isactive']).setValue(res[0].isactive);
+  this.chapterService.retriveChapter(this.search.value).subscribe((res)=>{
+  this.chaptertable= res as any[];
    })
   }
 
@@ -89,12 +88,12 @@ export class ChapterComponent implements OnInit {
 
   upadtaeData() {
     this.chapterService.update(this.update, this.chapterForm.value).subscribe(res => {
-
-    })
+    });
+    window.location.reload();
   }
   deleteData() {
     this.chapterService.deletedata(this.deleteId).subscribe(res => {
-
-    })
+    });
+    window.location.reload();
   }
 }

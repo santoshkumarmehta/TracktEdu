@@ -21,7 +21,7 @@ export class BatchService {
   }
 
   batchTable(search){
-    return this.http.get(this.batchUrl+`?batchid=${search}`);
+    return this.http.get(this.batchUrl+`?batchname=${search}`);
   }
 
   dropdown(serach){

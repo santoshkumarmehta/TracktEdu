@@ -30,7 +30,7 @@ export class CourseService {
   }
 
   tabledatacolumn(search){
-    return this.http.get(this.courseurl+`?courseid=${search}`);
+    return this.http.get(this.courseurl+`?coursename=${search}`);
   }
   
   update(id,courseForm){

@@ -24,8 +24,6 @@ import { SubjectComponent } from './subject/subject.component';
 import { BatchComponent } from './batch/batch.component';
 import { StudentComponent } from './student/student.component';
 import { ChapterComponent } from './chapter/chapter.component';
-import { AddsubjectComponent } from './subject/addsubject/addsubject.component';
-import { AddstudentComponent } from './student/addstudent/addstudent.component';
 import { AddchapterComponent } from './chapter/addchapter/addchapter.component';
 
 @NgModule({
@@ -46,8 +44,6 @@ import { AddchapterComponent } from './chapter/addchapter/addchapter.component';
     BatchComponent,
     StudentComponent,
     ChapterComponent,
-    AddsubjectComponent,
-    AddstudentComponent,
     AddchapterComponent,
  
     ],

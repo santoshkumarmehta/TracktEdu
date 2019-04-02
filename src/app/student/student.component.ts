@@ -13,7 +13,7 @@ export class StudentComponent implements OnInit {
   studentForm:FormGroup;
   searchData:FormGroup;
   tableUrl;
-  tableData:string [];
+  tableData:any [];
   public id;
   constructor(private formBuilder:FormBuilder, private studentservice:StudentService, private http:HttpClient) { 
     this.tableUrl= this.studentservice.studenturl;
@@ -22,7 +22,7 @@ export class StudentComponent implements OnInit {
   ngOnInit() {
 
     this.http.get(this.tableUrl).subscribe(res=>{
-      this.tableData= res as string[];
+      this.tableData= res as any[];
     })
 
     this.studentForm= this.formBuilder.group({
@@ -41,22 +41,15 @@ export class StudentComponent implements OnInit {
     this.searchData=this.formBuilder.group({
       search:['']
     })
+
+
   }
 
 
-  studenttable(){
-    this.studentservice.studenttable(this.tableUrl).subscribe(res=>{
-      (<FormControl>this.studentForm.controls['id']).setValue(res[0].id);
-      (<FormControl>this.studentForm.controls['studentid']).setValue(res[0].studentid);
-      (<FormControl>this.studentForm.controls['schoolid']).setValue(res[0].schoolid);
-      (<FormControl>this.studentForm.controls['courseid']).setValue(res[0].courseid);
-      (<FormControl>this.studentForm.controls['batchid']).setValue(res[0].batchid);
-      (<FormControl>this.studentForm.controls['firstname']).setValue(res[0].firstname);
-      (<FormControl>this.studentForm.controls['middlename']).setValue(res[0].middlename);
-      (<FormControl>this.studentForm.controls['lastname']).setValue(res[0].lastname);
-      (<FormControl>this.studentForm.controls['registrationcode']).setValue(res[0].registrationcode);
-      (<FormControl>this.studentForm.controls['dob']).setValue(res[0].dob);
-    })
+  addData(){
+    this.studentservice.addStudent(this.studentForm.value).subscribe(res=>{
+    });
+    window.location.reload();
   }
 
   editData(id){
@@ -80,13 +73,14 @@ export class StudentComponent implements OnInit {
   }
   updtaeData(){
       this.studentservice.update(this.updateId, this.studentForm.value).subscribe(res=>{
-
-    })
+    });
+    window.location.reload();
   }
 
   deleteData(){
     this.studentservice.delete(this.id).subscribe(res=>{
-      })
+      });
+      window.location.reload();
   }
 
 
@@ -95,20 +89,9 @@ get search(){
   return this.searchData.get('search');
 }
 retriveCourse(){
-this.studentservice.retriveCOurse(this.search.value).subscribe((res)=>{
-console.log(res[0]);
-this.id=res[0].id;
-(<FormControl>this.studentForm.controls['id']).setValue(res[0].id);
-(<FormControl>this.studentForm.controls['studentid']).setValue(res[0].studentid);
-(<FormControl>this.studentForm.controls['schoolid']).setValue(res[0].schoolid);
-(<FormControl>this.studentForm.controls['courseid']).setValue(res[0].courseid);
-(<FormControl>this.studentForm.controls['batchid']).setValue(res[0].batchid);
-(<FormControl>this.studentForm.controls['firstname']).setValue(res[0].firstname);
-(<FormControl>this.studentForm.controls['middlename']).setValue(res[0].middlename);
-(<FormControl>this.studentForm.controls['lastname']).setValue(res[0].lastname);
-(<FormControl>this.studentForm.controls['registrationcode']).setValue(res[0].registrationcode);
-(<FormControl>this.studentForm.controls['dob']).setValue(res[0].dob);
- })
+this.studentservice.retriveStudent(this.search.value).subscribe((res)=>{
+this.tableData= res as any[];
+ });
 }
 
 }

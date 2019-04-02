@@ -21,12 +21,16 @@ public id;
   constructor(  private formBuilder:FormBuilder, private addsubjectservice:AddsubjectService,
      private http:HttpClient, private appservice:AppService) {
       this.tableurl=this.addsubjectservice.subjecturl;
+
      }
 
   ngOnInit() {
+
+
+
     this.subjectForm=this.formBuilder.group({
       id:[''],
-      subjectid:[''],
+      // subjectid:[''],
       schoolid:[''],
       subjectname:[''],
       subjectcode:[''],
@@ -43,47 +47,32 @@ public id;
     })
   }
 
+  addSubject(){
+    this.addsubjectservice.addSubject(this.subjectForm.value).subscribe(res=>{
+    });
+    window.location.reload();
+  }
+
 get search(){
   return this.searchSubject.get('search');
   }
 
   retriveSubject(){
  this.addsubjectservice.retrive(this.search.value).subscribe(res=>{
-   this.id=res[0].id;
-   (<FormControl>this.subjectForm.controls['id']).setValue(res[0].id);
-   (<FormControl>this.subjectForm.controls['subjectid']).setValue(res[0].subjectid);
-   (<FormControl>this.subjectForm.controls['schoolid']).setValue(res[0].schoolid);
-   (<FormControl>this.subjectForm.controls['subjectname']).setValue(res[0].subjectname);
-   (<FormControl>this.subjectForm.controls['subjectcode']).setValue(res[0].subjectcode);
-   (<FormControl>this.subjectForm.controls['subjectdescription']).setValue(res[0].subjectdescription);
-   (<FormControl>this.subjectForm.controls['isactive']).setValue(res[0].isactive);
+   this.tableData=res as any[];
  })
-  }
-
-
-  subjectdatacolumn(){
-    this.addsubjectservice.subjecttable(this.tableurl).subscribe((res)=>{
-      (<FormControl>this.subjectForm.controls['id']).setValue(res[0].id);
-      (<FormControl>this.subjectForm.controls['subjectid']).setValue(res[0].subjectid);
-      (<FormControl>this.subjectForm.controls['schoolid']).setValue(res[0].schoolid);
-      (<FormControl>this.subjectForm.controls['subjectname']).setValue(res[0].subjectname);
-      (<FormControl>this.subjectForm.controls['subjectcode']).setValue(res[0].subjectcode);
-      (<FormControl>this.subjectForm.controls['subjectdescription']).setValue(res[0].subjectdescription);
-      (<FormControl>this.subjectForm.controls['isactive']).setValue(res[0].isactive);
-    })
   }
 
   editData(id){
     this.addsubjectservice.editData(id).subscribe(data=>{
       this.id=data[0].id;
        (<FormControl>this.subjectForm.controls['id']).setValue(data[0].id);
-      (<FormControl>this.subjectForm.controls['subjectid']).setValue(data[0].subjectid);
+      // (<FormControl>this.subjectForm.controls['subjectid']).setValue(data[0].subjectid);
       (<FormControl>this.subjectForm.controls['schoolid']).setValue(data[0].schoolid);
       (<FormControl>this.subjectForm.controls['subjectname']).setValue(data[0].subjectname);
       (<FormControl>this.subjectForm.controls['subjectcode']).setValue(data[0].subjectcode);
       (<FormControl>this.subjectForm.controls['subjectdescription']).setValue(data[0].subjectdescription);
       (<FormControl>this.subjectForm.controls['isactive']).setValue(data[0].isactive);
-
     })
   }
 
@@ -93,11 +82,13 @@ get updateId(){
 updateSubject(){
     this.addsubjectservice.update(this.updateId, this.subjectForm.value).subscribe(res=>{
       
-    })
+    });
+    window.location.reload();
   }
 
   deleteSubject(){
     this.addsubjectservice.delete(this.id).subscribe(res=>{
       });
+      window.location.reload();
   } 
 }

@@ -34,6 +34,6 @@ delete(id){
 }
 
 retrive(search){
- return this.http.get(this.subjecturl+`?id=${search}`);
+ return this.http.get(this.subjecturl+`?subjectname=${search}`);
 }
 }

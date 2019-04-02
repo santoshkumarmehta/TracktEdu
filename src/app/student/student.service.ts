@@ -30,8 +30,8 @@ update(id, studentForm){
     return this.http.delete(this.studenturl+`/${id}`);
   }
 
-  retriveCOurse(search){
-    return this.http.get(this.studenturl+`?id=${search}`);
+  retriveStudent(search){
+    return this.http.get(this.studenturl+`?firstname=${search}`);
   }
 
 }

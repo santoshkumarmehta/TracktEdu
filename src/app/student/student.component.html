@@ -60,17 +60,26 @@
           <input type="text" class="form-control" formControlName="registrationcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <!-- Dob -->
-        <div class='input-group mb-3 date' >
+        <div class='input-group mb-3 ' >
             <div class="input-group-prepend">
+                <span class="input-group-text">D.O.B</span>
+            </div>
+              <input class="form-control" placeholder="yyyy/mm/dd" formControlName="dob" ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+               <button class="btn btn-outline-secondary fa fa-calendar" (click)="d.toggle()" type="button"></button>
+              </div>
+              <!-- </div> -->
+            <!-- <div class="input-group-prepend">
             <span class="input-group-text">D.O.B</span>
            </div>
            <input id="datepicker" class="form-control" formControlName="dob"  placeholder="mm/dd/yy">
-           <!-- <mat-datepicker-toggle class="btn" matSuffix [for]="picker"></mat-datepicker-toggle>
-           <mat-datepicker #picker></mat-datepicker> -->
+            <mat-datepicker-toggle class="btn" matSuffix [for]="picker"></mat-datepicker-toggle> -->
+          <!-- <mat-datepicker #picker></mat-datepicker> -->
         </div>
       <div>
-          <button mat-button class="btn btn-primary" (click)="updtaeData()">Update</button>
-          <button mat-button class="btn btn-danger"  (click)="deleteData()">Delete</button>
+          <button mat-button class="btn btn-primary" (click)="addData()">Add</button>
+          <button mat-button class="btn btn-primary btns" (click)="updtaeData()">Update</button>
+          <button mat-button class="btn btn-danger btns"  (click)="deleteData()">Delete</button>
       </div>
 
 </mat-card-content>
@@ -81,7 +90,7 @@
   <mat-card-content>
   <form [formGroup]="searchData">
     <div class="input-group mb-3">
-      <input type="text" class="form-control search" placeholder="search here throgh Course Id..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <input type="text" class="form-control search" placeholder="search here throgh first name..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       <button class="btn btnsearch" (click)="retriveCourse()">search</button>
     </div>
   </form>
@@ -118,12 +127,10 @@
         <td>{{table.middlename}}</td>
         <td>{{table.lastname}}</td>
         <td>{{table.registrationcode}}</td>
-        <td>{{table.dob|date:'dd/MM/yy'}}</td>
-        
-        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
+        <td>{{table.dob.day}}/{{table.dob.month}}/{{table.dob.year}}</td>
+           <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
       </tr>
   </tbody>
   </table>
 </mat-card>
-
 </div>

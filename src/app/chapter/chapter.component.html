@@ -1,7 +1,5 @@
 <div class="container">
-    <button mat-button class="btn btn-primary addchapter" routerLink="/addchapter"> Add Chapter</button>
-    <br><br>
-    <mat-card>
+      <mat-card>
       <mat-card-title>Chapter Management</mat-card-title>
       <form [formGroup]="chapterForm">
       <mat-card-content>
@@ -42,8 +40,9 @@
           <input type="checkbox" formControlName="isactive" class="chkbox">
         </div>
 <div>
-    <button mat-button class="btn btn-primary" (click)="upadtaeData()" >Update</button>
-    <button mat-button class="btn btn-danger" (click)="deleteData()">Delete</button>
+    <button mat-button class="btn btn-primary" (click)="addChapter()" >Add</button>
+    <button mat-button class="btn btn-primary btns	" (click)="upadtaeData()" >Update</button>
+    <button mat-button class="btn btn-danger btns" (click)="deleteData()">Delete</button>
 </div>
 
 </mat-card-content>

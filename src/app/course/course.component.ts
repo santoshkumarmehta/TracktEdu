@@ -12,6 +12,14 @@ import {AppService} from '../app.service';
 })
 export class CourseComponent implements OnInit {
 
+  courseForm:FormGroup;
+  searchData:FormGroup;
+  tableurl;
+  isReadOnly=true;
+  tableData:any [];
+  public id;
+  // searchdata:string[];
+
 
   constructor( private courseService:CourseService, private formBuilder:FormBuilder, private http:HttpClient, private appservice:AppService) {
 
@@ -19,11 +27,10 @@ export class CourseComponent implements OnInit {
   
     }
 
-
   ngOnInit() {
     // for Table
       this.http.get(this.tableurl).subscribe( data=>{
-      this.tableData= data as string [];
+      this.tableData= data as any [];
       // console.log(this.tableData[0]);
       },
       (err:HttpErrorResponse)=>{
@@ -47,14 +54,6 @@ export class CourseComponent implements OnInit {
       search:['']
     })
 }
-  courseForm:FormGroup;
-  searchData:FormGroup;
-  
-  tableurl;
-  isReadOnly=true;
-  tableData:string [];
-  public id;
-  searchdata:string[];
 
 
   addCourse(){
@@ -69,8 +68,9 @@ export class CourseComponent implements OnInit {
 
   retriveCourse(){
     this.courseService.retriveCOurse(this.search.value).subscribe((res)=>{
-    this.searchdata=res[0];
+    this.tableData=res as any [];
    })
+  //  window.location.reload();
   }
 
 // for Edit
@@ -91,7 +91,9 @@ get edit(){
   }
 
   // for update
-
+  get updateId(){
+    return this.courseForm.get('id').value;
+  }
   updateCourse(){
       this.courseService.update(this.updateId, this.courseForm.value).subscribe((data)=>{
       })
@@ -99,24 +101,10 @@ get edit(){
   }
  //Delete 
  deleteCourse(){
-  this.courseService.deleteCourse(this.id).subscribe(
-    res => {
+  this.courseService.deleteCourse(this.id).subscribe(res => {
      });
      window.location.reload();
 }
-get updateId(){
-  return this.courseForm.get('id').value;
-}
 
-// table column
-tabledatacolumn(){
- this.courseService.tabledatacolumn(this.tableurl).subscribe((res)=>{
-  (<FormControl>this.courseForm.controls['courseid']).setValue(res[0].courseid);
-  (<FormControl>this.courseForm.controls['schoolid']).setValue(res[0].schoolid);
-  (<FormControl>this.courseForm.controls['coursename']).setValue(res[0].coursename);
-  (<FormControl>this.courseForm.controls['coursecode']).setValue(res[0].coursecode);
-  (<FormControl>this.courseForm.controls['isactive']).setValue(res[0].isactive);
- })
- } 
 
 }

@@ -30,8 +30,8 @@ chapterUrl;
    return this.http.delete(this.chapterUrl+`/${id}`);
   }
 
-  retriveCOurse(search){
-    return this.http.get(this.chapterUrl+`?id=${search}`);
+  retriveChapter(search){
+    return this.http.get(this.chapterUrl+`?chaptername=${search}`);
   }
 
 }

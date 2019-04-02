@@ -10,6 +10,7 @@ import {CourseService } from '../course/course.service';
   templateUrl: './batch.component.html',
   styleUrls: ['./batch.component.css'],
 })
+
 export class BatchComponent implements OnInit {
   isReadOnly=true;
   batchForm:FormGroup;
@@ -25,8 +26,9 @@ export class BatchComponent implements OnInit {
   this.batchUrl=this.batchService.batchUrl;
   this.courseUrl=this.courseurl.courseurl;
    }
-   
+   0
   ngOnInit() {
+
 this.http.get(this.batchUrl).subscribe(data=>{
   this.searchdata=data as any[];
 })
@@ -36,8 +38,7 @@ this.http.get(this.courseUrl).subscribe(data=>{
 })
 
 this.batchForm= this.formBuilder.group({
-     id:[''],
-    // batchid:[''],
+    id:[''],
     courseid:[''],
     batchname:[''],
     coursename:[''],
@@ -48,6 +49,9 @@ this.batchForm= this.formBuilder.group({
 this.searchData=this.formBuilder.group({
   search:['']
 })
+
+// if(this.searchdata=this.searchdata){
+// }
   }
 
   addBatch(){
@@ -63,17 +67,17 @@ this.searchData=this.formBuilder.group({
      })
   }
 
-batchColumnData(){
-  this.batchService.batchTable(this.batchUrl).subscribe(res=>{
-     (<FormControl>this.batchForm.controls['id']).setValue(res[0].id);
-    (<FormControl>this.batchForm.controls['coursename']).setValue(res[0].coursename);
-    (<FormControl>this.batchForm.controls['courseid']).setValue(res[0].courseid);
-    (<FormControl>this.batchForm.controls['batchname']).setValue(res[0].batchname);
-    (<FormControl>this.batchForm.controls['batchcode']).setValue(res[0].batchcode);
-    (<FormControl>this.batchForm.controls['batchdescription']).setValue(res[0].batchdescription);
-    (<FormControl>this.batchForm.controls['isactive']).setValue(res[0].isactive);
-  })
-}
+// batchColumnData(){
+//   this.batchService.batchTable(this.batchUrl).subscribe(res=>{
+//     (<FormControl>this.batchForm.controls['id']).setValue(res[0].id);
+//     (<FormControl>this.batchForm.controls['coursename']).setValue(res[0].coursename);
+//     (<FormControl>this.batchForm.controls['courseid']).setValue(res[0].courseid);
+//     (<FormControl>this.batchForm.controls['batchname']).setValue(res[0].batchname);
+//     (<FormControl>this.batchForm.controls['batchcode']).setValue(res[0].batchcode);
+//     (<FormControl>this.batchForm.controls['batchdescription']).setValue(res[0].batchdescription);
+//     (<FormControl>this.batchForm.controls['isactive']).setValue(res[0].isactive);
+//   })
+// }
 editData(id){
   this.batchService.editData(id).subscribe(res=>{
     this.id=res[0].id;
@@ -93,8 +97,8 @@ get search(){
 retriveCourse(){
 this.batchService.retriveCOurse(this.search.value).subscribe((res)=>{
 
-this.searchdata= res[0];
-
+this.searchdata= res as any [];
+// alert(this.searchdata);
  })
 } 
 get update(){
