@@ -73,6 +73,7 @@ export class ChapterComponent implements OnInit {
   }
     editData(id) {
     this.chapterService.editData(id).subscribe(res => {
+      this.id=res[0].id;
       (<FormControl>this.chapterForm.controls['id']).setValue(res[0].id);
       (<FormControl>this.chapterForm.controls['chapterid']).setValue(res[0].chapterid);
       (<FormControl>this.chapterForm.controls['subjectid']).setValue(res[0].subjectid);

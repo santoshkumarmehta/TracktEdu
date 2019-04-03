@@ -4,6 +4,7 @@ import { FormControl } from "@angular/forms";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {AppService} from '../app.service';
 import { AddsubjectService } from './addsubject.service';
+
 @Component({
   selector: 'app-subject',
   templateUrl: './subject.component.html',

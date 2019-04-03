@@ -5,7 +5,7 @@
 <br>
 <br> -->
    <mat-card>
-      <mat-card-title>Course Management</mat-card-title>
+      <mat-card-title>Course</mat-card-title>
        <mat-card-content>
         <form [formGroup]="courseForm">
             <!-- <div class="input-group mb-3">
@@ -49,9 +49,10 @@
             <button class="btn btnsearch" (click)="retriveCourse()">search</button>
         </div> -->
         <div>
-            <button mat-button class="btn btn-primary "  (click)="addCourse()">Add</button>
-            <button mat-button class="btn btn-primary btns" (click)="updateCourse()">Update</button>
-            <button mat-button class="btn btn-danger btns" (click)="deleteCourse()">Delete</button>
+            <button mat-button class="btn btn-danger " *ngIf="! id" type="reset">Reset</button>
+            <button mat-button class="btn btn-primary btns" *ngIf="! id"   (click)="addCourse()">Add</button>
+            <button mat-button class="btn btn-primary " *ngIf="id" (click)="updateCourse()">Update</button>
+            <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteCourse()">Delete</button>
         </div>
 </form>
 </mat-card-content>
@@ -116,9 +117,12 @@
         <td>{{table.coursename}}</td>
         <td>{{table.coursecode}}</td>
         <td>{{table.isactive}}</td>
-        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.coursename)">Edit</button>
+        <button mat-button class="btn btn-primary editbtns" id="edit"  (click)="editData(table.coursename)">Edit</button>
       </tr>
   </tbody>
   </table>
 </mat-card>
 </div>
+<script>
+  
+</script>

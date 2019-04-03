@@ -17,14 +17,13 @@ export class CourseComponent implements OnInit {
   tableurl;
   isReadOnly=true;
   tableData:any [];
+  value:any[]=[1];
   public id;
   // searchdata:string[];
 
 
   constructor( private courseService:CourseService, private formBuilder:FormBuilder, private http:HttpClient, private appservice:AppService) {
-
     this.tableurl=this.courseService.courseurl;
-  
     }
 
   ngOnInit() {
@@ -53,7 +52,8 @@ export class CourseComponent implements OnInit {
     this.searchData= this.formBuilder.group({
       search:['']
     })
-}
+
+ }
 
 
   addCourse(){
@@ -75,12 +75,12 @@ export class CourseComponent implements OnInit {
 
 // for Edit
 get edit(){
-  return this.courseForm.get('coursename');
+  return this.courseForm.get('id');
   }
   
   editData(id){
         this.courseService.editData(id).subscribe( data=>{
-        this.id=data[0].id;
+        // this.id=data[0].id;
         // (<FormControl>this.courseForm.controls['id']).setValue(data[0].id);
         (<FormControl>this.courseForm.controls['id']).setValue(data[0].id);
         (<FormControl>this.courseForm.controls['schoolid']).setValue(data[0].schoolid);
@@ -105,6 +105,8 @@ get edit(){
      });
      window.location.reload();
 }
+
+
 
 
 }

@@ -1,6 +1,6 @@
 <div class="container">
       <mat-card>
-      <mat-card-title>Chapter Management</mat-card-title>
+      <mat-card-title>Chapter</mat-card-title>
       <form [formGroup]="chapterForm">
       <mat-card-content>
         <div class="input-group mb-3">
@@ -40,9 +40,10 @@
           <input type="checkbox" formControlName="isactive" class="chkbox">
         </div>
 <div>
-    <button mat-button class="btn btn-primary" (click)="addChapter()" >Add</button>
-    <button mat-button class="btn btn-primary btns	" (click)="upadtaeData()" >Update</button>
-    <button mat-button class="btn btn-danger btns" (click)="deleteData()">Delete</button>
+    <button mat-button class="btn btn-danger " *ngIf="!id" type="reset">Reset</button>
+    <button mat-button class="btn btn-primary btns" *ngIf="!id" (click)="addChapter()" >Add</button>
+    <button mat-button class="btn btn-primary " *ngIf="id" (click)="upadtaeData()" >Update</button>
+    <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteData()">Delete</button>
 </div>
 
 </mat-card-content>
