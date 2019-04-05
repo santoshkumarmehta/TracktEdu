@@ -27,7 +27,7 @@ export class StudentComponent implements OnInit {
 
     this.studentForm= this.formBuilder.group({
       id:[''],
-      studentid:[''],
+      // studentid:[''],
       schoolid:[''],
       courseid:[''],
       batchid:[''],
@@ -56,7 +56,7 @@ export class StudentComponent implements OnInit {
     this.studentservice.editData(id).subscribe(res=>{
       this.id= res[0].id;
       (<FormControl>this.studentForm.controls['id']).setValue(res[0].id);
-      (<FormControl>this.studentForm.controls['studentid']).setValue(res[0].studentid);
+      // (<FormControl>this.studentForm.controls['studentid']).setValue(res[0].studentid);
       (<FormControl>this.studentForm.controls['schoolid']).setValue(res[0].schoolid);
       (<FormControl>this.studentForm.controls['courseid']).setValue(res[0].courseid);
       (<FormControl>this.studentForm.controls['batchid']).setValue(res[0].batchid);

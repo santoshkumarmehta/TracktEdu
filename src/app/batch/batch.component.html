@@ -69,83 +69,44 @@
   <form [formGroup]="searchData">
     <div class="input-group mb-3">
       <input type="text" class="form-control search" placeholder="search here throgh Batch Name..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      <button class="btn btnsearch" (click)="retriveCourse()">search</button>
+      <button class="btn btnsearch btn-primary" (click)="retriveCourse()">search</button>
     </div>
   </form>
 </mat-card-content>
 </mat-card>
-<!-- 
-<br>
-<br>
-<mat-card>
-    <mat-card-title>Search Table</mat-card-title>
-  <table class="table table-striped" *ngIf="searchdata">
-    <thead >
-      <tr>
-          <th>Batch Id</th>
-        <th>Course Id</th>
-        <th>Batch Name</th>
-        <th>Batch Code</th>
-        <th>Is Active</th>
-      </tr>
-  </thead>
-  <tbody>
-  <tr >
-          <td>{{searchdata.id}}</td>
-        <td>{{searchdata.courseid}}</td>
-        <td>{{searchdata.batchname}}</td>
-        <td>{{searchdata.batchcode}}</td>
-        <td>{{searchdata.isactive}}</td>
-        <td>{{searchdata.coursename}}</td>
-        <td>{{searchdata.batchdescription}}</td>
-        <button mat-button class="btn btn-primary editbtns"  (click)="editData(searchdata.batchname)">Edit</button>
-      </tr>
-  </tbody>
-  </table>
-</mat-card> -->
+
+
 
 <br>
 <br>
-<mat-card>
     <mat-card-title>Batch Table</mat-card-title>
   <table class="table table-striped" *ngIf="searchdata" >
     <thead>
       <tr>
-        <th>Batch Id</th>
-        <th>Course Id</th>
-        <th>Course Name</th>
-        <th>Batch Name</th>
-        <th>Batch Code</th>
-        <th>Batch Description</th>
-        <th>Is Active</th>
+        <th scope="col">Batch Id</th>
+        <th scope="col">Course Id</th>
+        <th scope="col"> Course Name</th>
+        <th scope="col">Batch Name</th>
+        <th scope="col">Batch Code</th>
+        <th scope="col">Batch Description</th>
+        <th scope="col">Is Active</th>
       </tr>
   </thead>
   <tbody>
-  <!-- <tr>
-    <td>{{searchdata.id}}</td>
-    <td>{{searchdata.courseid}}</td>
-    <td>{{searchdata.batchname}}</td>
-    <td>{{searchdata.batchcode}}</td>
-    <td>{{searchdata.isactive}}</td>
-    <td>{{searchdata.coursename}}</td>
-    <td>{{searchdata.batchdescription}}</td>
-    <button mat-button class="btn btn-primary editbtns"  (click)="editData(searchdata.batchname)">Edit</button>
-      </tr>
-     -->
-  <tr *ngFor="let table of searchdata"> 
-        <td>{{table.id}}</td>
+   <tr *ngFor="let table of searchdata"> 
+        <th scope="row">{{table.id}}</th>
         <td>{{table.courseid}}</td>
         <td>{{table.coursename}}</td>
         <td>{{table.batchname}}</td>
         <td>{{table.batchcode}}</td>
         <td>{{table.batchdescription}}</td>
         <td>{{table.isactive}}</td>
-        
-        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.batchname)">Edit</button>
+        <td>
+        <button mat-button class="btn btn-primary " (click)="editData(table.id)">Edit</button>
+        </td>
       </tr>
-
   </tbody>
   </table>
-</mat-card>
+
 
 </div>

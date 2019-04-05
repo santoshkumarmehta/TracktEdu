@@ -66,7 +66,7 @@
   <form [formGroup]="searchSubject">
     <div class="input-group mb-3">
       <input type="text" class="form-control search" placeholder="search here throgh Id..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      <button class="btn btnsearch" (click)="retriveSubject()">search</button>
+      <button class="btn btnsearch btn-primary" (click)="retriveSubject()">search</button>
     </div>
   </form>
 </mat-card-content>
@@ -74,34 +74,32 @@
 <br>
 
 <br>
-<mat-card>
-    <mat-card-title>Subject Table</mat-card-title>
   <table class="table table-striped" *ngIf="tableData">
     <thead>
       <tr>
         <!-- <th>Id</th> -->
-        <th>Subject Id</th>
-        <th>School Id</th>
-        <th>Subject Name</th>
-        <th>Subject Code</th>
-        <th>Subject Description</th>
-        <th>Is Active</th>
+        <th scope="col">Subject Id</th>
+        <th scope="col">School Id</th>
+        <th scope="col">Subject Name</th>
+        <th scope="col">Subject Code</th>
+        <th scope="col">Subject Description</th>
+        <th scope="col">Is Active</th>
       </tr>
   </thead>
   <tbody>
   <tr *ngFor="let table of tableData">
        
-       <td>{{table.id}}</td>
+       <th scope="row">{{table.id}}</th>
         <!-- <td>{{table.subjectid}}</td> -->
         <td>{{table.schoolid}}</td>
         <td>{{table.subjectname}}</td>
         <td>{{table.subjectcode}}</td>
         <td>{{table.subjectdescription}}</td>
         <td>{{table.isactive}}</td>
-        
-        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
+        <td>
+        <button mat-button class="btn btn-primary"  (click)="editData(table.id)">Edit</button>
+        </td>
       </tr>
   </tbody>
   </table>
-</mat-card>
 </div>

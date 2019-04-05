@@ -13,23 +13,37 @@ export class ChapterComponent implements OnInit {
   chapterForm: FormGroup;
   searchData:FormGroup;
   tableurl;
-  chaptertable: any[];
+  chaptertable: any[]=[];
   public id;
   isReadOnly = true;
+  page = 1;
+  pageSize=4;
+  collectionSize;
+
+  get chapter(){
+    return this.chaptertable.map((chapter,i)=>({id:i+1,...chapter}))
+    .slice((this.page-1)*this.pageSize+this.pageSize);
+  }
+
 
   constructor(private formBuilder: FormBuilder, private chapterService: ChapterService, private http: HttpClient) {
     this.tableurl = this.chapterService.chapterUrl;
+
   }
+
+
 
   ngOnInit() {
 
     this.http.get(this.tableurl).subscribe(res => {
       this.chaptertable = res as string[];
+      this.collectionSize=this.chaptertable.length;
     })
 
+   
     this.chapterForm = this.formBuilder.group({
       id: [''],
-      chapterid: [''],
+      // chapterid: [''],
       subjectid: [''],
       chaptername: [''],
       chspterdscription: [''],
@@ -56,26 +70,11 @@ export class ChapterComponent implements OnInit {
   this.chaptertable= res as any[];
    })
   }
-
-
-  chaptertabledata() {
-    this.chapterService.chaptertable(this.tableurl).subscribe(res => {
-      (<FormControl>this.chapterForm.controls['id']).setValue(res[0].id);
-      (<FormControl>this.chapterForm.controls['chapterid']).setValue(res[0].chapterid);
-      (<FormControl>this.chapterForm.controls['subjectid']).setValue(res[0].subjectid);
-      (<FormControl>this.chapterForm.controls['chaptername']).setValue(res[0].chaptername);
-      (<FormControl>this.chapterForm.controls['chspterdscription']).setValue(res[0].chspterdscription);
-      (<FormControl>this.chapterForm.controls['isactive']).setValue(res[0].isactive);
-    })
-  }
-  get deleteId(){
-    return this.chapterForm.get('id').value;
-  }
-    editData(id) {
+  editData(id) {
     this.chapterService.editData(id).subscribe(res => {
       this.id=res[0].id;
       (<FormControl>this.chapterForm.controls['id']).setValue(res[0].id);
-      (<FormControl>this.chapterForm.controls['chapterid']).setValue(res[0].chapterid);
+     
       (<FormControl>this.chapterForm.controls['subjectid']).setValue(res[0].subjectid);
       (<FormControl>this.chapterForm.controls['chaptername']).setValue(res[0].chaptername);
       (<FormControl>this.chapterForm.controls['chspterdscription']).setValue(res[0].chspterdscription);
@@ -91,6 +90,10 @@ export class ChapterComponent implements OnInit {
     this.chapterService.update(this.update, this.chapterForm.value).subscribe(res => {
     });
     window.location.reload();
+  }
+
+  get deleteId(){
+    return this.chapterForm.get('id').value;
   }
   deleteData() {
     this.chapterService.deletedata(this.deleteId).subscribe(res => {

@@ -1,5 +1,5 @@
 .container {
-    padding: 60px;
+    padding: 40px;
     width: 80%;
   }
   mat-form-field>input{
@@ -16,7 +16,7 @@
     width: 50%;
   }
   .btnsearch{
-      width: 250px;
+      width: 150px;
       border:1px solid black;
   }
   .chkbox{
@@ -26,12 +26,6 @@
       margin-left: 10px;
   }
 
-  .editbtns{
-    margin-top: 5px;
-    width: 80px;
-    height: 40px;
-    margin-left: 10px;
-  }
  #addbtn{
      float: right !important;
  }

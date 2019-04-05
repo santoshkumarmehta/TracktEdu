@@ -26,7 +26,7 @@ export class CourseService {
   }
 
   editData(search){
-    return this.http.get(this.courseurl+`?coursename=${search}`);
+    return this.http.get(this.courseurl+`?id=${search}`);
   }
 
   tabledatacolumn(search){

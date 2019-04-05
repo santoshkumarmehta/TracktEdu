@@ -5,16 +5,16 @@
       <mat-card-content>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text">Id</span>
+            <span class="input-group-text">Chapter Id</span>
           </div>
           <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
-        <div class="input-group mb-3">
+        <!-- <div class="input-group mb-3">
           <div class="input-group-prepend">
-           <span class="input-group-text">Chapter Id</span>
+           <span class="input-group-text"> Id</span>
           </div>
           <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="chapterid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
+        </div> -->
         <div class="input-group mb-3">
           <div class="input-group-prepend">
            <span class="input-group-text" >Subject Id</span>
@@ -55,7 +55,7 @@
   <form [formGroup]="searchData">
     <div class="input-group mb-3">
       <input type="text" class="form-control search" placeholder="search here throgh Course Id..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      <button class="btn btnsearch" (click)="retriveCourse()">search</button>
+      <button class="btn btnsearch btn-primary" (click)="retriveCourse()">search</button>
     </div>
   </form>
 </mat-card-content>
@@ -64,34 +64,38 @@
 
 
 <br>
-<mat-card>
-    <mat-card-title>Chapter Table</mat-card-title>
+  <h3>  Chapter Table</h3>
   <table class="table table-striped" *ngIf="chaptertable">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Chapter Id</th>
-        <th>Subject Id</th>
-        <th>Chapter Name</th>
-        <th>Chapter Desciption</th>
-        <th>Is Active</th>
-      </tr>
+  <thead>
+    <tr>
+      <th scope="col">Chapter Id</th>
+      <th scope="col">Subject Id</th>
+      <th scope="col">Chapter Name</th>
+      <th scope="col">Chapter Desciption</th>
+      <th scope="col">Is Active</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let table of chaptertable">
-       
-       <td>{{table.id}}</td>
-        <td>{{table.chapterid}}</td>
-        <td>{{table.subjectid}}</td>
-        <td>{{table.chaptername}}</td>
-        <td>{{table.chspterdscription}}</td>
-        <td>{{table.isactive}}</td>
-        
-        <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
-      </tr>
+    <tr *ngFor="let table of chaptertable" >
+      <th scope="row">{{table.id}}</th>
+      <td>{{table.subjectid}}</td>
+      <td>{{table.chaptername}}</td>
+      <td>{{table.chspterdscription}}</td>
+      <td>{{table.isactive}}</td>
+      <td><button  mat-button class="btn btn-primary "  (click)="editData(table.id)">Edit</button>
+      </td>
+    </tr>
   </tbody>
-  </table>
-</mat-card>
+</table>
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+  </ngb-pagination>
+  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+    <option [ngValue]="6">6 items per page</option>
+    <option [ngValue]="10">10 items per page</option>
+    <option [ngValue]="14">14 items per page</option>
+  </select>
+</div>
 
 </div>
 

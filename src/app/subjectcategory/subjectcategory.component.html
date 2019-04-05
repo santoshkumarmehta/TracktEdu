@@ -1,6 +1,4 @@
 <div class="container">
-    <!-- <button mat-button class="btn btn-primary addsubject" routerLink="/addsubject"> Add Subject</button>
-  <br><br> -->
   <div>
       <mat-card>
         <mat-card-title>Subject Category</mat-card-title>
@@ -31,12 +29,6 @@
             </div>
             <input type="text" class="form-control" formControlName="subjectCategorydescription" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
           </div>
-          <!-- <div class="input-group mb-3">
-           <div>
-            <span class="input-group-text" >Is Active</span>
-          </div>
-             <input type="checkbox"  class="chkbox" formControlName="isactive">
-          </div> -->
       <div>
           <button mat-button class="btn btn-danger " *ngIf="!id" type="reset">Reset</button>
           <button mat-button class="btn btn-primary btns" *ngIf="!id" (click)="addsubjectCategory()">Add</button>
@@ -54,7 +46,7 @@
     <form [formGroup]="searchSubjectCategory">
       <div class="input-group mb-3">
         <input type="text" class="form-control search" placeholder="search here throgh Id..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        <button class="btn btnsearch" (click)="retriveSubjectCategory()">search</button>
+        <button class="btn btnsearch btn-primary" (click)="retriveSubjectCategory()">search</button>
       </div>
     </form>
   </mat-card-content>
@@ -62,28 +54,28 @@
   <br>
   
   <br>
-  <mat-card>
-      <mat-card-title>Subject Category Table</mat-card-title>
-    <table class="table table-striped" *ngIf="tabledata">
+    <table class="table  table-striped" *ngIf="tabledata">
       <thead>
         <tr>
-          <th>Subject Cotegory Id</th>
-          <th>Subject Cotegory Code</th>
-          <th>Subject Cotegory Name</th>
-          <th>Subject Cotegory Description</th>
+          <th scope="col">Subject Cotegory Id</th>
+          <th scope="col">Subject Cotegory Code</th>
+          <th scope="col">Subject Cotegory Name</th>
+          <th scope="col">Subject Cotegory Description</th>
         </tr>
     </thead>
     <tbody>
     <tr *ngFor="let table of tabledata">
          
-         <td>{{table.id}}</td>
+         <th scope="row">{{table.id}}</th>
           <td>{{table.subjectCategorycode}}</td>
           <td>{{table.subjectCategoryname}}</td>
           <td>{{table.subjectCategorydescription}}</td>
+          <td>
           <button mat-button class="btn btn-primary editbtns"  (click)="editData(table.id)">Edit</button>
+          </td>
         </tr>
     </tbody>
     </table>
-  </mat-card>
+   
   </div>
   

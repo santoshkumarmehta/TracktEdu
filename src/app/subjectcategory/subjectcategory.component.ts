@@ -16,6 +16,8 @@ export class SubjectcategoryComponent implements OnInit {
   public id;
   tabledata: any[];
   isReadOnly=true;
+
+  
   constructor(private formBuilder:FormBuilder,private http:HttpClient, private subjectcategoryservice:SubjectcategoryService) { }
 
   ngOnInit() {

@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable  } from '@angular/core';
 import {AppService } from '../app.service';
 import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ChapterService {
 chapterUrl;
   constructor(private appService:AppService, private http:HttpClient) { 

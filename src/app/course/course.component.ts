@@ -19,8 +19,7 @@ export class CourseComponent implements OnInit {
   tableData:any [];
   value:any[]=[1];
   public id;
-  // searchdata:string[];
-
+  disabled=true;
 
   constructor( private courseService:CourseService, private formBuilder:FormBuilder, private http:HttpClient, private appservice:AppService) {
     this.tableurl=this.courseService.courseurl;
@@ -50,10 +49,11 @@ export class CourseComponent implements OnInit {
     
 //for search
     this.searchData= this.formBuilder.group({
-      search:['']
+      search:['',[Validators.required,Validators.minLength(1)]]
     })
-
  }
+
+
 
 
   addCourse(){
@@ -80,7 +80,7 @@ get edit(){
   
   editData(id){
         this.courseService.editData(id).subscribe( data=>{
-        // this.id=data[0].id;
+        this.id=data[0].id;
         // (<FormControl>this.courseForm.controls['id']).setValue(data[0].id);
         (<FormControl>this.courseForm.controls['id']).setValue(data[0].id);
         (<FormControl>this.courseForm.controls['schoolid']).setValue(data[0].schoolid);
@@ -89,7 +89,6 @@ get edit(){
         (<FormControl>this.courseForm.controls['isactive']).setValue(data[0].isactive);
     })
   }
-
   // for update
   get updateId(){
     return this.courseForm.get('id').value;

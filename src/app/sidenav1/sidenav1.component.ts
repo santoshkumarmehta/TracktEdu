@@ -21,21 +21,21 @@ export class Sidenav1Component implements OnInit {
    temp=[];
    t:boolean[]=[];
   
- showHide1(){
-   this.router.navigate(['/course']);
-}
-showHide2(){
-  this.router.navigate(['/subject']);
-}
-showHide3(){
-  this.router.navigate(['/batch']);
-}
-showHide4(){
-  this.router.navigate(['/student']);
-}
-showHide5(){
-  this.router.navigate(['/chapter']);
-}
+//  showHide1(){
+//    this.router.navigate(['/course']);
+// }
+// showHide2(){
+//   this.router.navigate(['/subject']);
+// }
+// showHide3(){
+//   this.router.navigate(['/batch']);
+// }
+// showHide4(){
+//   this.router.navigate(['/student']);
+// }
+// showHide5(){
+//   this.router.navigate(['/chapter']);
+// }
   ngOnInit() {
     }
 

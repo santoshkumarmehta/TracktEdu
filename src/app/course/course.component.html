@@ -1,19 +1,9 @@
 
 <div class="container">
-<!-- <br>
-  <button mat-button class="btn btn-primary " id="addbtn" routerLink="/addcourse">Add Course</button>
-<br>
-<br> -->
    <mat-card>
       <mat-card-title>Course</mat-card-title>
        <mat-card-content>
         <form [formGroup]="courseForm">
-            <!-- <div class="input-group mb-3">
-                <div >
-                 <span class="input-group-text">Id</span>
-                </div>
-                <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div> -->
         <div class="input-group mb-3">
           <div>
            <span class="input-group-text">Course Id</span>
@@ -44,13 +34,9 @@
           </div>
           <input type="checkbox"  class="chkbox" formControlName="isactive">
         </div>
-        <!-- <div class="input-group mb-3">
-            <input type="text" class="form-control search" placeholder="search here for deleteing and update..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            <button class="btn btnsearch" (click)="retriveCourse()">search</button>
-        </div> -->
         <div>
-            <button mat-button class="btn btn-danger " *ngIf="! id" type="reset">Reset</button>
-            <button mat-button class="btn btn-primary btns" *ngIf="! id"   (click)="addCourse()">Add</button>
+            <button mat-button class="btn btn-danger " *ngIf="!id" type="reset">Reset</button>
+            <button mat-button class="btn btn-primary btns" *ngIf="!id"   (click)="addCourse()">Add</button>
             <button mat-button class="btn btn-primary " *ngIf="id" (click)="updateCourse()">Update</button>
             <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteCourse()">Delete</button>
         </div>
@@ -60,69 +46,37 @@
 <br>
 <mat-card>
   <mat-card-content>
-  <form [formGroup]="searchData">
+  <form [formGroup]="searchData" #searchForm="ngForm">
     <div class="input-group mb-3">
-      <input type="text" class="form-control search" placeholder="search here throgh Course Id..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      <button class="btn btnsearch" (click)="retriveCourse()">search</button>
+      <input type="text" class="form-control search " placeholder="search here throgh Course name..." formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+      <button class="btn btn-primary btnsearch" (click)="retriveCourse()">search</button>
     </div>
   </form>
 </mat-card-content>
 </mat-card>
 <br>
-<!-- <br>
-<mat-card>
-  <mat-card-title>Search Data</mat-card-title>
-  <table class="table table-striped">
-    <thead >
-      <tr>
-        <th>Course Id</th>
-        <th>School Id</th>
-        <th>Course Name</th>
-        <th>Course Code</th>
-        <th>Is Active</th>
-      </tr>
-  </thead>
-  <tbody>
-  <tr *ngIf="searchdata">
-        <td>{{searchdata.id}}</td>
-        <td>{{searchdata.schoolid}}</td>
-        <td>{{searchdata.coursename}}</td>
-        <td>{{searchdata.coursecode}}</td>
-        <td>{{searchdata.isactive}}</td>
-        <button mat-button class="btn btn-primary editbtns"  (click)="editData(searchdata.coursename)">Edit</button>
-      </tr>
-  </tbody>
-  </table>
-</mat-card>
-<br> -->
 <br>
-<mat-card>
-  <mat-card-title>Table Data</mat-card-title>
   <table class="table table-striped" *ngIf="tableData">
     <thead>
       <tr>
-          <!-- <th>Id</th> -->
-        <th>Course Id</th>
-        <th>School Id</th>
-        <th>Course Name</th>
-        <th>Course Code</th>
-        <th>Is Active</th>
+        <th scope="col">Course Id</th>
+        <th scope="col">School Id</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Course Code</th>
+        <th scope="col">Is Active</th>
       </tr>
   </thead>
   <tbody>
   <tr *ngFor="let table of tableData">
-        <td>{{table.id}}</td>
-        <!-- <td>{{table.courseid}}</td> -->
+        <th scope="row">{{table.id}}</th>
         <td>{{table.schoolid}}</td>
         <td>{{table.coursename}}</td>
         <td>{{table.coursecode}}</td>
         <td>{{table.isactive}}</td>
-        <button mat-button class="btn btn-primary editbtns" id="edit"  (click)="editData(table.coursename)">Edit</button>
+        <td>
+        <button mat-button class="btn btn-primary" id="edit"  (click)="editData(table.id)">Edit</button>
+        </td>
       </tr>
   </tbody>
   </table>
-</mat-card>
 </div>
-<script>
-  
-</script>

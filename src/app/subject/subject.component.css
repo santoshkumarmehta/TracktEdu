@@ -6,12 +6,7 @@
   mat-form-field>input{
       width: 100%;
   }
-  .btns{
-      margin-left: 15px;
-  }
-  mat-card-title{
-      text-align: center;
-  }
+
 
   .addsubject{
       float: right !important;
@@ -26,17 +21,12 @@
     width: 50%;
   }
 
-.btnsearch{
-  width: 250px;
-  border:1px solid black;
- }
 
- .editbtns{
-  margin-top: 5px;
-  width: 80px;
-  height: 40px;
-  margin-left: 10px;
-}
 .btns{
   margin-left: 10px;
+}
+
+.btnsearch{
+  width: 150px;
+  border:1px solid black;
 }
