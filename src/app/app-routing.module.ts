@@ -13,7 +13,9 @@ import { StudentComponent } from './student/student.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import {SubjectcategoryComponent} from './subjectcategory/subjectcategory.component';
-
+import { UsersComponent } from './users/users.component';
+import {BatchsubjectmappingComponent} from './batchsubjectmapping/batchsubjectmapping.component';
+import { RolesComponent } from './roles/roles.component';
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch:'full'},
   { path: 'login', component:LoginComponent},
@@ -29,6 +31,9 @@ const routes: Routes = [
   { path:'subject', component:SubjectComponent},
   {path:'chapter', component:ChapterComponent},
   {path:'subjectcategory', component:SubjectcategoryComponent},
+  {path:'users', component:UsersComponent},
+  {path:'batchsubjectmapping', component:BatchsubjectmappingComponent},
+  {path:'roles', component:RolesComponent},
 ];
 
 

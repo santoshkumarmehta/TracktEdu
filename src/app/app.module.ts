@@ -26,6 +26,9 @@ import { BatchComponent } from './batch/batch.component';
 import { StudentComponent } from './student/student.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { SubjectcategoryComponent } from './subjectcategory/subjectcategory.component';
+import { UsersComponent } from './users/users.component';
+import { BatchsubjectmappingComponent } from './batchsubjectmapping/batchsubjectmapping.component';
+import { RolesComponent } from './roles/roles.component';
 
 
 @NgModule({
@@ -47,6 +50,9 @@ import { SubjectcategoryComponent } from './subjectcategory/subjectcategory.comp
     StudentComponent,
     ChapterComponent,
     SubjectcategoryComponent,
+    UsersComponent,
+    BatchsubjectmappingComponent,
+    RolesComponent,
   
     ],
   imports: [

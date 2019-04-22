@@ -1,0 +1,66 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>Roles</mat-card-title>
+        <form [formGroup]="rolesForm">
+          <mat-card-content>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                   <span class="input-group-text">Id</span>
+                  </div>
+                  <input type="text" class="form-control"  [attr.readonly]= "isReadOnly"  formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">Role Name</span>
+                </div>
+                <input type="text" class="form-control"  formControlName="rolename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">Role Description</span>
+                </div>
+                <input type="text" class="form-control"  formControlName="roledescription" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div>
+                 <span class="input-group-text">Is Active</span>
+                </div>
+                <input type="checkbox" formControlName="isactive" class="chkbox">
+              </div>
+            
+            <div>
+                <button mat-button class="btn btn-danger"  type="reset">Reset</button>
+                <button mat-button class="btn btn-primary btns"   (click)="addRoles()" >Add</button>
+                <button mat-button class="btn btn-primary "  (click)="upadtaeData()" >Update</button>
+                <button mat-button class="btn btn-danger btns" (click)="deleteData()">Delete</button>
+            
+            </div>
+          </mat-card-content>
+        </form>
+      </mat-card>
+      <br>
+
+      <mat-card>
+          <h3>  Roles Table</h3>
+          <table class="table table-striped" *ngIf="roletable">
+          <thead>
+            <tr>
+                <th scope="col">Id</th>
+              <th scope="col">Role Name</th>
+              <th scope="col">Role Description</th>
+              <th scope="col">Is Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let table of roletable" >
+              <th scope="row">{{table.id}}</th> 
+              <td>{{table.rolename}}</td>
+              <td>{{table.roledescription}}</td>
+              <td>{{table.isactive}}</td>
+              <td><button  mat-button class="btn btn-primary" (click)="editData(table.id)">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table> 
+      </mat-card>
+</div>

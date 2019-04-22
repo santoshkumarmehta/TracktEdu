@@ -7,7 +7,9 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ChapterService {
+  
 chapterUrl;
+
   constructor(private appService:AppService, private http:HttpClient) { 
     this.chapterUrl=this.appService.baseurl+'/chapter';
   }
@@ -15,7 +17,7 @@ chapterUrl;
   addChapter(chapter){
     return this.http.post(this.chapterUrl,chapter)
   }
-
+ 
   chaptertable(table){
     return this.http.get(this.chapterUrl+`?chapterid=${table}`);
   }

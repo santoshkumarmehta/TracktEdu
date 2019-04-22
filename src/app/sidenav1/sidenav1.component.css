@@ -336,7 +336,7 @@ a:hover, a:active{
 a {
   text-decoration: none;
   background-color: rgb(238, 172, 172);
-  margin-top: 10px;
+  margin-top: 2px;
 color: white;
 }
 .btns:hover{
@@ -352,6 +352,4 @@ color: white;
   padding-left: 6px;
 }
 
-.sidenav{
-  padding-top: 50px;
-}
+

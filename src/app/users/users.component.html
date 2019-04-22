@@ -1,0 +1,109 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Users</mat-card-title>
+    <form [formGroup]="userForm">
+      <mat-card-content>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           <span class="input-group-text">Employee Id</span>
+          </div>
+          <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text">First Name</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="firstname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text">Middle Name</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="middlename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text">Last Name</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="lastname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text">eamil id</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="emailid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text">D.O.J</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="doj" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text">Roles</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="roles" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div>
+             <span class="input-group-text">Is Active</span>
+            </div>
+            <input type="checkbox" formControlName="isactive" class="chkbox">
+        </div>
+        <div>
+            <button mat-button class="btn btn-danger" *ngIf="!id"  type="reset">Reset</button>
+            <button mat-button class="btn btn-primary btns" *ngIf="!id"  (click)="addUsers()" >Add</button>
+            <button mat-button class="btn btn-primary " *ngIf="id"  (click)="upadtaeData()" >Update</button>
+            <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteData()">Delete</button>
+        
+        </div>
+      </mat-card-content>
+    </form>
+  </mat-card>
+  <br>
+  <br>
+<mat-card>
+  <mat-card-content>
+  <form [formGroup]="searchData">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control search" formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <button class="btn btnsearch btn-primary" (click)="retriveCourse()">search</button>
+    </div>
+  </form>
+</mat-card-content>
+</mat-card>
+<br>
+
+<mat-card>
+  <h3>  Users Table</h3>
+  <table class="table table-striped" *ngIf="userstable">
+  <thead>
+    <tr>
+      <th scope="col">Employee Id</th>
+      <th scope="col">First Nmae</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email Id</th>
+      <th scope="col">Date of Joining</th>
+      <th scope="col">Roles</th>
+      <th scope="col">Is Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let table of userstable" >
+      <th scope="row">{{table.id}}</th>
+      <td>{{table.firstname}}</td>
+      <td>{{table.middlename}}</td>
+      <td>{{table.lastname}}</td>
+      <td>{{table.emailid}}</td>
+      <td>{{table.doj}}</td>
+      <td>{{table.roles}}</td>
+      <td>{{table.isactive}}</td>
+      <td><button  mat-button class="btn btn-primary" (click)="editData(table.id)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table> 
+</mat-card>
+</div>

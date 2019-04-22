@@ -3,11 +3,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ChapterService } from './chapter.service';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from "@angular/forms";
+
 @Component({
   selector: 'app-chapter',
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.css']
 })
+
 export class ChapterComponent implements OnInit {
 
   chapterForm: FormGroup;
@@ -17,7 +19,7 @@ export class ChapterComponent implements OnInit {
   public id;
   isReadOnly = true;
   page = 1;
-  pageSize=4;
+  pageSize=6;
   collectionSize;
 
   get chapter(){
@@ -25,21 +27,15 @@ export class ChapterComponent implements OnInit {
     .slice((this.page-1)*this.pageSize+this.pageSize);
   }
 
-
   constructor(private formBuilder: FormBuilder, private chapterService: ChapterService, private http: HttpClient) {
     this.tableurl = this.chapterService.chapterUrl;
-
   }
 
-
-
   ngOnInit() {
-
     this.http.get(this.tableurl).subscribe(res => {
-      this.chaptertable = res as string[];
-      this.collectionSize=this.chaptertable.length;
+    this.chaptertable = res as string[];
+    this.collectionSize=this.chaptertable.length;
     })
-
    
     this.chapterForm = this.formBuilder.group({
       id: [''],
@@ -53,6 +49,7 @@ export class ChapterComponent implements OnInit {
     this.searchData= this.formBuilder.group({
       search:['']
     })
+
   }
 
   addChapter(){
@@ -81,17 +78,14 @@ export class ChapterComponent implements OnInit {
       (<FormControl>this.chapterForm.controls['isactive']).setValue(res[0].isactive);
     })
   }
-
   get update() {
     return this.chapterForm.get('id').value;
   }
-
   upadtaeData() {
     this.chapterService.update(this.update, this.chapterForm.value).subscribe(res => {
     });
     window.location.reload();
   }
-
   get deleteId(){
     return this.chapterForm.get('id').value;
   }

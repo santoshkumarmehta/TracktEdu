@@ -1,0 +1,77 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>Batch Subject Mapping </mat-card-title>
+        <form [formGroup]="batchsubjectMappingForm">
+          <mat-card-content>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                   <span class="input-group-text">Id</span>
+                  </div>
+                  <input type="text" class="form-control"  [attr.readonly]= "isReadOnly"  formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">Course Name</span>
+                </div>
+                <input type="text" class="form-control"  formControlName="coursename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">Batch Name</span>
+                </div>
+                <input type="text" class="form-control"  formControlName="batchname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <span class="input-group-text">Subject Name</span>
+                </div>
+                <input type="text" class="form-control"  formControlName="subjectname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            
+            <div>
+                <button mat-button class="btn btn-danger" *ngIf="!id" type="reset">Reset</button>
+                <button mat-button class="btn btn-primary btns" *ngIf="!id"  (click)="addBSM()" >Add</button>
+                <button mat-button class="btn btn-primary " *ngIf="id" (click)="upadtaeData()" >Update</button>
+                <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteData()">Delete</button>
+            
+            </div>
+          </mat-card-content>
+        </form>
+      </mat-card>
+      <br>
+<mat-card>
+  <mat-card-content>
+  <form [formGroup]="searchData">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control search" formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <button class="btn btnsearch btn-primary" (click)="retriveCourse()">search</button>
+    </div>
+  </form>
+</mat-card-content>
+</mat-card>
+<br>
+
+      <mat-card>
+          <h3>  Batch Subject Mapping Table</h3>
+          <table class="table table-striped" *ngIf="bsmtable">
+          <thead>
+            <tr>
+                <th scope="col">Id</th>
+              <th scope="col">Course Name</th>
+              <th scope="col">Batch Name</th>
+              <th scope="col">Subject Nmae</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let table of bsmtable" >
+              <th scope="row">{{table.id}}</th> 
+              <td>{{table.coursename}}</td>
+              <td>{{table.batchname}}</td>
+              <td>{{table.subjectname}}</td>
+              <td><button  mat-button class="btn btn-primary" (click)="editData(table.id)">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table> 
+      </mat-card>
+</div>
