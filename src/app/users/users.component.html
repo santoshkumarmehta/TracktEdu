@@ -10,10 +10,10 @@
           <input type="text" class="form-control" [attr.readonly]= "isReadOnly" formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
-            <div class="input-group-prepend">
-             <span class="input-group-text">First Name</span>
-            </div>
-            <input type="text" class="form-control"  formControlName="firstname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <div class="input-group-prepend">
+           <span class="input-group-text">First Name</span>
+          </div>
+          <input type="text" class="form-control"  formControlName="firstname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -29,7 +29,7 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-             <span class="input-group-text">eamil id</span>
+             <span class="input-group-text">Eamil id</span>
             </div>
             <input type="text" class="form-control"  formControlName="emailid" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
@@ -37,7 +37,10 @@
             <div class="input-group-prepend">
              <span class="input-group-text">D.O.J</span>
             </div>
-            <input type="text" class="form-control"  formControlName="doj" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input class="form-control" type="text" placeholder="yyyy-mm-dd" formControlName="doj" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+             <button class="btn btn-outline-secondary fa fa-calendar" (click)="d.toggle()" type="button"></button>
+           </div>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -68,7 +71,7 @@
   <form [formGroup]="searchData">
     <div class="input-group mb-3">
       <input type="text" class="form-control search" formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      <button class="btn btnsearch btn-primary" (click)="retriveCourse()">search</button>
+      <button class="btn btnsearch btn-primary" (click)="retriveData()">search</button>
     </div>
   </form>
 </mat-card-content>
@@ -97,7 +100,7 @@
       <td>{{table.middlename}}</td>
       <td>{{table.lastname}}</td>
       <td>{{table.emailid}}</td>
-      <td>{{table.doj}}</td>
+      <td>{{table.doj.day}}-{{table.doj.month}}-{{table.doj.year}}</td>
       <td>{{table.roles}}</td>
       <td>{{table.isactive}}</td>
       <td><button  mat-button class="btn btn-primary" (click)="editData(table.id)">Edit</button>

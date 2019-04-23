@@ -1,0 +1,47 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Time Table</mat-card-title>
+    <form [formGroup]="timetableForm">
+      <mat-card-content>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+           <span class="input-group-text">Template Name</span>
+          </div>
+          <input type="text" class="form-control" formControlName="templatename" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+           <span class="input-group-text">Template Description</span>
+          </div>
+          <input type="text" class="form-control"  formControlName="templatedescription" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-2">
+          <div>
+           <span class="input-group-text">Is Active</span>
+          </div>
+          <input type="checkbox" formControlName="isactive" class="chkbox">
+        </div>
+        <div class="input-group mb-2">
+          <div>
+            <span class="input-group-text">Days</span>
+          </div>
+         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Sunday</label>
+         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Monday</label>
+         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Tuesday</label>
+         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Wednesday</label>
+         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Thursday</label>
+         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Friday</label>
+         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Satrday</label>
+        </div>
+     
+        <div>
+            <button mat-button class="btn btn-danger" *ngIf="!id"  type="reset">Reset</button>
+            <button mat-button class="btn btn-primary btns" *ngIf="!id"  (click)="addUsers()" >Add</button>
+            <button mat-button class="btn btn-primary " *ngIf="id"  (click)="upadtaeData()" >Update</button>
+            <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteData()">Delete</button>
+        
+        </div>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>

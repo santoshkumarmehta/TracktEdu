@@ -29,6 +29,7 @@ import { SubjectcategoryComponent } from './subjectcategory/subjectcategory.comp
 import { UsersComponent } from './users/users.component';
 import { BatchsubjectmappingComponent } from './batchsubjectmapping/batchsubjectmapping.component';
 import { RolesComponent } from './roles/roles.component';
+import { TimetableComponent } from './timetable/timetable.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { RolesComponent } from './roles/roles.component';
     UsersComponent,
     BatchsubjectmappingComponent,
     RolesComponent,
+    TimetableComponent,
   
     ],
   imports: [

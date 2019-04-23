@@ -3,12 +3,12 @@
         <mat-card-title>Roles</mat-card-title>
         <form [formGroup]="rolesForm">
           <mat-card-content>
-              <div class="input-group mb-3">
+              <!-- <div class="input-group mb-3">
                   <div class="input-group-prepend">
                    <span class="input-group-text">Id</span>
                   </div>
                   <input type="text" class="form-control"  [attr.readonly]= "isReadOnly"  formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
+              </div> -->
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                  <span class="input-group-text">Role Name</span>
@@ -29,17 +29,28 @@
               </div>
             
             <div>
-                <button mat-button class="btn btn-danger"  type="reset">Reset</button>
-                <button mat-button class="btn btn-primary btns"   (click)="addRoles()" >Add</button>
-                <button mat-button class="btn btn-primary "  (click)="upadtaeData()" >Update</button>
-                <button mat-button class="btn btn-danger btns" (click)="deleteData()">Delete</button>
+                <button mat-button class="btn btn-danger"  *ngIf="!id"  type="reset">Reset</button>
+                <button mat-button class="btn btn-primary btns"  *ngIf="!id"  (click)="addRoles()" >Add</button>
+                <button mat-button class="btn btn-primary " *ngIf="id"  (click)="upadtaeData()" >Update</button>
+                <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteData()">Delete</button>
             
             </div>
           </mat-card-content>
         </form>
       </mat-card>
       <br>
-
+      <br>
+      <mat-card>
+        <mat-card-content>
+        <form [formGroup]="searchData">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control search" formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <button class="btn btnsearch btn-primary" (click)="retriveData()">search</button>
+          </div>
+        </form>
+      </mat-card-content>
+      </mat-card>
+      <br>
       <mat-card>
           <h3>  Roles Table</h3>
           <table class="table table-striped" *ngIf="roletable">

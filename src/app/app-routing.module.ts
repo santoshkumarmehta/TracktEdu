@@ -16,6 +16,7 @@ import {SubjectcategoryComponent} from './subjectcategory/subjectcategory.compon
 import { UsersComponent } from './users/users.component';
 import {BatchsubjectmappingComponent} from './batchsubjectmapping/batchsubjectmapping.component';
 import { RolesComponent } from './roles/roles.component';
+import {TimetableComponent} from './timetable/timetable.component';
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch:'full'},
   { path: 'login', component:LoginComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:'users', component:UsersComponent},
   {path:'batchsubjectmapping', component:BatchsubjectmappingComponent},
   {path:'roles', component:RolesComponent},
+  {path:'timetable', component:TimetableComponent},
 ];
 
 

@@ -15,8 +15,8 @@
       text-align: center;
   }
   .chkbox{
-    height: 38px;
-    width: 38px;
+    height: 30px;
+    width: 30px;
     margin-left: 10px;
   }
 
@@ -27,6 +27,7 @@
       width: 150px;
       border:1px solid black;
   }
-  table {
-    width: 100%;
+  label{
+      text-align: center;
+      font-size: 15px;
   }

@@ -33,7 +33,7 @@ deletedata(id){
   return this.http.delete(this.userurl+`/${id}`);
  }
 
- retriveChapter(search){
+ retriveData(search){
   return this.http.get(this.userurl+`?firstname=${search}`);
 }
 

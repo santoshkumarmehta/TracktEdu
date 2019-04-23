@@ -3,12 +3,12 @@
         <mat-card-title>Batch Subject Mapping </mat-card-title>
         <form [formGroup]="batchsubjectMappingForm">
           <mat-card-content>
-              <div class="input-group mb-3">
+              <!-- <div class="input-group mb-3">
                   <div class="input-group-prepend">
                    <span class="input-group-text">Id</span>
                   </div>
                   <input type="text" class="form-control"  [attr.readonly]= "isReadOnly"  formControlName="id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
+              </div> -->
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                  <span class="input-group-text">Course Name</span>
@@ -44,7 +44,7 @@
   <form [formGroup]="searchData">
     <div class="input-group mb-3">
       <input type="text" class="form-control search" formControlName="search"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      <button class="btn btnsearch btn-primary" (click)="retriveCourse()">search</button>
+      <button class="btn btnsearch btn-primary" (click)="retriveData()">search</button>
     </div>
   </form>
 </mat-card-content>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ChapterService } from './chapter.service';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from "@angular/forms";
+import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-chapter',
@@ -18,28 +19,21 @@ export class ChapterComponent implements OnInit {
   chaptertable: any[]=[];
   public id;
   isReadOnly = true;
-  page = 1;
-  pageSize=6;
-  collectionSize;
 
-  get chapter(){
-    return this.chaptertable.map((chapter,i)=>({id:i+1,...chapter}))
-    .slice((this.page-1)*this.pageSize+this.pageSize);
-  }
+
 
   constructor(private formBuilder: FormBuilder, private chapterService: ChapterService, private http: HttpClient) {
     this.tableurl = this.chapterService.chapterUrl;
   }
 
   ngOnInit() {
+    // for table
     this.http.get(this.tableurl).subscribe(res => {
     this.chaptertable = res as string[];
-    this.collectionSize=this.chaptertable.length;
     })
    
     this.chapterForm = this.formBuilder.group({
       id: [''],
-      // chapterid: [''],
       subjectid: [''],
       chaptername: [''],
       chspterdscription: [''],
@@ -50,7 +44,14 @@ export class ChapterComponent implements OnInit {
       search:['']
     })
 
+    // for page
+    this.dataSource.paginator = this.paginator;
+  
   }
+
+  displayedColumns: string[] = ['id', 'subjectid', 'chaptername', 'chspterdscription','isactive'];
+  dataSource = new MatTableDataSource(this.chaptertable);
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   addChapter(){
     this.chapterService.addChapter(this.chapterForm.value).subscribe(res=>{

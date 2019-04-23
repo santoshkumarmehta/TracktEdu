@@ -83,11 +83,10 @@ addUsers(){
   }
 
   get search(){
-    // console.log(this.courseForm.get('search'))
     return this.searchData.get('search');
   }
-  retriveCourse(){
-    this.userservice.retriveChapter(this.search.value).subscribe((res)=>{
+  retriveData(){
+    this.userservice.retriveData(this.search.value).subscribe((res)=>{
     this.userstable= res as any[];
      })
     }

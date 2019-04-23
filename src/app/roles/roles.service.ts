@@ -10,8 +10,8 @@ roleurl;
     this.roleurl=this.rolesservice.baseurl+'/roles';
   }
 
-  adduser(bsm){
-    return this.http.post(this.roleurl,bsm);
+  adduser(role){
+    return this.http.post(this.roleurl,role);
   }
  
   roletable(table){
@@ -29,8 +29,8 @@ roleurl;
     return this.http.delete(this.roleurl+`/${id}`);
    }
   
-   retriveChapter(search){
-    return this.http.get(this.roleurl+`?coursename=${search}`);
+   retriveData(search){
+    return this.http.get(this.roleurl+`?rolename=${search}`);
   }
   
 }

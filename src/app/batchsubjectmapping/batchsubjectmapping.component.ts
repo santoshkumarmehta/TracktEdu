@@ -75,7 +75,7 @@ this.searchData=this.formBuilder.group({
   get search(){
     return this.searchData.get('search');
   }
-  retriveCourse(){
+  retriveData(){
     this.bsm.retriveChapter(this.search.value).subscribe((res)=>{
     this.bsmtable= res as any[];
      })
