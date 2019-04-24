@@ -10,4 +10,8 @@ export class TimetableService {
   constructor(private http:HttpClient, private appservice:AppService) { 
     this.timetableurl= this.appservice.baseurl+'/timetable';
   }
+addtimeTable(timetable){
+  return this.http.post(this.timetableurl,timetable);
+}
+
 }

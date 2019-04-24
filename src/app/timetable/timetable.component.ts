@@ -20,8 +20,22 @@ export class TimetableComponent implements OnInit {
       templatename:[''],
       templatedescription:[''],
       isactive:[''],
-     day:['']
+      sunday:[''],
+      wednesday:[''],
+      satrday:[''],
+      monday:[''],
+      thursday:[''],
+      tuesday:[''],
+      friday:[''],
+      starttime:[''],
+      noofperiopd:[''],
+      timeduration:['']
     })
   }
 
+  addtimeTable(){
+    this.timetableservice.addtimeTable(this.timetableForm.value).subscribe(res=>{
+     });
+     
+  }
 }

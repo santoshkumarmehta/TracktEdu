@@ -1,6 +1,6 @@
 <div class="container">
   <mat-card>
-    <mat-card-title>Time Table</mat-card-title>
+    <mat-card-title>Time Table Template</mat-card-title>
     <form [formGroup]="timetableForm">
       <mat-card-content>
         <div class="input-group mb-2">
@@ -25,20 +25,42 @@
           <div>
             <span class="input-group-text">Days</span>
           </div>
-         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Sunday</label>
-         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Monday</label>
-         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Tuesday</label>
-         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Wednesday</label>
-         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Thursday</label>
-         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Friday</label>
-         <label><input type="checkbox" id="day" formControlName="day" class="chkbox" value="Monday">Satrday</label>
-        </div>
-     
+          <div class="col-md-3">
+          <label><input  type="checkbox" formControlName="sunday" class="daychk" ><span class="day">Sunday</span></label>
+          <label><input  type="checkbox" formControlName="wednesday" class="daychk"><span class="day">Wednesday</span></label>
+          <label><input  type="checkbox" formControlName="satrday" class="daychk" ><span class="day">Satrday</span></label>
+          </div>
+          <div class="col-md-3">
+            <label><input type="checkbox"  formControlName="monday" class="daychk"><span class="day">Monnday</span></label><br>
+            <label><input type="checkbox"  formControlName="thursday" class="daychk"><span class="day">Thursdau</span></label>
+          </div>
+          <div class="col-md-3">
+            <label><input type="checkbox"  formControlName="tuesday" class="daychk"><span class="day">Tuesday</span></label><br>
+            <label><input type="checkbox"  formControlName="friday" class="daychk"><span class="day">Friday</span></label>
+          </div>
+           </div>
+           <div class="input-group mb-2">
+            <div class="input-group-prepend">
+             <span class="input-group-text">Start Time</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="starttime" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+             <span class="input-group-text">No of Period</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="noofperiopd" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+             <span class="input-group-text">Time Duration</span>
+            </div>
+            <input type="text" class="form-control"  formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
         <div>
-            <button mat-button class="btn btn-danger" *ngIf="!id"  type="reset">Reset</button>
-            <button mat-button class="btn btn-primary btns" *ngIf="!id"  (click)="addUsers()" >Add</button>
-            <button mat-button class="btn btn-primary " *ngIf="id"  (click)="upadtaeData()" >Update</button>
-            <button mat-button class="btn btn-danger btns" *ngIf="id" (click)="deleteData()">Delete</button>
+            <button mat-button class="btn btn-danger" type="reset">Reset</button>
+            <button mat-button class="btn btn-primary btns"  (click)="addtimeTable()" >Add</button>
+           
         
         </div>
       </mat-card-content>
