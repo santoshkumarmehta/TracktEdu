@@ -11,7 +11,7 @@
   .btns{
     margin-left: 10px;
   }
-  mat-card-title{
+  .title{
     text-align: center;
   }
   .chkbox{
@@ -39,4 +39,9 @@
     height: 25px;
     width: 25px;
     margin-left: 10px;
+  
+  }
+
+  .btn-outline-primary{
+    width: 100%;
   }

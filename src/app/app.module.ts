@@ -31,7 +31,6 @@ import { BatchsubjectmappingComponent } from './batchsubjectmapping/batchsubject
 import { RolesComponent } from './roles/roles.component';
 import { TimetableComponent } from './timetable/timetable.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +54,7 @@ import { TimetableComponent } from './timetable/timetable.component';
     BatchsubjectmappingComponent,
     RolesComponent,
     TimetableComponent,
-  
+
     ],
   imports: [
     FormsModule,

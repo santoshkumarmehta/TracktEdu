@@ -1,6 +1,6 @@
 <div class="container">
   <mat-card>
-    <mat-card-title>Time Table Template</mat-card-title>
+    <mat-card-title class="title">Time Table Template</mat-card-title>
     <form [formGroup]="timetableForm">
       <mat-card-content>
         <div class="input-group mb-2">
@@ -26,44 +26,66 @@
             <span class="input-group-text">Days</span>
           </div>
           <div class="col-md-3">
-          <label><input  type="checkbox" formControlName="sunday" class="daychk" ><span class="day">Sunday</span></label>
-          <label><input  type="checkbox" formControlName="wednesday" class="daychk"><span class="day">Wednesday</span></label>
-          <label><input  type="checkbox" formControlName="satrday" class="daychk" ><span class="day">Satrday</span></label>
+          <label><input  type="checkbox" #sunday formControlName="sunday" class="daychk" ><span class="day">Sunday</span></label>
+          <label><input  type="checkbox" #wednesday formControlName="wednesday" class="daychk"><span class="day">Wednesday</span></label>
+          <label><input  type="checkbox" #saturday formControlName="satrday" class="daychk" ><span class="day">Satrday</span></label>
           </div>
           <div class="col-md-3">
-            <label><input type="checkbox"  formControlName="monday" class="daychk"><span class="day">Monnday</span></label><br>
-            <label><input type="checkbox"  formControlName="thursday" class="daychk"><span class="day">Thursdau</span></label>
+            <label><input type="checkbox" #monday  formControlName="monday" class="daychk"><span class="day">Monnday</span></label><br>
+            <label><input type="checkbox" #thursday formControlName="thursday" class="daychk"><span class="day">Thursdau</span></label>
           </div>
           <div class="col-md-3">
-            <label><input type="checkbox"  formControlName="tuesday" class="daychk"><span class="day">Tuesday</span></label><br>
-            <label><input type="checkbox"  formControlName="friday" class="daychk"><span class="day">Friday</span></label>
+            <label><input type="checkbox" #tuesday formControlName="tuesday" class="daychk"><span class="day">Tuesday</span></label><br>
+            <label><input type="checkbox" #friday  formControlName="friday" class="daychk"><span class="day">Friday</span></label>
           </div>
            </div>
-           <div class="input-group mb-2">
-            <div class="input-group-prepend">
-             <span class="input-group-text">Start Time</span>
-            </div>
-            <input type="text" class="form-control"  formControlName="starttime" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-             <span class="input-group-text">No of Period</span>
-            </div>
-            <input type="text" class="form-control"  formControlName="noofperiopd" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-             <span class="input-group-text">Time Duration</span>
-            </div>
-            <input type="text" class="form-control"  formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-        <div>
+                   <div>
             <button mat-button class="btn btn-danger" type="reset">Reset</button>
-            <button mat-button class="btn btn-primary btns"  (click)="addtimeTable()" >Add</button>
+            <button mat-button class="btn btn-primary btns"  (click)=" next()" >Next</button>
            
         
         </div>
       </mat-card-content>
     </form>
   </mat-card>
+
+</div>
+
+<div class="container">
+  <mat-card *ngFor="let day of days">
+    <form>
+    <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#field">
+{{day}}
+</button>
+ <div id="field" class="collapse">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+     <span class="input-group-text">Start Time</span>
+    </div>
+    <input type="text" class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+     <span class="input-group-text">No of Period</span>
+    </div>
+    <input type="text" class="form-control"   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+     <span class="input-group-text">Time Duration</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+ 
+
+<div>
+  <button mat-button class="btn btn-danger" type="reset">Reset</button>
+  <button mat-button class="btn btn-primary btns"  (click)=" next()" >Add</button>
+ 
+
+</div>
+</div>  
+</form>
+  </mat-card>
+  
 </div>

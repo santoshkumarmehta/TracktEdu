@@ -15,6 +15,13 @@ import { Observable } from 'rxjs';
 //   // isactive:boolean;
 // }
 
+export interface Chapter{
+  id:number;
+  subjectid:number;
+  chaptername:string;
+  chspterdscription:string;
+  isactive:boolean;
+}
 
 @Component({
   selector: 'app-chapter',
@@ -33,30 +40,27 @@ export class ChapterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private chapterService: ChapterService, private http: HttpClient) {
     this.tableurl = this.chapterService.chapterUrl;
-    this.chaptertable = [];
+     this.chaptertable = [];
   }
+
+
 
    
   // for Pagination
   //  displayedColumns: string[] = ['name', 'position', 'weight', 'symbol'];
   // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  displayedColumns: string[] = ['id', 'subjectid', 'chaptername', 'chspterdscription','isactive'];
-  dataSource = new MatTableDataSource(this.chaptertable);
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-
-  ngOnInit() {
+   ngOnInit() {
 
     // for page
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
     // for table
     this.http.get(this.tableurl).subscribe(res => {
     this.chaptertable = res as any[];
     })
     // this.getChapterData().subscribe(res =>{
-    //   this.chaptertable = res;
-    
-    //   console.log(this.chaptertable);
+    //   this.data = res as [];
+    //   // console.log(this.data);
     // });
     this.chapterForm = this.formBuilder.group({
       id: [''],
@@ -71,15 +75,20 @@ export class ChapterComponent implements OnInit {
     })
 
     }
-    // getChapterData():  Observable<PeriodicElement[]> {
-    //   return this.http.get<PeriodicElement[]>(this.tableurl);
+    // getChapterData():  Observable<[]> {
+    //   return this.http.get<[]>(this.tableurl);
     // }
   
+    // displayedColumns: string[] = ["id", "subjectid", "chaptername", "chspterdscription","isactive"];
+    // dataSource = new MatTableDataSource(this.data);
+    //  @ViewChild(MatPaginator) paginator: MatPaginator;
+  
+        
   addChapter(){
     this.chapterService.addChapter(this.chapterForm.value).subscribe(res=>{
       });
-       window.location.reload();
-      // console.log(this.dataSource);
+         window.location.reload();
+     
   }
 
   get search(){
@@ -119,9 +128,6 @@ export class ChapterComponent implements OnInit {
     window.location.reload();
   }
 }
-
-
-
 
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
