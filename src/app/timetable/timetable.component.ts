@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TimetableService } from './timetable.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import {NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import { template } from '@angular/core/src/render3';
 
 @Component({
@@ -19,9 +20,16 @@ export class TimetableComponent implements OnInit {
  @ViewChild("saturday") Saturday: ElementRef;
  
   timetableForm:FormGroup;
+  timePeriod:FormGroup;
+  t: boolean[]=[];
   days:string[]=[];
-  isCollapsed=true;
-  constructor(private http:HttpClient, private timetableservice:TimetableService, private formbuilder:FormBuilder) { }
+  data;
+  time: NgbTimeStruct = {hour: 1, minute: 30, second: 30};
+  meridian = true;
+
+  constructor(private http:HttpClient, private timetableservice:TimetableService, private formbuilder:FormBuilder) {
+   
+   }
 
   ngOnInit() {
 
@@ -36,8 +44,13 @@ export class TimetableComponent implements OnInit {
       thursday:[],
       tuesday:[],
       friday:[],
-     
-    })
+     })
+
+     this.timePeriod=this.formbuilder.group({
+      time:[''],
+      periodno:[''],
+      timeduration:['']
+     })
   }
 
   addtimeTable(){
@@ -46,9 +59,7 @@ export class TimetableComponent implements OnInit {
   }
   next(){
     this.days.splice(0);
-   if(this.Saturday.nativeElement.checked){
-     this.days.push("Saturday");
-   }
+   
    if(this.Sunday.nativeElement.checked){
      this.days.push("Sunday")
 
@@ -62,12 +73,23 @@ export class TimetableComponent implements OnInit {
    if(this.Wednesday.nativeElement.checked){
      this.days.push("Wednesday");
    }
+   if(this.Thursday.nativeElement.checked){
+    this.days.push("Thursday");
+  }
    if(this.Friday.nativeElement.checked){
      this.days.push("Friday");
    }
-   if(this.Thursday.nativeElement.checked){
-     this.days.push("Thursday");
-   }
+   if(this.Saturday.nativeElement.checked){
+    this.days.push("Saturday");
+  }
+  console.log(this.days);
+  }
+
+  toggle(i) {
+    this.t[i]=!this.t[i]
+  }
+
+  add(){
    
   }
 

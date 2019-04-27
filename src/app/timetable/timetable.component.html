@@ -41,51 +41,44 @@
            </div>
                    <div>
             <button mat-button class="btn btn-danger" type="reset">Reset</button>
-            <button mat-button class="btn btn-primary btns"  (click)=" next()" >Next</button>
-           
-        
+            <button mat-button class="btn btn-primary btns"  (click)=" next()" >Next</button>     
         </div>
       </mat-card-content>
     </form>
   </mat-card>
-
 </div>
 
 <div class="container">
-  <mat-card *ngFor="let day of days">
-    <form>
-    <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#field">
+  <mat-card *ngFor="let day of days; let i=index;">
+     <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >
 {{day}}
 </button>
- <div id="field" class="collapse">
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
+ <div *ngIf="t[i]">
+   <form [formGroup]="timePeriod">
+  <div class="input-group mb-2 date">
+    <div class="starttime">
      <span class="input-group-text">Start Time</span>
     </div>
-    <input type="text" class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <ngb-timepicker name="time" formControlName="time"  [meridian]="meridian"></ngb-timepicker>
   </div>
   <div class="input-group mb-2">
     <div class="input-group-prepend">
      <span class="input-group-text">No of Period</span>
     </div>
-    <input type="text" class="form-control"   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <input type="number" class="form-control" formControlName="periodno"   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
   </div>
   <div class="input-group mb-2">
     <div class="input-group-prepend">
      <span class="input-group-text">Time Duration</span>
     </div>
-    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <input type="number" class="form-control" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
   </div>
  
 
 <div>
-  <button mat-button class="btn btn-danger" type="reset">Reset</button>
-  <button mat-button class="btn btn-primary btns"  (click)=" next()" >Add</button>
- 
-
-</div>
-</div>  
+ <button mat-button class="btn btn-primary btns"  (click)=" add()" >Add</button>
+ </div> 
 </form>
-  </mat-card>
-  
+</div>
+</mat-card>
 </div>
