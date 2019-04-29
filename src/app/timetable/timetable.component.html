@@ -28,57 +28,54 @@
           <div class="col-md-3">
           <label><input  type="checkbox" #sunday formControlName="sunday" class="daychk" ><span class="day">Sunday</span></label>
           <label><input  type="checkbox" #wednesday formControlName="wednesday" class="daychk"><span class="day">Wednesday</span></label>
-          <label><input  type="checkbox" #saturday formControlName="satrday" class="daychk" ><span class="day">Satrday</span></label>
+          <label><input  type="checkbox" #saturday formControlName="satrday" class="daychk" ><span class="day">Saturday</span></label>
           </div>
           <div class="col-md-3">
             <label><input type="checkbox" #monday  formControlName="monday" class="daychk"><span class="day">Monnday</span></label><br>
-            <label><input type="checkbox" #thursday formControlName="thursday" class="daychk"><span class="day">Thursdau</span></label>
+            <label><input type="checkbox" #thursday formControlName="thursday" class="daychk"><span class="day">Thursday</span></label>
           </div>
           <div class="col-md-3">
             <label><input type="checkbox" #tuesday formControlName="tuesday" class="daychk"><span class="day">Tuesday</span></label><br>
             <label><input type="checkbox" #friday  formControlName="friday" class="daychk"><span class="day">Friday</span></label>
           </div>
-           </div>
-                   <div>
+        </div>
+        <div>
             <button mat-button class="btn btn-danger" type="reset">Reset</button>
             <button mat-button class="btn btn-primary btns"  (click)=" next()" >Next</button>     
         </div>
       </mat-card-content>
     </form>
   </mat-card>
-</div>
-
-<div class="container">
-  <mat-card *ngFor="let day of days; let i=index;">
-     <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >
-{{day}}
-</button>
- <div *ngIf="t[i]">
-   <form [formGroup]="timePeriod">
-  <div class="input-group mb-2 date">
-    <div class="starttime">
-     <span class="input-group-text">Start Time</span>
-    </div>
-    <ngb-timepicker name="time" formControlName="time"  [meridian]="meridian"></ngb-timepicker>
-  </div>
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-     <span class="input-group-text">No of Period</span>
-    </div>
-    <input type="number" class="form-control" formControlName="periodno"   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-     <span class="input-group-text">Time Duration</span>
-    </div>
-    <input type="number" class="form-control" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
- 
-
-<div>
- <button mat-button class="btn btn-primary btns"  (click)=" add()" >Add</button>
- </div> 
-</form>
-</div>
-</mat-card>
+  
+        <mat-card *ngFor="let day of days; let i=index;">
+            <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >
+          {{day}}
+          </button>
+          <div *ngIf="t[i]">
+            <form [formGroup]="periodForm">
+            <div class="input-group mb-2 date">
+              <div class="starttime">
+              <span class="input-group-text">Start Time</span>
+              </div>
+              <ngb-timepicker formControlName="time"    [meridian]="meridian"></ngb-timepicker>
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+              <span class="input-group-text">No of Period</span>
+              </div>
+              <input type="number"class="form-control" name="periodno" formControlName="periodno"   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+              <span class="input-group-text">Time Duration</span>
+              </div>
+              <input type="number" class="form-control" name="timeduration" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div>
+            <button mat-button class="btn btn-primary btns"  (click)=" add()" >Add</button>
+            </div> 
+          </form>
+          </div>
+        </mat-card>      
+    
 </div>

@@ -1,15 +1,16 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TimetableService } from './timetable.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import {NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
-import { template } from '@angular/core/src/render3';
+import { FormBuilder, FormGroup, RequiredValidator } from '@angular/forms';
+import { FormControl } from "@angular/forms";
+
 
 @Component({
   selector: 'app-timetable',
   templateUrl: './timetable.component.html',
   styleUrls: ['./timetable.component.css']
 })
+
 export class TimetableComponent implements OnInit {
  @ViewChild("sunday") Sunday: ElementRef;
  @ViewChild("monday") Monday: ElementRef;
@@ -18,13 +19,18 @@ export class TimetableComponent implements OnInit {
  @ViewChild("thursday") Thursday: ElementRef;
  @ViewChild("friday") Friday: ElementRef;
  @ViewChild("saturday") Saturday: ElementRef;
- 
+ @ViewChild("timepicker") TimePicker:ElementRef;
+
   timetableForm:FormGroup;
-  timePeriod:FormGroup;
+  periodForm:FormGroup;
   t: boolean[]=[];
   days:string[]=[];
-  data;
-  time: NgbTimeStruct = {hour: 1, minute: 30, second: 30};
+  periodtime:string[]=[];
+  periodno;
+  timeduration;
+  timepicker;
+  val;
+  // time: NgbTimeStruct = {hour: 1, minute: 30, second: 30};
   meridian = true;
 
   constructor(private http:HttpClient, private timetableservice:TimetableService, private formbuilder:FormBuilder) {
@@ -44,19 +50,18 @@ export class TimetableComponent implements OnInit {
       thursday:[],
       tuesday:[],
       friday:[],
-     })
-
-     this.timePeriod=this.formbuilder.group({
-      time:[''],
-      periodno:[''],
-      timeduration:['']
-     })
+       });
+       this.periodForm=this.formbuilder.group({
+        time:[''],
+        periodno:[''],
+        timeduration:['']
+       });
   }
 
-  addtimeTable(){
-    this.timetableservice.addtimeTable(this.timetableForm.value).subscribe(res=>{
-     });
-  }
+  // addtimeTable(){
+  //   this.timetableservice.addtimeTable(this.timetableForm.value).subscribe(res=>{
+  //    });
+  // }
   next(){
     this.days.splice(0);
    
@@ -82,7 +87,7 @@ export class TimetableComponent implements OnInit {
    if(this.Saturday.nativeElement.checked){
     this.days.push("Saturday");
   }
-  console.log(this.days);
+  // console.log(this.days);
   }
 
   toggle(i) {
@@ -90,7 +95,20 @@ export class TimetableComponent implements OnInit {
   }
 
   add(){
+    this.timepicker=(<FormControl>this.periodForm.controls['time']).value;
+    this.periodno=(<FormControl>this.periodForm.controls['periodno']).value;
+    this.timeduration=(<FormControl>this.periodForm.controls['timeduration']).value;
    
-  }
+    console.log(Object.values(this.timepicker));
+   console.log(this.periodno);
+   console.log(this.timeduration);
+
+  // var time:any[]=Object.values(this.timepicker)
+  //   var pp=this.periodno;
+  //   for(var i=0;i<pp;i++){
+     
+  //      }
+
+    }
 
   }
