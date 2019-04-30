@@ -7,11 +7,13 @@ import { HttpClient } from '@angular/common/http';
 export class TimetableService {
 
   timetableurl;
+  periodurl;
   constructor(private http:HttpClient, private appservice:AppService) { 
     this.timetableurl= this.appservice.baseurl+'/timetable';
+    this.periodurl=this.appservice.baseurl+'/periodtable';
   }
-addtimeTable(timetable){
-  return this.http.post(this.timetableurl,timetable);
+addtimeTable(periodtable){
+  return this.http.post(this.periodurl,periodtable);
 }
 
 }

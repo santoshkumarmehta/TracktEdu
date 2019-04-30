@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
 import { Carousel1Component } from './carousel1/carousel1.component';
