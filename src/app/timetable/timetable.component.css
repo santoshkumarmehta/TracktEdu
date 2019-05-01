@@ -10,9 +10,12 @@
   }
   .btns{
     margin-left: 10px;
+    background-color: blue;
+    color: white;
   }
   .title{
     text-align: center;
+    
   }
   .chkbox{
     height: 38px;
@@ -49,7 +52,6 @@
     width: 80%;
     float: right;
   }
-
   .starttime{
     margin-top: 38px;
   }

@@ -40,24 +40,23 @@
           </div>
         </div>
         <div>
-            <button mat-button class="btn btn-danger" type="reset">Reset</button>
+            <!-- <button mat-button class="btn btn-danger" type="reset">Reset</button> -->
             <button mat-button class="btn btn-primary btns"  (click)=" next()" >Next</button>     
         </div>
       </mat-card-content>
     </form>
   </mat-card>
-  
-        <mat-card *ngFor="let day of days; let i=index;">
-            <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >
+      <mat-card *ngFor="let day of days; let i=index;">
+        <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >
           {{day}}
-          </button>
+        </button>
           <div *ngIf="t[i]">
             <form [formGroup]="periodForm">
             <div class="input-group mb-2 date">
               <div class="starttime">
               <span class="input-group-text">Start Time</span>
               </div>
-              <ngb-timepicker formControlName="time"    [meridian]="meridian"></ngb-timepicker>
+              <ngb-timepicker formControlName="time1"></ngb-timepicker>
             </div>
             <div class="input-group mb-2">
               <div class="input-group-prepend">
@@ -72,10 +71,9 @@
               <input type="number" class="form-control" name="timeduration" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <div>
-            <button mat-button class="btn btn-primary btns"  (click)="setPeriod(day)" >Add</button>
+            <button mat-button class="btn btn-primary btns"  (click)="assignPeriodTemplate()" >Add</button>
             </div> 
           </form>
           </div>
-        </mat-card>      
-    
+      </mat-card>      
 </div>

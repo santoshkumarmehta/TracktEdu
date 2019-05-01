@@ -4,6 +4,7 @@ import { TimetableService } from './timetable.service';
 import { FormBuilder, FormGroup, RequiredValidator } from '@angular/forms';
 import { FormControl } from "@angular/forms";
 import { DatePipe } from "@angular/common";
+import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-timetable',
@@ -32,9 +33,9 @@ export class TimetableComponent implements OnInit {
   periodno;
   timeduration;
   timepicker;
-  val;
+  time1:Date=new Date();
   // time: NgbTimeStruct = {hour: 1, minute: 30, second: 30};
-  meridian = true;
+
     public sundayPeriod: string[];
     public mondayPeriod: string[];
     public tuesdayPeriod: string[];
@@ -72,12 +73,11 @@ export class TimetableComponent implements OnInit {
       friday:[],
        });
        this.periodForm=this.formbuilder.group({
-        time:[''],
+        time1:[''],
         periodno:[''],
         timeduration:['']
        });
 
-       (<FormControl>this.periodForm.controls['time']).setValue("09:30 AM");
   }
 
   // addtimeTable(){
@@ -89,8 +89,7 @@ export class TimetableComponent implements OnInit {
     this.days.splice(0);
    
    if(this.Sunday.nativeElement.checked){
-     this.days.push("Sunday")
-
+     this.days.push("Sunday");
    }
    if(this.Monday.nativeElement.checked){
      this.days.push("Monday");
@@ -117,87 +116,77 @@ export class TimetableComponent implements OnInit {
     this.t[i]=!this.t[i]
   }
 
-  add(){
-  //   this.timepicker=(<FormControl>this.periodForm.controls['time']).value;
-  //   this.periodno=(<FormControl>this.periodForm.controls['periodno']).value;
-  //   this.timeduration=(<FormControl>this.periodForm.controls['timeduration']).value;
-   
-  //   console.log(Object.values(this.timepicker));
-  //  console.log(this.periodno);
-  //  console.log(this.timeduration);
-
-  // var time:any[]=Object.values(this.timepicker);
-  //   var pp=this.periodno;
-  //   for(var i=0;i<pp;i++){
-     
-  //      }
-  console.log(this.period);
-  console.log(this.time);
-     }
 
 get period(){
   return this.periodForm.get('periodno').value;
 }
 get time(){
-  return this.periodForm.get('time').value;
+  return this.periodForm.get('time1').value;
 }
 get duration(){
   return this.periodForm.get('timeduration').value;
 }
 
-get periodState(): boolean{
+// get periodState(): boolean{
                 
-  if(this.startTime1.nativeElement.time != undefined && this.duration != undefined && this.period != undefined){
-   return true;
-  }else{
-      return false;
-  }
-}
+//   if(this.startTime1.nativeElement.time != undefined && this.duration != undefined && this.period != undefined){
+//    return true;
+//   }else{
+//       return false;
+//   }
+// }
 
-assignPeriodTemplate(days){
-  if(this.periodState){
-    console.log('assign period');
-    let startTime=this.datePipe.transform(this.startTime1.nativeElement.time,'hh:mm am');
-    let tempH=parseInt(this.datePipe.transform(this.startTime1.nativeElement.time,'hh'));
-    let tempM=parseInt(this.datePipe.transform(this.startTime1.nativeElement.time, 'mm'));
-    let AmPm= this.datePipe.transform(this.startTime1.nativeElement.time,'am');
-    let duration=parseInt(this.duration);
-    let period=this.period;
+assignPeriodTemplate(){
 
-    for(let i=0;i<period;i++){
-      this.tempObj={};
-      this.tempObj.periodName="period"+(i+1);
-      this.tempObj.startTime=startTime;
+    // console.log(this.time);
+    // console.log(this.time.hour);
+    // console.log(this.time.minute);
+    // console.log(this.time.second);
+    // console.log(this.period);
+    // console.log(this.duration);
+    
+    for(let i=0;i<this.period;i++){
+      if((this.time.hour && this.time.minute)>59){
+        this.periodtime=this.time.minute+this.duration;
+        console.log(this.periodtime);
+      }
 
-      if((tempM+duration)>59){
-        if(AmPm=="AM" && tempH==11){
-          AmPm="PM";
-        } else if(AmPm=="PM" && tempH==11){
-          AmPm="AM";
+      // let tempH=this.time.hour;
+      // let tempM=this.time.minute;
+      // let tempS=this.time.second;
+     // console.log(startTime);
+      
+     if((this.time.minute+this.duration)>59){
+      //  if(tempAmPm=="AM" && tempH==11){
+      //     tempAmPm="PM";
+      //     alert('d');
+      //   } else{
+      //     tempAmPm="AM";
+      //     alert('ff');
+      //   }
+      this.time.hour= this.time.hour+1;
+        if(this.time.hour>12){
+          this.time.hour=this.time.hour-12;
+        } else {
+          this.time.hour=12;
         }
-        tempH= tempH+1;
-        if(tempH>12){
-          tempH=tempH-12;
-        } else if(tempH==0){
-          tempH=12;
-        }
-        tempM=tempM+duration-60;
+        this.time.minute=this.time.minute+this.duration-60;
       }else{
-        tempM=tempM+duration;
+        this.time.minute=this.time.minute+this.duration;
       }
       let tempHstr:string;
       let tempMstr:string;
 
-      tempHstr=(tempH<10)?`0${tempH}`:`${tempH}`;
-      tempMstr=(tempM<10)?`0${tempM}`:`${tempM}`;
-      this.tempObj.endTime=tempHstr+":"+tempMstr + " "+ AmPm;
-      startTime=tempHstr+":"+tempMstr + " "+ AmPm;
+      // tempHstr=(tempH<10)?`0${tempH}`:`${tempH}`;
+      // tempMstr=(tempM<10)?`0${tempM}`:`${tempM}`;
+      // this.tempObj.endTime=tempHstr+":"+tempMstr + " "+ AmPm;
+      // startTime=tempHstr+":"+tempMstr + " "+ AmPm;
     }
   }
-}
+
   setPeriod(days){
-    this.assignPeriodTemplate(days);
-    if(this.periodState){
+    // this.assignPeriodTemplate(days);
+    
       switch(days){
         case 'Sunday':{
           console.log('Sunday');
@@ -222,6 +211,6 @@ assignPeriodTemplate(days){
           }
       }
     }
-  }
+  
 
 }

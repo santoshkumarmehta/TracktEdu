@@ -1,12 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
 import { Carousel1Component } from './carousel1/carousel1.component';
@@ -32,6 +29,8 @@ import { UsersComponent } from './users/users.component';
 import { BatchsubjectmappingComponent } from './batchsubjectmapping/batchsubjectmapping.component';
 import { RolesComponent } from './roles/roles.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+
 
 @NgModule({
   declarations: [
@@ -56,8 +55,7 @@ import { TimetableComponent } from './timetable/timetable.component';
     BatchsubjectmappingComponent,
     RolesComponent,
     TimetableComponent,
-   
-    ],
+   ],
   imports: [
     FormsModule,
     BrowserModule,
@@ -69,8 +67,8 @@ import { TimetableComponent } from './timetable/timetable.component';
     ReactiveFormsModule,
     HttpClientModule,MatFormFieldModule,
     FlexLayoutModule,
-  
-  ],
+    TimepickerModule,
+    ],
   entryComponents:[MenusComponent],
   providers: [],
   bootstrap: [AppComponent]
