@@ -52,6 +52,9 @@
     width: 80%;
     float: right;
   }
-  .starttime{
-    margin-top: 38px;
-  }
+ .date{
+   margin-top: 10px;
+ }
+ .periodtime{
+   background-color: aquamarine;
+ }

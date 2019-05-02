@@ -4,7 +4,7 @@ import { TimetableService } from './timetable.service';
 import { FormBuilder, FormGroup, RequiredValidator } from '@angular/forms';
 import { FormControl } from "@angular/forms";
 import { DatePipe } from "@angular/common";
-import { Alert } from 'selenium-webdriver';
+import {NgbTimepickerConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-timetable',
@@ -29,34 +29,17 @@ export class TimetableComponent implements OnInit {
   periodForm:FormGroup;
   t: boolean[]=[];
    days:string[]=[];
-  periodtime:string[]=[];
+   periodtime:{}=[];
+   periodetimeminute:any[]=[];
   periodno;
   timeduration;
   timepicker;
-  time1:Date=new Date();
-  // time: NgbTimeStruct = {hour: 1, minute: 30, second: 30};
-
-    public sundayPeriod: string[];
-    public mondayPeriod: string[];
-    public tuesdayPeriod: string[];
-    public wednesdayPeriod: string[];
-    public thursdayPeriod: string[];
-    public fridayPeriod: string[];
-    public saturdayPeriod:string [];
-    tempObj;
-    tempDay;
-    timeTableData;
-  constructor(private http:HttpClient,private datePipe:DatePipe, private timetableservice:TimetableService, private formbuilder:FormBuilder) {
+  meridian=true;
    
-    this.sundayPeriod=new Array<string>();
-    this.mondayPeriod=new Array<string>();
-    this.tuesdayPeriod=new Array<string>();
-    this.wednesdayPeriod=new Array<string>();
-    this.thursdayPeriod=new Array<string>();
-    this.fridayPeriod=new Array<string>();
-    this.saturdayPeriod=new Array<string>();
-  
-   }
+  constructor(private config:NgbTimepickerConfig,private http:HttpClient,private datePipe:DatePipe, private timetableservice:TimetableService, private formbuilder:FormBuilder) {
+   
+    config.spinners=false;
+       }
 
   ngOnInit() {
 
@@ -86,6 +69,7 @@ export class TimetableComponent implements OnInit {
   //  }
    
   next(){
+      
     this.days.splice(0);
    
    if(this.Sunday.nativeElement.checked){
@@ -109,7 +93,7 @@ export class TimetableComponent implements OnInit {
    if(this.Saturday.nativeElement.checked){
     this.days.push("Saturday");
   }
-  // console.log(this.days);
+ 
   }
 
   toggle(i) {
@@ -127,90 +111,29 @@ get duration(){
   return this.periodForm.get('timeduration').value;
 }
 
-// get periodState(): boolean{
-                
-//   if(this.startTime1.nativeElement.time != undefined && this.duration != undefined && this.period != undefined){
-//    return true;
-//   }else{
-//       return false;
-//   }
-// }
-
 assignPeriodTemplate(){
+ 
+  let time=this.time;
+  let hour=this.time.hour;
+  let minute=this.time.minute;
+    for(let i=1;i<this.period;i++){
 
-    // console.log(this.time);
-    // console.log(this.time.hour);
-    // console.log(this.time.minute);
-    // console.log(this.time.second);
-    // console.log(this.period);
-    // console.log(this.duration);
-    
-    for(let i=0;i<this.period;i++){
-      if((this.time.hour && this.time.minute)>59){
-        this.periodtime=this.time.minute+this.duration;
-        console.log(this.periodtime);
-      }
-
-      // let tempH=this.time.hour;
-      // let tempM=this.time.minute;
-      // let tempS=this.time.second;
-     // console.log(startTime);
-      
-     if((this.time.minute+this.duration)>59){
-      //  if(tempAmPm=="AM" && tempH==11){
-      //     tempAmPm="PM";
-      //     alert('d');
-      //   } else{
-      //     tempAmPm="AM";
-      //     alert('ff');
-      //   }
-      this.time.hour= this.time.hour+1;
-        if(this.time.hour>12){
-          this.time.hour=this.time.hour-12;
-        } else {
-          this.time.hour=12;
+      if(minute+this.duration>=59){
+        minute=minute+this.duration;
+        if(minute>=59 ){
+           hour+=1;
+           hour=hour%12;
+          //  this.periodtimehour=hour;
+          minute=minute%60;
+          this.periodtime=hour+":"+ minute;
         }
-        this.time.minute=this.time.minute+this.duration-60;
-      }else{
-        this.time.minute=this.time.minute+this.duration;
       }
-      let tempHstr:string;
-      let tempMstr:string;
+     
+      
 
-      // tempHstr=(tempH<10)?`0${tempH}`:`${tempH}`;
-      // tempMstr=(tempM<10)?`0${tempM}`:`${tempM}`;
-      // this.tempObj.endTime=tempHstr+":"+tempMstr + " "+ AmPm;
-      // startTime=tempHstr+":"+tempMstr + " "+ AmPm;
-    }
-  }
-
-  setPeriod(days){
-    // this.assignPeriodTemplate(days);
+      }
     
-      switch(days){
-        case 'Sunday':{
-          console.log('Sunday');
-          }
-          case 'Monday':{
-            console.log('Monday')
-          }
-          case 'Tuesday':{
-            console.log('Tuesday');
-          }
-          case 'Wednesday':{
-            console.log("Wednesday");
-          }
-          case 'Thursday':{
-            console.log("Thursday");
-          }
-          case 'Friday':{
-            console.log("Friday");
-          }
-          case 'Saturday':{
-            console.log("Saturday");
-          }
-      }
     }
   
-
+  
 }

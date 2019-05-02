@@ -12,8 +12,11 @@ export class TimetableService {
     this.timetableurl= this.appservice.baseurl+'/timetable';
     this.periodurl=this.appservice.baseurl+'/periodtable';
   }
-addtimeTable(periodtable){
-  return this.http.post(this.periodurl,periodtable);
+addtimeTable(timetable){
+  return this.http.post(this.timetableurl,timetable);
 }
 
+addperiod(period){
+  return this.http.post(this.periodurl,period);
+}
 }
