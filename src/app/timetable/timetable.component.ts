@@ -6,6 +6,13 @@ import { FormControl } from "@angular/forms";
 import { DatePipe } from "@angular/common";
 import {NgbTimepickerConfig} from '@ng-bootstrap/ng-bootstrap';
 
+
+export interface time{
+  hour:number;
+  minute:number;
+ 
+}
+
 @Component({
   selector: 'app-timetable',
   templateUrl: './timetable.component.html',
@@ -28,12 +35,13 @@ export class TimetableComponent implements OnInit {
   timetableForm:FormGroup;
   periodForm:FormGroup;
   t: boolean[]=[];
-   days:string[]=[];
-   periodtime:{}=[];
-   periodetimeminute:any[]=[];
-  periodno;
-  timeduration;
+  days:string[]=[];
+  timeroutines:time[]=[];
+  timem:string[]=[];
+  timeh:string[]=[];
   timepicker;
+  hour;
+  minute;
   meridian=true;
    
   constructor(private config:NgbTimepickerConfig,private http:HttpClient,private datePipe:DatePipe, private timetableservice:TimetableService, private formbuilder:FormBuilder) {
@@ -105,34 +113,38 @@ get period(){
   return this.periodForm.get('periodno').value;
 }
 get time(){
-  return this.periodForm.get('time1').value;
+    return this.periodForm.get('time1').value;
 }
 get duration(){
   return this.periodForm.get('timeduration').value;
 }
 
-assignPeriodTemplate(){
- 
-  let time=this.time;
-  let hour=this.time.hour;
-  let minute=this.time.minute;
-    for(let i=1;i<this.period;i++){
 
-      if(minute+this.duration>=59){
-        minute=minute+this.duration;
-        if(minute>=59 ){
-           hour+=1;
-           hour=hour%12;
+assignPeriodTemplate(){
+//  console.log("objectg ="+this.time);
+   alert(this.time);
+ 
+  // let minute=this.time.minute;
+    for(let i=1;i<this.period;i++){
+      if(this.time.minute+this.duration>=59){
+        this.time.minute=this.time.minute+this.duration;
+        if(this.time.minute>=59 ){
+          this.time.hour+=1;
+         this.hour=this.time.hour%12;
           //  this.periodtimehour=hour;
-          minute=minute%60;
-          this.periodtime=hour+":"+ minute;
+         this.minute=this.time.minute%60;
+          // this.timeh=hour;
+          //     this.timem=minute;   
         }
       }
-     
+     this.timeroutines=Object.keys(this.time).map(function(resultArrayIndex){
+       let result = this.time[resultArrayIndex];
+       return result;
+     })
+      console.log(this.hour+":"+this.minute);
       
-
       }
-    
+      console.log("--------------------");
     }
   
   

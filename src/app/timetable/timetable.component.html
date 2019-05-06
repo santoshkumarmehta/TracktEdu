@@ -47,17 +47,22 @@
       </mat-card-content>
     </form>
   </mat-card>
-      <mat-card *ngFor="let day of days; let i=index;">
-        <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >
-          {{day}}
-        </button>
-          <div *ngIf="t[i]">
-            <form [formGroup]="periodForm">
+<br>
+<mat-card *ngFor="let day of days;">
+  <mat-accordion >
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-description>
+            {{day}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <form [formGroup]="periodForm">
             <div class="input-group mb-2 date">
               <div class="starttime">
               <span class="input-group-text">Start Time</span>
               </div>
-              <ngb-timepicker formControlName="time1" [meridian]="meridian" ></ngb-timepicker>
+              <ngb-timepicker formControlName="time1" [meridian]="meridian"></ngb-timepicker>
             </div>
             <div class="input-group mb-2">
               <div class="input-group-prepend">
@@ -69,21 +74,78 @@
               <div class="input-group-prepend">
               <span class="input-group-text">Time Duration</span>
               </div>
-              <input type="number" class="form-control" name="timeduration" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="number" class="form-control" name="timeduration" (keyup.enter)="assignPeriodTemplate()" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <div>
-            <button mat-button class="btn btn-primary btns"  (click)="assignPeriodTemplate()" >Add</button>
-            <div class="periodtime">
+          </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>
+ <mat-card *ngFor="let periodtime of timeroutines">
+  <div class="periodtime" >
+    <div class="row">
+        <!-- <p>No of Period : {{period}}</p>
+        <p>Time Duration :{{duration}}</p> -->
+      <div class="col-md-6">Start Time<br>
+        {{periodtime.hour}}:{{periodtime.minute}}
+       </div>
+        <div class="col-md-6">End Time<br>
+          <div>
+              
+          </div>
+        </div>
+      </div>
+    
+  </div> 
+</mat-card>
+      <!-- <mat-card *ngFor="let day of days; let i=index;">
+        <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >
+          {{day}}
+        </button>
+          <div *ngIf="t[i]">
+            <form [formGroup]="periodForm">
+            <div class="input-group mb-2 date">
+              <div class="starttime">
+              <span class="input-group-text">Start Time</span>
+              </div>
+              <ngb-timepicker formControlName="time1" [meridian]="meridian"></ngb-timepicker>
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+              <span class="input-group-text">No of Period</span>
+              </div>
+              <input type="number"class="form-control" name="periodno" formControlName="periodno"   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+              <span class="input-group-text">Time Duration</span>
+              </div>
+              <input type="number" class="form-control" name="timeduration" (keyup.enter)="assignPeriodTemplate()" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div> -->
+            <!-- <button mat-button class="btn btn-primary btns"  (click)="assignPeriodTemplate()" >Add</button> -->
+            <!-- <div class="periodtime">
 
-            <p>Period : {{period}}</p>
-            <p>Duration :{{duration}}</p>
-            <p> Start Time:
-                {{hour}}:{{minute}}            </p>
+            <p>No of Period : {{period}}</p>
+            <p>Time Duration :{{duration}}</p>
+              <div class="row">
+                <div class="col-md-6">Start Time<br>
+                 {{tme.hour}}+{{duration}} -->
+                  <!-- <div *ngFor="let routinehour of timeh ">
+                    {{routinehour.hour}}
+                  </div> -->
+                 <!-- </div>
+                 <div class="col-md-6">End Time<br>
+                    -->
+                  <!-- <div *ngFor="let routinehour of timeh ">
+                    {{routinehour.hour}}
+                  </div> -->
+                 <!-- </div>
+              </div>
             </div>
           </div> 
           
           </form>
           </div>
-      </mat-card>  
+      </mat-card>   -->
       
 </div>
