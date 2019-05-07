@@ -76,26 +76,20 @@
               </div>
               <input type="number" class="form-control" name="timeduration" (keyup.enter)="assignPeriodTemplate()" formControlName="timeduration" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
+            <div class="periodtime" *ngFor="let period of periodTime">
+                <div>Period : {{period.periodTime}}</div>
+                <div class="row">
+                  <div class="col-md-6">Start Time<br>
+                    {{period.startTime.hour}}:{{period.startTime.minute}}
+                  </div>
+                  <div class="col-md-6">End Time<br>
+                    {{period.endTime.hour}}:{{period.endTime.minute}}
+                  </div>
+                </div>
+              </div> 
           </form>
     </mat-expansion-panel>
   </mat-accordion>
-</mat-card>
- <mat-card *ngFor="let periodtime of timeroutines">
-  <div class="periodtime" >
-    <div class="row">
-        <!-- <p>No of Period : {{period}}</p>
-        <p>Time Duration :{{duration}}</p> -->
-      <div class="col-md-6">Start Time<br>
-        {{periodtime.hour}}:{{periodtime.minute}}
-       </div>
-        <div class="col-md-6">End Time<br>
-          <div>
-              
-          </div>
-        </div>
-      </div>
-    
-  </div> 
 </mat-card>
       <!-- <mat-card *ngFor="let day of days; let i=index;">
         <button type="button" class="btn btn-outline-primary" (click)="toggle(i)" >

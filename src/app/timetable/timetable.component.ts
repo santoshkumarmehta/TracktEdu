@@ -6,12 +6,28 @@ import { FormControl } from "@angular/forms";
 import { DatePipe } from "@angular/common";
 import {NgbTimepickerConfig} from '@ng-bootstrap/ng-bootstrap';
 
-
-export interface time{
-  hour:number;
-  minute:number;
- 
+export interface PeriodTimeInf{
+ startTime:number;
+ endTime:number;
+ periodNum:string;
 }
+
+// export interface startTime{
+//   starthour:number;
+//   startminute:number;
+//   startampm:string;
+// }
+
+// export interface endTime{
+//   endhour:number;
+//   endminute:number;
+//   endampm:string;
+// }
+
+// export interface periodNum{
+//   period:string;
+// }
+
 
 @Component({
   selector: 'app-timetable',
@@ -36,17 +52,19 @@ export class TimetableComponent implements OnInit {
   periodForm:FormGroup;
   t: boolean[]=[];
   days:string[]=[];
-  timeroutines:time[]=[];
-  timem:string[]=[];
-  timeh:string[]=[];
+ periodTimeTable:PeriodTimeInf;
+ periodStartTime:PeriodTimeInf;
+
+  startTime;
+  endTime;
   timepicker;
   hour;
   minute;
   meridian=true;
    
   constructor(private config:NgbTimepickerConfig,private http:HttpClient,private datePipe:DatePipe, private timetableservice:TimetableService, private formbuilder:FormBuilder) {
-   
-    config.spinners=false;
+  
+    // config.spinners=false;
        }
 
   ngOnInit() {
@@ -68,7 +86,6 @@ export class TimetableComponent implements OnInit {
         periodno:[''],
         timeduration:['']
        });
-
   }
 
   // addtimeTable(){
@@ -77,8 +94,7 @@ export class TimetableComponent implements OnInit {
   //  }
    
   next(){
-      
-    this.days.splice(0);
+     this.days.splice(0);
    
    if(this.Sunday.nativeElement.checked){
      this.days.push("Sunday");
@@ -119,32 +135,30 @@ get duration(){
   return this.periodForm.get('timeduration').value;
 }
 
-
 assignPeriodTemplate(){
-//  console.log("objectg ="+this.time);
-   alert(this.time);
- 
-  // let minute=this.time.minute;
-    for(let i=1;i<this.period;i++){
-      if(this.time.minute+this.duration>=59){
+  this.startTime=this.time.hour+":"+this.time.minute;
+  console.log("Start Time = "+this.startTime);
+
+    for(let i=1;i<this.period;i++)
+    {
+      if(this.time.minute+this.duration>=59)
+      {
         this.time.minute=this.time.minute+this.duration;
-        if(this.time.minute>=59 ){
-          this.time.hour+=1;
-         this.hour=this.time.hour%12;
+        if(this.time.minute>=59 )
+        {
+         this.time.hour+=1;
+         this.time.hour=this.time.hour%12;
           //  this.periodtimehour=hour;
-         this.minute=this.time.minute%60;
-          // this.timeh=hour;
-          //     this.timem=minute;   
-        }
-      }
-     this.timeroutines=Object.keys(this.time).map(function(resultArrayIndex){
-       let result = this.time[resultArrayIndex];
-       return result;
-     })
-      console.log(this.hour+":"+this.minute);
-      
-      }
-      console.log("--------------------");
+         this.time.minute=this.time.minute%60;
+        }  
+      } 
+ 
+      console.log(this.time.hour+":"+this.time.minute);
+    //  this.endTime=this.hour+":"+this.minute;
+    }
+     console.log("End Time = " +this.time.hour+":"+this.time.minute);
+     console.log("--------------------");
+     
     }
   
   
